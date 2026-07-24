@@ -27,8 +27,10 @@ int main()
     writeToWav(data.get(), numSamples, "test.wav");
     
     Aurora::ConvolverController convolver{};
-//    Aurora::ConvolverController::Reset();
-//    Aurora::ConvolverController::SetSamplerate(mProjectRate); // ???
+    // Init()
+    convolver.Reset();
+    convolver.SetSamplerate(ssweep.GetSamplerate()); // ???
+    // LoadTrack Data
 //    SetFilterMatrixDimensions
 //    DoConvolution OR DoMatrixConvolution
     
