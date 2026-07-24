@@ -31,5 +31,6 @@ inline constexpr unsigned int AuroraBuildNumber = 130;
 ///
 
 #include <SineSweepGenerator.h>
+#include <AuroraConvolver.h>
 
 #endif // __AURORA_VERSION_H__

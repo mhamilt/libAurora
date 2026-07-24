@@ -14,7 +14,7 @@
 #define __AF_VECTOR_H__
 
 #include <commdefs.h>
-#include <kissfft/kiss_fft.h>
+#include <kiss_fft.h>
 #include <functional>
 
 #define MAX_INIT 1.0e-6

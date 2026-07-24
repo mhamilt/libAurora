@@ -10,19 +10,16 @@
  *  Simone Campanini 2011-20
  *
  **********************************************************************/
-#include "Complex.h"
+#include <Complex.h>
 
 // Specialized methods
-void Aurora::ComplexVectorBase::Dump(const char* filename) const
+void Aurora::ComplexVectorBase::Dump(const char* path) const
 {
-    char path[256];
-    sprintf(path, "Z:\\dump\\%s.m", filename);
-
     FILE* f = fopen(path, "w");
 
     if (f)
     {
-        fprintf(f, "%s_ = [", filename);
+        fprintf(f, "%s_ = [", path);
 
         for (Aurora::SampleCount i = 1; i < m_length; i++)
         {

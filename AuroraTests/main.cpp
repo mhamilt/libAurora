@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <aurora.h>
+#include <kiss_fft.h>
 #include "audio.h"
 
 int main()
@@ -10,17 +11,24 @@ int main()
     const size_t blockSize = 1024;
     size_t numSamples = ssweep.GetSamplerate() * 10;
     auto data = std::make_unique<float[]>(blockSize);
-    decltype(numSamples) i = 0;
+    size_t i = 0;
     
     ssweep.Generate();
     
-    while ((i < numSamples))
+    while (i < numSamples)
     {
-        ssweep.FillBlock(data.get() + i, blockSize, i, 0);
-        i += (i+blockSize < numSamples) ? blockSize : numSamples - i;
+        const size_t currentBlock = std::min(blockSize, numSamples - i);
+
+        ssweep.FillBlock(data.get() + i, currentBlock, i, 0);
+
+        i += currentBlock;
     }
     
     writeToWav(data.get(), numSamples, "test.wav");
+    
+    Aurora::ConvolverController convolver{};
+    
+    std::cout << "convolver.GetGain():" << convolver.GetGain() << '\n';
     
     return 0;
 }

@@ -13,9 +13,8 @@
 #ifndef __AF_COMPLEX_H__
 #define __AF_COMPLEX_H__
 
-#include <kissfft/kiss_fft.h>
-#include "include/wxcmn.h"
-#include <aurora.h>
+#include <kiss_fft.h>
+#include <commdefs.h>
 #include "Vector.h"
 #include "Audio.h"
 
