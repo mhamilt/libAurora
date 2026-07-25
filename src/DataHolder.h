@@ -29,9 +29,9 @@ namespace Aurora
     {
       private:
         bool     m_bIsShown;
-//        std::string m_label;
-//        std::string m_penColor;
-//        std::string m_brushColor;
+        std::string m_label;
+        std::string m_penColor;
+        std::string m_brushColor;
         
       protected:
                              
@@ -91,9 +91,9 @@ namespace Aurora
         
         DataHolder()
          : m_bIsShown(true),
-           m_label(wxT("NoName")),
-           m_penColor(0,0,0),         // default border: black
-           m_brushColor(255,255,255)  // default fill: white;
+           m_label("NoName"),
+           m_penColor("0,0,0"),         // default border: black
+           m_brushColor("255,255,255")  // default fill: white;
         { }
 
         DataHolder(DataHolder&& dh)
@@ -113,8 +113,8 @@ namespace Aurora
         DataHolder(const size_t unLength)
          : std::vector<T>(unLength),
            m_bIsShown(true),
-           m_penColor(0,0,0),          // default border: black
-           m_brushColor(255,255,255)  // default fill: white;
+           m_penColor("0,0,0"),          // default border: black
+           m_brushColor("255,255,255")  // default fill: white;
         { }
 
         virtual ~DataHolder() { }
