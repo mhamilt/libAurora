@@ -1,13 +1,13 @@
 # libAurora
 
-![ ](img/logos/aurora_logo.png#gh-dark-mode-only)
+![ ](img/logos/aurora_logo_inv.png#gh-dark-mode-only)
 
-![ ](img/logos/ap_logo.png#gh-dark-mode-only)![ ](img/logos/conv_logo.png#gh-dark-mode-only)![ ](img/logos/kirk_logo.png#gh-dark-mode-only)![ ](img/logos/ssg_logo.png#gh-dark-mode-only)![ ](img/logos/sti_logo.png#gh-dark-mode-only)![ ](img/logos/tha_logo.png#gh-dark-mode-only)![ ](img/logos/xfn_logo.png#gh-dark-mode-only)
+![ ](img/logos/ap_logo_inv.png#gh-dark-mode-only)![ ](img/logos/conv_logo_inv.png#gh-dark-mode-only)![ ](img/logos/kirk_logo_inv.png#gh-dark-mode-only)![ ](img/logos/ssg_logo_inv.png#gh-dark-mode-only)![ ](img/logos/sti_logo_inv.png#gh-dark-mode-only)![ ](img/logos/tha_logo_inv.png#gh-dark-mode-only)![ ](img/logos/xfn_logo_inv.png#gh-dark-mode-only)
 
 
-![ ](img/logos/aurora_logo_inv.png#gh-light-mode-only)
+![ ](img/logos/aurora_logo.png#gh-light-mode-only)
 
-![ ](img/logos/ap_logo_inv.png#gh-light-mode-only)![ ](img/logos/conv_logo_inv.png#gh-light-mode-only)![ ](img/logos/kirk_logo_inv.png#gh-light-mode-only)![ ](img/logos/ssg_logo_inv.png#gh-light-mode-only)![ ](img/logos/sti_logo_inv.png#gh-light-mode-only)![ ](img/logos/tha_logo_inv.png#gh-light-mode-only)![ ](img/logos/xfn_logo_inv.png#gh-light-mode-only)
+![ ](img/logos/ap_logo.png#gh-light-mode-only)![ ](img/logos/conv_logo.png#gh-light-mode-only)![ ](img/logos/kirk_logo.png#gh-light-mode-only)![ ](img/logos/ssg_logo.png#gh-light-mode-only)![ ](img/logos/sti_logo.png#gh-light-mode-only)![ ](img/logos/tha_logo.png#gh-light-mode-only)![ ](img/logos/xfn_logo.png#gh-light-mode-only)
 
 ## About 
 
