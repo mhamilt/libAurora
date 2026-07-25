@@ -137,7 +137,7 @@ namespace Aurora
 #define unRound(d) (size_t(d + 0.5))
 
 
-#define __WX_NATIVE_PROG_DLG__ 1
+//#define __WX_NATIVE_PROG_DLG__ 0
 #define __ITUP56_SINGLE_FRAME__ 1
 
 

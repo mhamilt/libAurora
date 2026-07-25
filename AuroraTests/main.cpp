@@ -49,7 +49,25 @@ int main()
     
     //------------------------------------------------------------------------
     // Acoustical Parameters
+    
     Aurora::AcousticalParameters acParams{};
+    acParams.Init();
+    
+    // Fill parameterTracks
+    auto& parameterTracks = acParams.Tracks();
+    
+    // Config
+    //    acParams.SetUserMinLevel(0.0);
+    //    acParams.SetUserMaxLevel(0.0);
+    //    acParams.SetDirectSoundTrigValue(0.0);
+    //    acParams.SetFullScale(0.0);
+    //    acParams.SetProbeMicsDistance(0.0);
+    //    acParams.SetSoundSpeedValue(0.0);
+    //    acParams.SetSource(Aurora::AcParametersEffect::Source::TwoOmniMics); // Default stereo choice.
+    
+    // Then process parameterTracks
+    acParams.CalculateAcousticParameters();
+    const auto& results = acParams.Results(0);
     
     return 0;
 }
