@@ -264,9 +264,19 @@ namespace Aurora
                                const SampleCount length, 
                                const SampleCount srcOfs) const
     {
-        const size_t l = (length > m_length - srcOfs) ? m_length - srcOfs
-                                                      : length;
-        memcpy(dest, m_pData + srcOfs, sizeof(F) * l);
+        assert(dest != nullptr);
+        assert(srcOfs <= m_length);
+
+        const auto l = std::min(length, m_length - srcOfs);
+        
+        if constexpr (std::is_trivially_copyable_v<F>)
+        {
+            std::memcpy(dest, m_pData + srcOfs, l * sizeof(F));
+        }
+        else
+        {
+            std::copy_n(m_pData + srcOfs, l, dest);
+        }
     }
     
     template<class F>
