@@ -5,6 +5,8 @@
  *
  *  Common libraries
  *
+ *  General Purpose Functions
+ *
  *  gpfuncts.h
  *
  *  Simone Campanini 2011
@@ -13,59 +15,63 @@
 #ifndef __GPFUNCTS_H__
 #define __GPFUNCTS_H__
 
-#include <aurora.h>
+#include <commdefs.h>
+#include <version.h>
+#include <cstdio>
+#include <algorithm>
+#include <cmath>
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <ctime>
 
 namespace Aurora
 {
-    wxString GetBandShortLabel(const float fcb,
-                               const bool replaceDotsWithUnderscores = false);
+std::string GetBandShortLabel(const float fcb,
+                              const bool replaceDotsWithUnderscores = false);
 
-    wxString GetBandLabel(const float fcb,
-                          const bool replaceDotsWithUnderscores = false);
+std::string GetBandLabel(const float fcb,
+                         const bool replaceDotsWithUnderscores = false);
 
-    float GetFcbFromLabel(const wxString& label);
-    
-    // Version number generator (yy.mm.dd)
-    enum ReleaseType { ART_RELEASE = 0, ART_ALPHA, ART_BETA, ART_RC };
-    wxString ModuleVersionNumber(const int nType = 0, const int nRc = 0);
+float GetFcbFromLabel(const std::string& label);
+
+// Version number generator (yy.mm.dd)
+enum ReleaseType { ART_RELEASE = 0, ART_ALPHA, ART_BETA, ART_RC };
+std::string ModuleVersionNumber(const int nType = 0, const int nRc = 0);
+std::string ModuleVersionString();
 }
-//
-// This file contains some general purpose functions prototypes
-//
 
 // wx-data conversion
-int    TextPtrToInt(wxTextCtrl* pTc);
-long   TextPtrToLong(wxTextCtrl* pTc);
-double TextPtrToDouble(wxTextCtrl* pTc);
-double StringToDouble(wxString& str);
-long   StringToLong(wxString& str);
-int    StringToInt(wxString& str);
+//int    TextPtrToInt(wxTextCtrl* pTc);
+//long   TextPtrToLong(wxTextCtrl* pTc);
+//double TextPtrToDouble(wxTextCtrl* pTc);
+//double StringToDouble(wxString& str);
+//long   StringToLong(wxString& str);
+//int    StringToInt(wxString& str);
 
 namespace Aurora
 {
-    // math & dsp
-    int NearTwoPower(const double dbValue);
-    int NearTwoPowerExp(const double dbValue);
+// math & dsp
+int NearTwoPower(const double dbValue);
+int NearTwoPowerExp(const double dbValue);
 
-    enum WindowType {
-
-            WT_RECTANGULAR = 0,
-            WT_HANNING,
-            WT_BLACKMANN_HARRIS,
-            WT_FLAT_TOP,
-            WT_TRIANGULAR,
-            WT_HALF_SINE
-    };
-    void GenerateWindow(double* window, const size_t length, const int type);
-
-    // aesthetic things...
-    void ChooseColour(wxColour& colour, const int nCh);
-    void ChooseColour(wxColour& colour, const unsigned char uchChnl);
-    wxColour GetCanvasColour();
-    void UpdateGridBackgroundColor(wxGrid* pwxGrid);
-    void UpdateGridBackgroundColor(wxGrid* pwxGrid, const int nRowsCount, const int nColsCount);
-
-    void GetAudacityChannelName(wxString& wxszDest, const int nChnl);
+enum WindowType {
+    
+    WT_RECTANGULAR = 0,
+    WT_HANNING,
+    WT_BLACKMANN_HARRIS,
+    WT_FLAT_TOP,
+    WT_TRIANGULAR,
+    WT_HALF_SINE
+};
+//void GenerateWindow(double* window, const size_t length, const int type);
+// aesthetic things...
+//void ChooseColour(wxColour& colour, const int nCh);
+//void ChooseColour(wxColour& colour, const unsigned char uchChnl);
+//wxColour GetCanvasColour();
+//void UpdateGridBackgroundColor(wxGrid* pwxGrid);
+//void UpdateGridBackgroundColor(wxGrid* pwxGrid, const int nRowsCount, const int nColsCount);
+//void GetAudacityChannelName(wxString& wxszDest, const int nChnl);
 }
 #endif //__GPFUNCTS_H__
 

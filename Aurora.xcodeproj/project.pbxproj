@@ -20,6 +20,22 @@
 		8489E0713013CC5800B2FF6F /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0543013CBC800B2FF6F /* kiss_fft.c */; };
 		8489E0743013CCEA00B2FF6F /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0543013CBC800B2FF6F /* kiss_fft.c */; };
 		8489E0753013CCEA00B2FF6F /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E04C3013CBC800B2FF6F /* kiss_fftr.c */; };
+		84D43FAF3014ADFA00B73016 /* AcTSchroederDecay.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F983014ADFA00B73016 /* AcTSchroederDecay.h */; };
+		84D43FB03014ADFA00B73016 /* AcParametersBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F993014ADFA00B73016 /* AcParametersBase.h */; };
+		84D43FB13014ADFA00B73016 /* AcParametersDialogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F9A3014ADFA00B73016 /* AcParametersDialogs.h */; };
+		84D43FB23014ADFA00B73016 /* AcParametersData.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F9B3014ADFA00B73016 /* AcParametersData.h */; };
+		84D43FB63014ADFA00B73016 /* AcParametersEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F9F3014ADFA00B73016 /* AcParametersEffect.h */; };
+		84D43FB73014ADFA00B73016 /* AcParametersTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA03014ADFA00B73016 /* AcParametersTrack.h */; };
+		84D43FBB3014ADFA00B73016 /* AcTResults.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA43014ADFA00B73016 /* AcTResults.h */; };
+		84D43FBC3014ADFA00B73016 /* AcParametersSpectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA53014ADFA00B73016 /* AcParametersSpectrum.h */; };
+		84D43FBD3014ADFA00B73016 /* AcParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA63014ADFA00B73016 /* AcParameters.h */; };
+		84D43FBF3014ADFA00B73016 /* AcParametersPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA83014ADFA00B73016 /* AcParametersPlot.h */; };
+		84D43FC13014ADFA00B73016 /* AcParametersExports.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FAA3014ADFA00B73016 /* AcParametersExports.h */; };
+		84D43FC23014ADFA00B73016 /* AcParametersVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FAB3014ADFA00B73016 /* AcParametersVersion.h */; };
+		84D43FC53014ADFA00B73016 /* AcParametersUi.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FAE3014ADFA00B73016 /* AcParametersUi.h */; };
+		84D43FC73014B07E00B73016 /* Spectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B853301124F200AB5CBB /* Spectrum.cpp */; };
+		84D43FC93014B15B00B73016 /* gpfuncts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43FC83014B15B00B73016 /* gpfuncts.cpp */; };
+		84D43FCB3014B54E00B73016 /* gpfuncts.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FCA3014B54E00B73016 /* gpfuncts.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +122,31 @@
 		8489E0563013CBC800B2FF6F /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fftr.h; path = external/kissfft/kiss_fftr.h; sourceTree = "<group>"; };
 		8489E0693013CC3100B2FF6F /* kiss_fft_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kiss_fft_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		8489E06B3013CC3200B2FF6F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		84D43F983014ADFA00B73016 /* AcTSchroederDecay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcTSchroederDecay.h; path = src/AcTSchroederDecay.h; sourceTree = "<group>"; };
+		84D43F993014ADFA00B73016 /* AcParametersBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersBase.h; path = src/AcParametersBase.h; sourceTree = "<group>"; };
+		84D43F9A3014ADFA00B73016 /* AcParametersDialogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersDialogs.h; path = src/AcParametersDialogs.h; sourceTree = "<group>"; };
+		84D43F9B3014ADFA00B73016 /* AcParametersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersData.h; path = src/AcParametersData.h; sourceTree = "<group>"; };
+		84D43F9C3014ADFA00B73016 /* AcParametersBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersBase.cpp; path = src/AcParametersBase.cpp; sourceTree = "<group>"; };
+		84D43F9D3014ADFA00B73016 /* AcParametersExports.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersExports.cpp; path = src/AcParametersExports.cpp; sourceTree = "<group>"; };
+		84D43F9E3014ADFA00B73016 /* AcParametersData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersData.cpp; path = src/AcParametersData.cpp; sourceTree = "<group>"; };
+		84D43F9F3014ADFA00B73016 /* AcParametersEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersEffect.h; path = src/AcParametersEffect.h; sourceTree = "<group>"; };
+		84D43FA03014ADFA00B73016 /* AcParametersTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersTrack.h; path = src/AcParametersTrack.h; sourceTree = "<group>"; };
+		84D43FA13014ADFA00B73016 /* AcParametersTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersTrack.cpp; path = src/AcParametersTrack.cpp; sourceTree = "<group>"; };
+		84D43FA23014ADFA00B73016 /* AcParametersEffect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersEffect.cpp; path = src/AcParametersEffect.cpp; sourceTree = "<group>"; };
+		84D43FA33014ADFA00B73016 /* AcTResults.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcTResults.cpp; path = src/AcTResults.cpp; sourceTree = "<group>"; };
+		84D43FA43014ADFA00B73016 /* AcTResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcTResults.h; path = src/AcTResults.h; sourceTree = "<group>"; };
+		84D43FA53014ADFA00B73016 /* AcParametersSpectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersSpectrum.h; path = src/AcParametersSpectrum.h; sourceTree = "<group>"; };
+		84D43FA63014ADFA00B73016 /* AcParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParameters.h; path = src/AcParameters.h; sourceTree = "<group>"; };
+		84D43FA73014ADFA00B73016 /* AcParametersDialogs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersDialogs.cpp; path = src/AcParametersDialogs.cpp; sourceTree = "<group>"; };
+		84D43FA83014ADFA00B73016 /* AcParametersPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersPlot.h; path = src/AcParametersPlot.h; sourceTree = "<group>"; };
+		84D43FA93014ADFA00B73016 /* AcParametersUi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersUi.cpp; path = src/AcParametersUi.cpp; sourceTree = "<group>"; };
+		84D43FAA3014ADFA00B73016 /* AcParametersExports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersExports.h; path = src/AcParametersExports.h; sourceTree = "<group>"; };
+		84D43FAB3014ADFA00B73016 /* AcParametersVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersVersion.h; path = src/AcParametersVersion.h; sourceTree = "<group>"; };
+		84D43FAC3014ADFA00B73016 /* AcTSchroederDecay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcTSchroederDecay.cpp; path = src/AcTSchroederDecay.cpp; sourceTree = "<group>"; };
+		84D43FAD3014ADFA00B73016 /* AcParametersPlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersPlot.cpp; path = src/AcParametersPlot.cpp; sourceTree = "<group>"; };
+		84D43FAE3014ADFA00B73016 /* AcParametersUi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersUi.h; path = src/AcParametersUi.h; sourceTree = "<group>"; };
+		84D43FC83014B15B00B73016 /* gpfuncts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gpfuncts.cpp; path = src/gpfuncts.cpp; sourceTree = "<group>"; };
+		84D43FCA3014B54E00B73016 /* gpfuncts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gpfuncts.h; path = src/gpfuncts.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +210,31 @@
 		8460B836301124E100AB5CBB /* src */ = {
 			isa = PBXGroup;
 			children = (
+				84D43FCA3014B54E00B73016 /* gpfuncts.h */,
+				84D43FC83014B15B00B73016 /* gpfuncts.cpp */,
+				84D43FA63014ADFA00B73016 /* AcParameters.h */,
+				84D43F9C3014ADFA00B73016 /* AcParametersBase.cpp */,
+				84D43F993014ADFA00B73016 /* AcParametersBase.h */,
+				84D43F9E3014ADFA00B73016 /* AcParametersData.cpp */,
+				84D43F9B3014ADFA00B73016 /* AcParametersData.h */,
+				84D43FA73014ADFA00B73016 /* AcParametersDialogs.cpp */,
+				84D43F9A3014ADFA00B73016 /* AcParametersDialogs.h */,
+				84D43FA23014ADFA00B73016 /* AcParametersEffect.cpp */,
+				84D43F9F3014ADFA00B73016 /* AcParametersEffect.h */,
+				84D43F9D3014ADFA00B73016 /* AcParametersExports.cpp */,
+				84D43FAA3014ADFA00B73016 /* AcParametersExports.h */,
+				84D43FAD3014ADFA00B73016 /* AcParametersPlot.cpp */,
+				84D43FA83014ADFA00B73016 /* AcParametersPlot.h */,
+				84D43FA53014ADFA00B73016 /* AcParametersSpectrum.h */,
+				84D43FA13014ADFA00B73016 /* AcParametersTrack.cpp */,
+				84D43FA03014ADFA00B73016 /* AcParametersTrack.h */,
+				84D43FA93014ADFA00B73016 /* AcParametersUi.cpp */,
+				84D43FAE3014ADFA00B73016 /* AcParametersUi.h */,
+				84D43FAB3014ADFA00B73016 /* AcParametersVersion.h */,
+				84D43FA33014ADFA00B73016 /* AcTResults.cpp */,
+				84D43FA43014ADFA00B73016 /* AcTResults.h */,
+				84D43FAC3014ADFA00B73016 /* AcTSchroederDecay.cpp */,
+				84D43F983014ADFA00B73016 /* AcTSchroederDecay.h */,
 				8489E0293013B7A800B2FF6F /* Convolver.cpp */,
 				8489E0263013B79F00B2FF6F /* Multivolver.cpp */,
 				8489E0213013B71D00B2FF6F /* AuroraConvolver.cpp */,
@@ -257,6 +323,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D43FCB3014B54E00B73016 /* gpfuncts.h in Headers */,
+				84D43FB13014ADFA00B73016 /* AcParametersDialogs.h in Headers */,
+				84D43FB63014ADFA00B73016 /* AcParametersEffect.h in Headers */,
+				84D43FAF3014ADFA00B73016 /* AcTSchroederDecay.h in Headers */,
+				84D43FC53014ADFA00B73016 /* AcParametersUi.h in Headers */,
+				84D43FBF3014ADFA00B73016 /* AcParametersPlot.h in Headers */,
+				84D43FC13014ADFA00B73016 /* AcParametersExports.h in Headers */,
+				84D43FC23014ADFA00B73016 /* AcParametersVersion.h in Headers */,
+				84D43FB23014ADFA00B73016 /* AcParametersData.h in Headers */,
+				84D43FBD3014ADFA00B73016 /* AcParameters.h in Headers */,
+				84D43FB73014ADFA00B73016 /* AcParametersTrack.h in Headers */,
+				84D43FBB3014ADFA00B73016 /* AcTResults.h in Headers */,
+				84D43FB03014ADFA00B73016 /* AcParametersBase.h in Headers */,
+				84D43FBC3014ADFA00B73016 /* AcParametersSpectrum.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +439,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D43FC93014B15B00B73016 /* gpfuncts.cpp in Sources */,
+				84D43FC73014B07E00B73016 /* Spectrum.cpp in Sources */,
 				8489E0743013CCEA00B2FF6F /* kiss_fft.c in Sources */,
 				8489E0753013CCEA00B2FF6F /* kiss_fftr.c in Sources */,
 				8489E0343013C8AC00B2FF6F /* SineSweepGenerator.cpp in Sources */,
