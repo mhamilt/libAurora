@@ -43,7 +43,7 @@ int main()
         std::cout << conv.Samples()[i] << '\n';
     }
         
-//    conv.Reverse();
+//  conv.Reverse();
     
     for (auto i = 0; i < 10; i++) {
         std::cout << conv.Samples()[i] << '\n';

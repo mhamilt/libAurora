@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840A9D7830156162008D1093 /* miniaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 840A9D7430156150008D1093 /* miniaudio.c */; };
+		840A9D8030156211008D1093 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 840A9D7F30156211008D1093 /* main.cpp */; };
+		840A9D8430156233008D1093 /* miniaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 840A9D7430156150008D1093 /* miniaudio.c */; };
+		840A9D85301563CA008D1093 /* libAurora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843D216A30111847003ADF22 /* libAurora.a */; };
 		8460B8A83011293700AB5CBB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B8A73011293700AB5CBB /* main.cpp */; };
 		8460B8AD3011295000AB5CBB /* libAurora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843D216A30111847003ADF22 /* libAurora.a */; };
 		8489E02E3013B97B00B2FF6F /* Complex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B83B301124F200AB5CBB /* Complex.cpp */; };
@@ -36,6 +40,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		840A9D7B30156211008D1093 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		8460B8A33011293700AB5CBB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,6 +79,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		840A9D7430156150008D1093 /* miniaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = miniaudio.c; path = external/miniaudio/miniaudio.c; sourceTree = "<group>"; };
+		840A9D7530156150008D1093 /* miniaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = miniaudio.h; path = external/miniaudio/miniaudio.h; sourceTree = "<group>"; };
+		840A9D7D30156211008D1093 /* convolution_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = convolution_test; sourceTree = BUILT_PRODUCTS_DIR; };
+		840A9D7F30156211008D1093 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		843D216A30111847003ADF22 /* libAurora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAurora.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8460B81630111C7C00AB5CBB /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = SOURCE_ROOT; };
 		8460B837301124F200AB5CBB /* Config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Config.cpp; path = src/Config.cpp; sourceTree = "<group>"; };
@@ -154,6 +171,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		840A9D7A30156211008D1093 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840A9D85301563CA008D1093 /* libAurora.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		843D216830111847003ADF22 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -186,9 +211,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840A9D7330156129008D1093 /* miniaudio */ = {
+			isa = PBXGroup;
+			children = (
+				840A9D7430156150008D1093 /* miniaudio.c */,
+				840A9D7530156150008D1093 /* miniaudio.h */,
+			);
+			name = miniaudio;
+			sourceTree = "<group>";
+		};
+		840A9D7E30156211008D1093 /* convolution_test */ = {
+			isa = PBXGroup;
+			children = (
+				840A9D7F30156211008D1093 /* main.cpp */,
+			);
+			path = convolution_test;
+			sourceTree = "<group>";
+		};
 		843D216130111847003ADF22 = {
 			isa = PBXGroup;
 			children = (
+				840A9D7330156129008D1093 /* miniaudio */,
 				8489E0493013CBA900B2FF6F /* kissfft */,
 				8489E0353013C8E300B2FF6F /* Audio.h */,
 				8489E03C3013C8E300B2FF6F /* audtypes.h */,
@@ -204,6 +247,7 @@
 				8460B8A63011293700AB5CBB /* AuroraTests */,
 				8489E06A3013CC3200B2FF6F /* kiss_fft_test */,
 				84D43FDE3014D6A100B73016 /* png_dump */,
+				840A9D7E30156211008D1093 /* convolution_test */,
 				843D216B30111847003ADF22 /* Products */,
 				8460B8AC3011295000AB5CBB /* Frameworks */,
 			);
@@ -216,6 +260,7 @@
 				8460B8A53011293700AB5CBB /* AuroraTests */,
 				8489E0693013CC3100B2FF6F /* kiss_fft_test */,
 				84D43FDD3014D6A100B73016 /* png_dump */,
+				840A9D7D30156211008D1093 /* convolution_test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,6 +391,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		840A9D7C30156211008D1093 /* convolution_test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 840A9D8130156211008D1093 /* Build configuration list for PBXNativeTarget "convolution_test" */;
+			buildPhases = (
+				840A9D7930156211008D1093 /* Sources */,
+				840A9D7A30156211008D1093 /* Frameworks */,
+				840A9D7B30156211008D1093 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = convolution_test;
+			productName = convolution_test;
+			productReference = 840A9D7D30156211008D1093 /* convolution_test */;
+			productType = "com.apple.product-type.tool";
+		};
 		843D216930111847003ADF22 /* Aurora */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 843D216E30111847003ADF22 /* Build configuration list for PBXNativeTarget "Aurora" */;
@@ -423,6 +485,9 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
+					840A9D7C30156211008D1093 = {
+						CreatedOnToolsVersion = 15.4;
+					};
 					843D216930111847003ADF22 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -454,11 +519,21 @@
 				8460B8A43011293700AB5CBB /* AuroraTests */,
 				8489E0683013CC3100B2FF6F /* kiss_fft_test */,
 				84D43FDC3014D6A100B73016 /* png_dump */,
+				840A9D7C30156211008D1093 /* convolution_test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		840A9D7930156211008D1093 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840A9D8430156233008D1093 /* miniaudio.c in Sources */,
+				840A9D8030156211008D1093 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		843D216730111847003ADF22 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,6 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840A9D7830156162008D1093 /* miniaudio.c in Sources */,
 				8460B8A83011293700AB5CBB /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +591,34 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		840A9D8230156211008D1093 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					include/,
+					external/miniaudio,
+					external/kissfft,
+					external/,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		840A9D8330156211008D1093 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					include/,
+					external/miniaudio,
+					external/kissfft,
+					external/,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		843D216C30111847003ADF22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -723,6 +827,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		840A9D8130156211008D1093 /* Build configuration list for PBXNativeTarget "convolution_test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840A9D8230156211008D1093 /* Debug */,
+				840A9D8330156211008D1093 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		843D216530111847003ADF22 /* Build configuration list for PBXProject "Aurora" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
