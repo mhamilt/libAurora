@@ -26,5 +26,5 @@
 
 #include <SineSweepGenerator.h>
 #include <AuroraConvolver.h>
-
+#include <AcousticalParameters.h>
 #endif // __AURORA_VERSION_H__

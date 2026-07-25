@@ -5,7 +5,7 @@
                        
   Acoustical Parameters
   
-  AcParametersBase.h
+  AcousticalParameters
 
   Angelo Farina - Simone Campanini
 
@@ -236,10 +236,9 @@ namespace Aurora
         void   PreProcessIntensimetricSignal(AcParametersAudioTrack& left);
 
         protected:   
-        virtual void ShowErrorMessage(const int nErrNo) = 0;
-
-        virtual void PreProcess() = 0;
-        virtual void PostProcess() = 0;
+//        virtual void ShowErrorMessage(const int nErrNo) = 0;
+//        virtual void PreProcess() = 0;
+//        virtual void PostProcess() = 0;
         
       public: 
           

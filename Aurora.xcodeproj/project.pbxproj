@@ -20,25 +20,12 @@
 		8489E0713013CC5800B2FF6F /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0543013CBC800B2FF6F /* kiss_fft.c */; };
 		8489E0743013CCEA00B2FF6F /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0543013CBC800B2FF6F /* kiss_fft.c */; };
 		8489E0753013CCEA00B2FF6F /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E04C3013CBC800B2FF6F /* kiss_fftr.c */; };
-		84D43FAF3014ADFA00B73016 /* AcTSchroederDecay.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F983014ADFA00B73016 /* AcTSchroederDecay.h */; };
-		84D43FB03014ADFA00B73016 /* AcParametersBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F993014ADFA00B73016 /* AcParametersBase.h */; };
-		84D43FB13014ADFA00B73016 /* AcParametersDialogs.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F9A3014ADFA00B73016 /* AcParametersDialogs.h */; };
-		84D43FB23014ADFA00B73016 /* AcParametersData.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F9B3014ADFA00B73016 /* AcParametersData.h */; };
-		84D43FB63014ADFA00B73016 /* AcParametersEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43F9F3014ADFA00B73016 /* AcParametersEffect.h */; };
-		84D43FB73014ADFA00B73016 /* AcParametersTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA03014ADFA00B73016 /* AcParametersTrack.h */; };
-		84D43FBB3014ADFA00B73016 /* AcTResults.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA43014ADFA00B73016 /* AcTResults.h */; };
-		84D43FBC3014ADFA00B73016 /* AcParametersSpectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA53014ADFA00B73016 /* AcParametersSpectrum.h */; };
-		84D43FBD3014ADFA00B73016 /* AcParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA63014ADFA00B73016 /* AcParameters.h */; };
-		84D43FBF3014ADFA00B73016 /* AcParametersPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FA83014ADFA00B73016 /* AcParametersPlot.h */; };
-		84D43FC13014ADFA00B73016 /* AcParametersExports.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FAA3014ADFA00B73016 /* AcParametersExports.h */; };
-		84D43FC23014ADFA00B73016 /* AcParametersVersion.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FAB3014ADFA00B73016 /* AcParametersVersion.h */; };
 		84D43FC73014B07E00B73016 /* Spectrum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B853301124F200AB5CBB /* Spectrum.cpp */; };
 		84D43FC93014B15B00B73016 /* gpfuncts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43FC83014B15B00B73016 /* gpfuncts.cpp */; };
-		84D43FCB3014B54E00B73016 /* gpfuncts.h in Headers */ = {isa = PBXBuildFile; fileRef = 84D43FCA3014B54E00B73016 /* gpfuncts.h */; };
 		84D43FCE3014BAF000B73016 /* AcTResults.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43FA33014ADFA00B73016 /* AcTResults.cpp */; };
 		84D43FCF3014BC9700B73016 /* AcParametersTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43FA13014ADFA00B73016 /* AcParametersTrack.cpp */; };
 		84D43FD03014D2CC00B73016 /* AcTSchroederDecay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43FAC3014ADFA00B73016 /* AcTSchroederDecay.cpp */; };
-		84D43FD13014D2F800B73016 /* AcParametersBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43F9C3014ADFA00B73016 /* AcParametersBase.cpp */; };
+		84D43FD13014D2F800B73016 /* AcousticalParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43F9C3014ADFA00B73016 /* AcousticalParameters.cpp */; };
 		84D43FD43014D47300B73016 /* SCSignalWindows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B858301124F200AB5CBB /* SCSignalWindows.cpp */; };
 		84D43FD53014D47C00B73016 /* SCFirWin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B839301124F200AB5CBB /* SCFirWin.cpp */; };
 		84D43FD63014D48600B73016 /* SCOctaveBandFir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B854301124F200AB5CBB /* SCOctaveBandFir.cpp */; };
@@ -141,10 +128,9 @@
 		8489E0693013CC3100B2FF6F /* kiss_fft_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kiss_fft_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		8489E06B3013CC3200B2FF6F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		84D43F983014ADFA00B73016 /* AcTSchroederDecay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcTSchroederDecay.h; path = src/AcTSchroederDecay.h; sourceTree = "<group>"; };
-		84D43F993014ADFA00B73016 /* AcParametersBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersBase.h; path = src/AcParametersBase.h; sourceTree = "<group>"; };
 		84D43F9A3014ADFA00B73016 /* AcParametersDialogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersDialogs.h; path = src/AcParametersDialogs.h; sourceTree = "<group>"; };
 		84D43F9B3014ADFA00B73016 /* AcParametersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersData.h; path = src/AcParametersData.h; sourceTree = "<group>"; };
-		84D43F9C3014ADFA00B73016 /* AcParametersBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersBase.cpp; path = src/AcParametersBase.cpp; sourceTree = "<group>"; };
+		84D43F9C3014ADFA00B73016 /* AcousticalParameters.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcousticalParameters.cpp; path = src/AcousticalParameters.cpp; sourceTree = "<group>"; };
 		84D43F9D3014ADFA00B73016 /* AcParametersExports.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersExports.cpp; path = src/AcParametersExports.cpp; sourceTree = "<group>"; };
 		84D43F9E3014ADFA00B73016 /* AcParametersData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersData.cpp; path = src/AcParametersData.cpp; sourceTree = "<group>"; };
 		84D43F9F3014ADFA00B73016 /* AcParametersEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersEffect.h; path = src/AcParametersEffect.h; sourceTree = "<group>"; };
@@ -160,11 +146,11 @@
 		84D43FAA3014ADFA00B73016 /* AcParametersExports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersExports.h; path = src/AcParametersExports.h; sourceTree = "<group>"; };
 		84D43FAB3014ADFA00B73016 /* AcParametersVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersVersion.h; path = src/AcParametersVersion.h; sourceTree = "<group>"; };
 		84D43FAC3014ADFA00B73016 /* AcTSchroederDecay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcTSchroederDecay.cpp; path = src/AcTSchroederDecay.cpp; sourceTree = "<group>"; };
-		84D43FAD3014ADFA00B73016 /* AcParametersPlot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AcParametersPlot.cpp; path = src/AcParametersPlot.cpp; sourceTree = "<group>"; };
 		84D43FC83014B15B00B73016 /* gpfuncts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gpfuncts.cpp; path = src/gpfuncts.cpp; sourceTree = "<group>"; };
 		84D43FCA3014B54E00B73016 /* gpfuncts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gpfuncts.h; path = src/gpfuncts.h; sourceTree = "<group>"; };
 		84D43FDD3014D6A100B73016 /* png_dump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = png_dump; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D43FDF3014D6A100B73016 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		84D43FE43014DCCC00B73016 /* AcParametersPlot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AcParametersPlot.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +226,7 @@
 				84D43FCA3014B54E00B73016 /* gpfuncts.h */,
 				84D43FC83014B15B00B73016 /* gpfuncts.cpp */,
 				84D43FA63014ADFA00B73016 /* AcParameters.h */,
-				84D43F9C3014ADFA00B73016 /* AcParametersBase.cpp */,
-				84D43F993014ADFA00B73016 /* AcParametersBase.h */,
+				84D43F9C3014ADFA00B73016 /* AcousticalParameters.cpp */,
 				84D43F9E3014ADFA00B73016 /* AcParametersData.cpp */,
 				84D43F9B3014ADFA00B73016 /* AcParametersData.h */,
 				84D43FA73014ADFA00B73016 /* AcParametersDialogs.cpp */,
@@ -250,7 +235,6 @@
 				84D43F9F3014ADFA00B73016 /* AcParametersEffect.h */,
 				84D43F9D3014ADFA00B73016 /* AcParametersExports.cpp */,
 				84D43FAA3014ADFA00B73016 /* AcParametersExports.h */,
-				84D43FAD3014ADFA00B73016 /* AcParametersPlot.cpp */,
 				84D43FA83014ADFA00B73016 /* AcParametersPlot.h */,
 				84D43FA53014ADFA00B73016 /* AcParametersSpectrum.h */,
 				84D43FA13014ADFA00B73016 /* AcParametersTrack.cpp */,
@@ -293,6 +277,7 @@
 				8460B84E301124F200AB5CBB /* Spectrum.h */,
 				8460B862301124F200AB5CBB /* stickers.h */,
 				8460B844301124F200AB5CBB /* Vector.cpp */,
+				84D43FE43014DCCC00B73016 /* AcParametersPlot.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -356,19 +341,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D43FCB3014B54E00B73016 /* gpfuncts.h in Headers */,
-				84D43FB13014ADFA00B73016 /* AcParametersDialogs.h in Headers */,
-				84D43FB63014ADFA00B73016 /* AcParametersEffect.h in Headers */,
-				84D43FAF3014ADFA00B73016 /* AcTSchroederDecay.h in Headers */,
-				84D43FBF3014ADFA00B73016 /* AcParametersPlot.h in Headers */,
-				84D43FC13014ADFA00B73016 /* AcParametersExports.h in Headers */,
-				84D43FC23014ADFA00B73016 /* AcParametersVersion.h in Headers */,
-				84D43FB23014ADFA00B73016 /* AcParametersData.h in Headers */,
-				84D43FBD3014ADFA00B73016 /* AcParameters.h in Headers */,
-				84D43FB73014ADFA00B73016 /* AcParametersTrack.h in Headers */,
-				84D43FBB3014ADFA00B73016 /* AcTResults.h in Headers */,
-				84D43FB03014ADFA00B73016 /* AcParametersBase.h in Headers */,
-				84D43FBC3014ADFA00B73016 /* AcParametersSpectrum.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +469,7 @@
 				84D43FD63014D48600B73016 /* SCOctaveBandFir.cpp in Sources */,
 				84D43FD53014D47C00B73016 /* SCFirWin.cpp in Sources */,
 				84D43FD43014D47300B73016 /* SCSignalWindows.cpp in Sources */,
-				84D43FD13014D2F800B73016 /* AcParametersBase.cpp in Sources */,
+				84D43FD13014D2F800B73016 /* AcousticalParameters.cpp in Sources */,
 				84D43FD03014D2CC00B73016 /* AcTSchroederDecay.cpp in Sources */,
 				84D43FCF3014BC9700B73016 /* AcParametersTrack.cpp in Sources */,
 				84D43FCE3014BAF000B73016 /* AcTResults.cpp in Sources */,

@@ -18,7 +18,7 @@
 #include <WaveTrack.h>
 #include <effects/StatefulPerTrackEffect.h>
 
-#include "AcParametersBase.h"
+#include "AcousticalParameters.h"
 
 // Audacity forwards
 class WaveTrack;

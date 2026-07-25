@@ -15,7 +15,7 @@
 #define __AURORA_ACPARAM_PLOT__
 #include <aurora.h>
 
-#include "AcParametersBase.h"
+#include "AcousticalParameters.h"
 #include "AcParametersTrack.h"
 #include "AcParametersData.h"
 

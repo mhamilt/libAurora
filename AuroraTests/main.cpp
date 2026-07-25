@@ -6,6 +6,8 @@
 
 int main()
 {
+    //------------------------------------------------------------------------
+    // SineSweep Generator
     Aurora::SineSweepGenerator ssweep{};
     size_t numSamples = ssweep.GetSamplerate() * 10;
     auto filter  = std::make_unique<float[]>(numSamples);
@@ -15,6 +17,9 @@ int main()
     
     ssweep.FillBlock(audio.get() ,  numSamples, 0, 0); // Sweep  == Channel_1
     ssweep.FillBlock(filter.get(),  numSamples, 0, 1); // Filter == Channel_2
+    
+    //------------------------------------------------------------------------
+    // Convolution
     
     Aurora::ConvolverController convolver{};
     convolver.Reset();
@@ -29,18 +34,22 @@ int main()
     
     std::copy_n(filter.get(), numSamples, convolutionFilters[0].Samples());
     std::copy_n(audio.get(),  numSamples, input.Samples());
-
+    
     convolver.DoConvolution();
     
     auto& conv = convolver.GetOutputTrack(0);
     
-    writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
-    writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
-    writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
+    //    writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
+    //    writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
+    //    writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
     
     for (auto i = numSamples-10; i < numSamples; i++) {
         std::cout << conv.Samples()[i] << '\n';
     }
+    
+    //------------------------------------------------------------------------
+    // Acoustical Parameters
+    Aurora::AcousticalParameters acParams{};
     
     return 0;
 }

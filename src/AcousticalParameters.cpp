@@ -25,11 +25,12 @@
  
  *//*******************************************************************/
 
-#include "AcParametersBase.h"
+#include "AcousticalParameters.h"
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <iomanip>
+
 
 //#define MULTIRATE_FILTERING 1
 
@@ -780,7 +781,7 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
         // With multirate filtering code, this doesn't work very well [SC]
         if (!m_aAudioTracks[nCh].FindFirstArrivalTime(m_dbDirectSoundTrig))
         {
-            ShowErrorMessage(ERR_NO_FAT);
+//            ShowErrorMessage(ERR_NO_FAT);
             //ProgressMeterWrapper::Destroy();
             return false;
         }
@@ -1097,7 +1098,7 @@ bool Aurora::AcousticalParameters::CalculateSpatialParameters(const float fcb,
     //For all these calcules, need Ir length of almost 80 ms (from FAT)
     if( (ld  < delta_80) && (rd < delta_80) )
     {
-        ShowErrorMessage(ERR_SPATIAL_IR_TOO_SHORT);
+//        ShowErrorMessage(ERR_SPATIAL_IR_TOO_SHORT);
         return false;
     }
     
