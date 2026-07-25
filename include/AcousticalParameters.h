@@ -38,6 +38,7 @@ namespace Aurora
     /// analysis.
     //----------------------------------------------------------------------------
 
+/// <#Description#>
     class AcousticalParameters// : public Aurora::ProgressMeterWrapper
     {
       public:   
@@ -84,7 +85,7 @@ namespace Aurora
       private:
         double m_dbUserMinLevel      =    -5.0;   // dB
         double m_dbUserMaxLevel      =   -15.0;   // dB
-        double m_dbDirectSoundTrig   =    20.0;   // dB
+        double m_dbDirectSoundTrig   =    -1.0;   // dB
         double m_dbProbeMicsDistance =     0.012; // m
         double m_dbSoundSpeed        =   340.0;   // m/s
 
@@ -298,8 +299,10 @@ namespace Aurora
         bool IsFuMa()      const { return (m_nSource == Source::AmbisonicsFuMa); }
         bool IsAmbix()     const { return (m_nSource == Source::AmbisonicsAmbix); }
                 
-        // --- getters        
+        // --- getters
+        ///
         std::vector<TSchroederDecay>&    Decays () { return m_decays; }
+        ///
         TArrayOfAcParametersAudioTracks& Tracks () { return m_aAudioTracks; }
 
         const TResults&       Results(const int nch) const { return m_results[nch]; }
@@ -309,15 +312,22 @@ namespace Aurora
         AcParametersAudioTrack& Track(const int nch) { return m_aAudioTracks[nch]; }
 
         int GetChannelsCount() const { return (int)m_results.size(); }
-
+        
+        /// <#Description#>
         double GetFullScale() const;
+        /// <#Description#>
         double GetUserMinLevel()           { return m_dbUserMinLevel; }
+        /// <#Description#>
         double GetUserMaxLevel()           { return m_dbUserMaxLevel; }
         double GetProbeMicsDistance()      { return m_dbProbeMicsDistance; } // m
+        /// <#Description#>
         double GetSoundSpeedValue()        { return m_dbSoundSpeed; }
+        /// <#Description#>
         double GetDirectSoundTrigValue()   { return m_dbDirectSoundTrig; }
-
+        
+        /// <#Description#>
         int    GetSource()                 { return m_nSource; }
+        /// <#Description#>
         int    GetIACCSpan()               { return m_nIaccSpan; }
 
         double& GetGSoundSourceDistance()  { return m_dbSoundSourceDistance; }

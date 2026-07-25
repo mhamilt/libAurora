@@ -84,6 +84,7 @@ namespace Aurora
     };
 } // namespace Aurora
 
+///
 typedef std::vector<Aurora::AcParametersAudioTrack> TArrayOfAcParametersAudioTracks;
 
 #endif // __AURORA_APAUDIOTRACK_H__

@@ -756,13 +756,16 @@ void Aurora::AcousticalParameters::PreProcessIntensimetricSignal(Aurora::AcParam
 
 bool Aurora::AcousticalParameters::CalculateAcousticParameters()
 {
+    assert(!m_aAudioTracks.empty());
+    assert(m_results.size() == m_aAudioTracks.size());
+    
     auto& left = m_aAudioTracks[CH_LEFT];
     size_t nbands = m_results[0].Frequencies().size() + 2;
     
     //Create progress bar.
     int nProg = 0;
     //ProgressMeterWrapper::Show("Computing ISO 3382 Acoustical Parameters...",
-                               //1 + int(2 * nbands * m_results.size()));
+    //1 + int(2 * nbands * m_results.size()));
     //PP probe filtering, mono & stereo
     
     // Intensimetric Probe (P-P) elaboration
@@ -781,7 +784,7 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
         // With multirate filtering code, this doesn't work very well [SC]
         if (!m_aAudioTracks[nCh].FindFirstArrivalTime(m_dbDirectSoundTrig))
         {
-//            ShowErrorMessage(ERR_NO_FAT);
+            //            ShowErrorMessage(ERR_NO_FAT);
             //ProgressMeterWrapper::Destroy();
             return false;
         }
@@ -915,11 +918,11 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
             CalculateBandMonoParameters(int(nCh), fcb, delay);
             
             // Update progress meter
-//            if (! ProgressMeterWrapper::Update(++nProg))
-//            {
-////                ProgressMeterWrapper::Destroy();
-//                return false;
-//            }
+            //            if (! ProgressMeterWrapper::Update(++nProg))
+            //            {
+            ////                ProgressMeterWrapper::Destroy();
+            //                return false;
+            //            }
             
             // Evaluating Acoustic Parameters for the current band (remember: band 11 is WIDE)
             if ((   IsStereo()
@@ -931,11 +934,11 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
                 CalculateSpatialParameters(fcb, delay);
             }
             // Update progress meter
-//            if (! ProgressMeterWrapper::Update(++nProg))
-//            {
-//                ProgressMeterWrapper::Destroy();
-//                return false;
-//            }
+            //            if (! ProgressMeterWrapper::Update(++nProg))
+            //            {
+            //                ProgressMeterWrapper::Destroy();
+            //                return false;
+            //            }
             
             ++nCh;
         } // channels' for
@@ -965,7 +968,7 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
         }
     }
     
-//    ProgressMeterWrapper::Destroy();
+    //    ProgressMeterWrapper::Destroy();
     
     //   PostProcess();
     return true;
@@ -1098,7 +1101,7 @@ bool Aurora::AcousticalParameters::CalculateSpatialParameters(const float fcb,
     //For all these calcules, need Ir length of almost 80 ms (from FAT)
     if( (ld  < delta_80) && (rd < delta_80) )
     {
-//        ShowErrorMessage(ERR_SPATIAL_IR_TOO_SHORT);
+        //        ShowErrorMessage(ERR_SPATIAL_IR_TOO_SHORT);
         return false;
     }
     

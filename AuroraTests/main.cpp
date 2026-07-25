@@ -39,35 +39,45 @@ int main()
     
     auto& conv = convolver.GetOutputTrack(0);
     
-    //    writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
-    //    writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
-    //    writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
-    
-    for (auto i = numSamples-10; i < numSamples; i++) {
+    for (auto i = conv.Length()-10; i < conv.Length(); i++) {
         std::cout << conv.Samples()[i] << '\n';
     }
+        
+//    conv.Reverse();
+    
+    for (auto i = 0; i < 10; i++) {
+        std::cout << conv.Samples()[i] << '\n';
+    }
+    
+//        writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
+//        writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
+//        writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
     
     //------------------------------------------------------------------------
     // Acoustical Parameters
     
     Aurora::AcousticalParameters acParams{};
-    acParams.Init();
     
-    // Fill parameterTracks
     auto& parameterTracks = acParams.Tracks();
+    parameterTracks.emplace_back(Aurora::AcParametersAudioTrack(numSamples, ssweep.GetSamplerate()));
+    auto& audioAnalysisTrack = parameterTracks.back();
+    std::copy_n(conv.Samples(), numSamples, audioAnalysisTrack.Samples());
     
-    // Config
-    //    acParams.SetUserMinLevel(0.0);
-    //    acParams.SetUserMaxLevel(0.0);
-    //    acParams.SetDirectSoundTrigValue(0.0);
-    //    acParams.SetFullScale(0.0);
-    //    acParams.SetProbeMicsDistance(0.0);
-    //    acParams.SetSoundSpeedValue(0.0);
-    //    acParams.SetSource(Aurora::AcParametersEffect::Source::TwoOmniMics); // Default stereo choice.
+    acParams.Init();
     
     // Then process parameterTracks
     acParams.CalculateAcousticParameters();
-    const auto& results = acParams.Results(0);
+    const auto& result = acParams.Results(0);
+    const auto& fcbs = result.Frequencies();
+    result.Parameters();
+    
+    for (const auto& paramater : result.Parameters())
+    {
+        for (const auto& fcb : fcbs)
+        {
+            std::cout << paramater << " (" << fcb << "): " << result.Get(paramater, fcb).value <<'\n';
+        }
+    }
     
     return 0;
 }
