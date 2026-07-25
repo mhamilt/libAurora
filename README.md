@@ -2,6 +2,8 @@
 
 ![ ](img/logos/aurora_logo_inv.png)
 
+![ ](img/logos/ap_logo_inv.png)![ ](img/logos/conv_logo_inv.png)![ ](img/logos/kirk_logo_inv.png)![ ](img/logos/ssg_logo_inv.png)![ ](img/logos/sti_logo_inv.png)![ ](img/logos/tha_logo_inv.png)![ ](img/logos/xfn_logo_inv.png)
+
 ## About 
 
 libAurora is a software heritage project to transform Angelo Farina's Aurora Plug-ins into a reusable, cross-platform modern C++ library. Basis of the code is Simone Campanini's [Aurora for Audacity implementation](https://github.com/Aurora-for-Audacity/Aurora-for-Audacity)
