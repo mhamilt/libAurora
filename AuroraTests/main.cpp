@@ -38,7 +38,7 @@ int main()
     writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
     writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
     
-    for (int i = numSamples-10; i < numSamples; i++) {
+    for (auto i = numSamples-10; i < numSamples; i++) {
         std::cout << conv.Samples()[i] << '\n';
     }
     

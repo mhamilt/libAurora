@@ -63,6 +63,7 @@
 
 #define   AURORA_NAME   "Aurora"
 
+#include <iostream>
 #include <cassert>
 #include <cmath>
 #include <cstring>

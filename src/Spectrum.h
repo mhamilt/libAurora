@@ -15,9 +15,7 @@
 
 #include <array>
 #include <map>
-#include <wx/wx.h>
-
-#include <aurora.h>
+#include <commdefs.h>
 #include "gpfuncts.h"
 
 namespace Aurora
@@ -122,15 +120,15 @@ namespace Aurora
                * decimal separator.
                * @return The label as wxString.
                */
-              wxString GetShortLabel(const bool replaceDotsWithUnderscores = false)
+              std::string GetShortLabel(const bool replaceDotsWithUnderscores = false)
               {
                   if (IsAweighted())
                   {
-                      return wxString("A");
+                      return std::string("A");
                   }
                   if (IsLinear())
                   {
-                      return wxString("Lin");
+                      return std::string("Lin");
                   }
                   return Aurora::GetBandShortLabel(m_fcb, replaceDotsWithUnderscores);
               }
@@ -141,15 +139,15 @@ namespace Aurora
                * decimal separator.
                * @return The label as wxString.
                */
-              wxString GetLabel(const bool replaceDotsWithUnderscores = false)
+              std::string GetLabel(const bool replaceDotsWithUnderscores = false)
               {
                   if (IsAweighted())
                   {
-                      return wxString("A");
+                      return std::string("A");
                   }
                   if (IsLinear())
                   {
-                      return wxString("Lin");
+                      return std::string("Lin");
                   }
                   return Aurora::GetBandLabel(m_fcb, replaceDotsWithUnderscores);
               }
@@ -164,9 +162,9 @@ namespace Aurora
 
               void Set(const float fcb) { m_fcb = fcb; }
 
-              void Set(const wxString& fcbLabel)
+              void Set(const std::string& fcbLabel)
               {
-                  std::string s = fcbLabel.ToStdString();
+                  std::string s = fcbLabel;
                   double value = 0.0;
 
                   if (s[0] == 'A')
@@ -195,7 +193,7 @@ namespace Aurora
 
               Band() { }
               Band(const float fcb) : m_fcb(fcb) { }
-              Band(const wxString& fcbLabel) { Set(fcbLabel);  }
+              Band(const std::string& fcbLabel) { Set(fcbLabel);  }
         };
 
       protected:

@@ -336,7 +336,6 @@ bool Aurora::ConvolverBase::Convolve()
 //        }
     }
     
-//    DestroyProgressMeter();
 	return true;
 }
 
