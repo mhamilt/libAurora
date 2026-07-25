@@ -11,6 +11,7 @@
  
  **********************************************************************/
 
+
 #include "AuroraConvolver.h"
 
 bool Aurora::ConvolverController::DoConvolution()
@@ -52,12 +53,13 @@ bool Aurora::ConvolverController::ResizeInputTrack(const int idx,
                                                    const Aurora::SampleCount length)
 {
     assert(FilterColumns() > 0);
-//    mAfm->SetInputLength(length, idx);
+    mAfm->SetInputLength(length, idx);
     return true;
 }
 
+
 Aurora::SamplesVector& Aurora::ConvolverController::GetInputTrack(const int idx)
-{
+{    
     return mAfm->GetInputVectorItem(idx);
 }
 
@@ -68,8 +70,8 @@ Aurora::SamplesVector& Aurora::ConvolverController::GetOutputTrack(const int idx
 
 int Aurora::ConvolverController::FilterRows() const
 {
-    //    return mAfm->Rows();
-    return 2;
+    return mAfm->Rows();
+//    return 2;
 }
 
 int Aurora::ConvolverController::FilterColumns() const
