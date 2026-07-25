@@ -1,3 +1,6 @@
 [submodule "external/kissfft"]
 	path = external/kissfft
 	url = https://github.com/mborgerding/kissfft.git
+[submodule "external/miniaudio"]
+	path = external/miniaudio
+	url = https://github.com/mackron/miniaudio.git
