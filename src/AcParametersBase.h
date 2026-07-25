@@ -18,6 +18,7 @@
 #include "Spectrum.h"
 #include "AcParametersTrack.h"
 #include "AcTSchroederDecay.h"
+#include "SCOctaveBandAnalysis.h"
 
 #define FIND_VECTOR_MAX(x, max, bd) \
    for(unsigned long k = 0; k < bd; k++) \
@@ -350,7 +351,7 @@ namespace Aurora
         void   SetOctaveFraction(const int fraction);
 
     protected:
-        wxString GetCaptionString() const override { return wxString("Aurora Acoustical Parameters"); }
+//        wxString GetCaptionString() const override { return wxString("Aurora Acoustical Parameters"); }
         
     public:
         //------------------------- Class user interface -------------------------   

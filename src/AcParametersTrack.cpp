@@ -71,7 +71,7 @@ Aurora::SampleCount Aurora::AcParametersAudioTrack::GetFirstArrivalTimeInSamples
 
 void Aurora::AcParametersAudioTrack::ApplyFilter(const float fcb)
 {
-    wxString label = "IR_";
+    //wxString label = "IR_";
 
     ResetFilteredTrack();
     Aurora::AcParametersSpectrum::Band b(fcb);
@@ -80,20 +80,20 @@ void Aurora::AcParametersAudioTrack::ApplyFilter(const float fcb)
     {
         GaindB(0.0);
         AFilter();
-        label << "A_filtered";
+//        label << "A_filtered";
 
     }
     else if (b.IsLinear())
     {
         GaindB(0.0);
         LFilter();
-        label << "not_filtered";        
+//        label << "not_filtered";        
     }
     else
     {
         GaindB(22.2); // dB valore da verificare..... diventa 12.8825;
         OctaveFilter((double)fcb);
-        label << b.GetShortLabel(true);
+//        label << b.GetShortLabel(true);
     }
     
     // Removing mean value
@@ -105,7 +105,7 @@ void Aurora::AcParametersAudioTrack::ApplyFilter(const float fcb)
 Aurora::AcParametersAudioTrack& Aurora::AcParametersAudioTrack::operator=(Aurora::AcParametersAudioTrack&& at)
 {
     Aurora::AudioTrack::operator=(std::move(at));
-    m_name = at.m_name;
+//    m_name = at.m_name;
     m_dbFAT = at.m_dbFAT;
     return *this;
 }
@@ -113,6 +113,6 @@ Aurora::AcParametersAudioTrack& Aurora::AcParametersAudioTrack::operator=(Aurora
 
 Aurora::AcParametersAudioTrack::AcParametersAudioTrack(Aurora::AcParametersAudioTrack&& at)
     : Aurora::AudioTrack(std::move(at)),
-      m_name(at.m_name),
+//      m_name(at.m_name),
       m_dbFAT(at.m_dbFAT)
 { }

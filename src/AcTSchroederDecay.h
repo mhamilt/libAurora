@@ -8,7 +8,7 @@
 #ifndef AcTSchroederDecay_hpp
 #define AcTSchroederDecay_hpp
 
-#include <aurora.h>
+#include <commdefs.h>
 #include "AcParametersTrack.h"
 
 namespace Aurora

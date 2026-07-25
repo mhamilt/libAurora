@@ -14,9 +14,8 @@
 #ifndef __AURORA_AFDATA_H__
 #define __AURORA_AFDATA_H__
 
-#include <wxcmn.h>
-//#include <commdefs.h>
-
+//#include <wxcmn.h>
+#include <commdefs.h>
 #include "Complex.h"
 
 namespace Aurora
@@ -30,9 +29,9 @@ namespace Aurora
     {
       private:
         bool     m_bIsShown;
-        wxString m_label;
-        wxColour m_penColor;
-        wxColour m_brushColor;
+//        std::string m_label;
+//        std::string m_penColor;
+//        std::string m_brushColor;
         
       protected:
                              
@@ -55,22 +54,22 @@ namespace Aurora
         
         void ToggleVisibility() { m_bIsShown = !m_bIsShown; }
         
-        wxString& GetLabel() { return m_label; }
-        void SetLabel(const wxString& label) { m_label = label; }
-        void SetLabel(const wxChar* pwxchLabel)  { m_label = pwxchLabel; }
-
-        void SetLineColour(const wxColour& colour)  { m_penColor = colour; }
-        void SetLineColour( const unsigned char r,
-                            const unsigned char g,
-                            const unsigned char b ) { m_penColor.Set(r,g,b); }
-
-        void SetFillColour(const wxColour& colour)  { m_brushColor = colour; }
-        void SetFillColour( const unsigned char r,
-                            const unsigned char g,
-                            const unsigned char b ) { m_brushColor.Set(r,g,b); }
-
-        const wxColour& GetLineColour() const { return m_penColor; }
-        const wxColour& GetFillColour() const { return m_brushColor; }
+//        wxString& GetLabel() { return m_label; }
+//        void SetLabel(const wxString& label) { m_label = label; }
+//        void SetLabel(const wxChar* pwxchLabel)  { m_label = pwxchLabel; }
+//
+//        void SetLineColour(const wxColour& colour)  { m_penColor = colour; }
+//        void SetLineColour( const unsigned char r,
+//                            const unsigned char g,
+//                            const unsigned char b ) { m_penColor.Set(r,g,b); }
+//
+//        void SetFillColour(const wxColour& colour)  { m_brushColor = colour; }
+//        void SetFillColour( const unsigned char r,
+//                            const unsigned char g,
+//                            const unsigned char b ) { m_brushColor.Set(r,g,b); }
+//
+//        const wxColour& GetLineColour() const { return m_penColor; }
+//        const wxColour& GetFillColour() const { return m_brushColor; }
 
         DataHolder& operator=(DataHolder&& dh)
         {

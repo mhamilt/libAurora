@@ -21,6 +21,7 @@ namespace Aurora
 class SineSweepGenerator
 {
 public:
+    /// <#Description#>
     enum Channels
     {
         //CH_LEFT, CH_RIGHT,
@@ -29,6 +30,7 @@ public:
         _N_TRACKS_
     };
     
+    /// <#Description#>
     enum SweepTypes
     {
         ST_LINEAR,
@@ -36,6 +38,7 @@ public:
         ST_PINK
     };
     
+    /// <#Description#>
     enum FadeTypes
     {
         FT_RECT,
@@ -49,6 +52,7 @@ public:
         FT_LOG
     };
     
+    /// <#Description#>
     enum ErrorCodes
     {
         ERR_OK = 0,
@@ -68,6 +72,7 @@ public:
     SineSweepGenerator();
     ~SineSweepGenerator();
     // ---------------------------------------------------------------------------
+    /// <#Description#>
     void Destroy();
     
     /// Check for input errors
@@ -77,67 +82,138 @@ public:
     bool Generate();
     
     /// Fill data block (module interface)
+    /// 
+    /// - Parameters:
+    ///   - pData: <#pData description#>
+    ///   - len: <#len description#>
+    ///   - written: <#written description#>
+    ///   - nTrack: <#nTrack description#>
     void FillBlock(Sample* pData,
                    SampleCount len,
                    SampleCount written,
                    int nTrack);
     // ---------------------------------------------------------------------------
     // Checkers
+    
+    /// <#Description#>
     bool IsControlPulsesSet()    const { return m_bControlPulses; }
     
     // ---------------------------------------------------------------------------
     //    //Getters
+    /// <#Description#>
+    /// - Parameter wxszMsg: <#wxszMsg description#>
     void      GetErrorMessage(std::string& wxszMsg);
+    /// <#Description#>
     int          GetErrorCode() const { return m_nErrNo; }
+    /// <#Description#>
     double      GetSamplerate() const { return m_dbRate; }
+    /// <#Description#>
     double  GetStartFrequency() const { return m_dbLowFrq; }
+    /// <#Description#>
     double    GetEndFrequency() const { return m_dbHighFrq; }
+    /// <#Description#>
     double   GetSweepDuration() const { return m_dbSweepDuration; }
+    /// <#Description#>
     double GetSilenceDuration() const { return m_dbSilenceDuration; }
+    /// <#Description#>
     double       GetAmplitude() const { return m_dbAmplitude; }
+    /// <#Description#>
     int  GetRepetitionsNumber() const { return m_nCycles; }
+    /// <#Description#>
     int          GetSweepType() const { return m_nSweepType; }
+    /// <#Description#>
     int       GetNeededTracks() const { return m_nChnlsCount; }
+    /// <#Description#>
     double  GetFadeInDuration() const { return m_dbFadeInDuration; }
+    /// <#Description#>
     double GetFadeOutDuration() const { return m_dbFadeOutDuration; }
+    /// <#Description#>
     int         GetFadeInType() const { return m_nFadeInType; }
+    /// <#Description#>
     int        GetFadeOutType() const { return m_nFadeOutType; }
+    /// <#Description#>
     double          GetDeltaL() const { return m_dbDeltaL; }
+    /// <#Description#>
     int     GetChannelsNumber() const { return m_nChnlsCount; }
+    /// <#Description#>
     int   GetSweepChnlsNumber() const { return m_nSweepChnlsCount; }
-    int      GetFilterChannel() const { return m_nFilterChnlIdx; }
+    /// <#Description#>
+    int GetFilterChannel() const { return m_nFilterChnlIdx; }
     int      GetPulsesChannel() const { return m_nPulsesChnlIdx; }
+    /// <#Description#>
     double   GetTotalDuration() const { return m_buffersLength/m_dbRate; }
     
+    /// <#Description#>
+    /// - Parameter nCh: <#nCh description#>
     const TSampleVector&  GetBuffer(int nCh) const { return m_buffers[nCh]; }
+    /// <#Description#>
+    /// - Parameter nCh: <#nCh description#>
     const TSampleVector&  GetFilter(int nCh) const { return m_buffers[m_nFilterChnlIdx]; }
     
+    /// <#Description#>
     SampleCount GetBuffersLength() const { return m_buffersLength; }
+    /// <#Description#>
     SampleCount  GetFilterLength() const { return m_filterLength; }
     // ---------------------------------------------------------------------------
     // Setters
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void      SetSamplerate(double dbValue)  { m_dbRate    = dbValue; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void  SetStartFrequency(double dbValue)  { m_dbLowFrq  = dbValue; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void    SetEndFrequency(double dbValue)  { m_dbHighFrq = dbValue; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void   SetHighFrequency(double dbValue)  { m_dbHighFrq = dbValue; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void    SetLowFrequency(double dbValue)  { m_dbLowFrq  = dbValue; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void   SetSweepDuration(double dbValue)  { m_dbSweepDuration   = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void SetSilenceDuration(double dbValue)  { m_dbSilenceDuration = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
     
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void         SetAmplitude(double dbValue)  { m_dbAmplitude = dbValue; }
+    /// <#Description#>
+    /// - Parameter nValue: <#nValue description#>
     void SetRepetitionsNumber(int nValue)    { m_nCycles = nValue; }
+    /// <#Description#>
+    /// - Parameter nValue: <#nValue description#>
     void         SetSweepType(int nValue)    { m_nSweepType = nValue; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void    SetFadeInDuration(double dbValue) { m_dbFadeInDuration  = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void   SetFadeOutDuration(double dbValue) { m_dbFadeOutDuration = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
     
+    /// <#Description#>
+    /// - Parameter nValue: <#nValue description#>
     void        SetFadeInType(int nValue)     { m_nFadeInType = nValue; }
+    /// <#Description#>
+    /// - Parameter nValue: <#nValue description#>
     void       SetFadeOutType(int nValue)     { m_nFadeOutType = nValue; }
+    /// <#Description#>
+    /// - Parameter dbValue: <#dbValue description#>
     void            SetDeltaL(double dbValue) { m_dbDeltaL = dbValue; }
 
     // Required
+    /// <#Description#>
+    /// - Parameter bValue: <#bValue description#>
     void     SetControlPulses(bool bValue);
-    void  SetSweepChnlsNumber(int nValue);
     
+    /// <#Description#>
+    /// - Parameter nValue: <#nValue description#>
+    void  SetSweepChnlsNumber(int nValue);
+    ///
+    ///- Parameter len: <#len description#>
     void SetBuffersLength(SampleCount len,
                           const bool bInitBuffer = false,
                           const int nCh = 0);
@@ -150,34 +226,52 @@ private:
     void DeleteDataBuffers();
     
 private:
-    
+    ///
     int    m_nErrNo = ERR_OK;
-    
+    ///
     double m_dbRate            = 48000.0; // Hz
+    ///
     double m_dbHighFrq         = 22000.0; // Hz
+    ///
     double m_dbLowFrq          = 22.0;    // Hz
+    ///
     double m_dbSweepDuration   = 10.0; // s
+    ///
     double m_dbAmplitude       =  1.0;
+    ///
     double m_dbSilenceDuration =  8.0; // s
+    ///
     int    m_nCycles           = 1;
+    ///
     double m_dbFadeInDuration  = 0.1;  // s
+    ///
     double m_dbFadeOutDuration = 0.1;  // s
+    ///
     int    m_nFadeInType       = FT_HANN;
+    ///
     int    m_nFadeOutType      = FT_HANN;
+    ///
     double m_dbDeltaL          =  0.0;
+    ///
     int    m_nChnlsCount       =  2; // Sweep Mono + Inverse filter
+    ///
     int    m_nSweepChnlsCount  =  1; // default mono
+    ///
     int    m_nFilterChnlIdx    =  1; // sweep on channel 0, filter on channel 1
+    ///
     int    m_nPulsesChnlIdx    = -1; // by default no control pulses
-    
+    ///
     std::vector<TSampleVector> m_buffers;
     
+    ///
     SampleCount m_buffersLength = 0; // samples
+    ///
     SampleCount m_sweepLength   = 0; // samples
+    ///
     SampleCount m_filterLength  = 0; // samples
-    
+    ///
     int m_nSweepType = ST_LOG;
-    
+    ///
     bool m_bControlPulses = false;
     
 };

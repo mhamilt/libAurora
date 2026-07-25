@@ -37,6 +37,7 @@
 
 namespace Aurora
 {
+/// <#Description#>
     class Multivolver : public ConvolverBase
     {
         // ***************************** Attributes *******************************
@@ -78,25 +79,45 @@ namespace Aurora
          */
         void SetInputLength(const SampleCount length, 
                             const int idx);
-
+        
+        /// <#Description#>
+        /// @param v <#v description#>
+        /// @param idx <#idx description#>
         void SetInputVectorItem (const Aurora::SamplesVector& v,
                                  const int idx);
         
+        /// <#Description#>
+        /// @param v <#v description#>
+        /// @param row <#row description#>
+        /// @param col <#col description#>
         void SetFilterMatrixItem(Aurora::SamplesVector& v,
                                  const int row, 
                                  const int col);                
-
+        
+        /// <#Description#>
+        /// - Parameter index: <#index description#>
         Aurora::SamplesVector& GetInputVectorItem (const int index);
+        /// <#Description#>
+        /// - Parameter index: <#index description#>
         Aurora::SamplesVector& GetOutputVectorItem(const int index);
         
+        /// <#Description#>
+        /// - Parameter index: <#index description#>
         const Aurora::SamplesVector& GetInputVectorItem (const int index) const;
+        /// <#Description#>
+        /// - Parameter index: <#index description#>
         const Aurora::SamplesVector& GetOutputVectorItem(const int index) const;
         
         void GetOutputVectorsInterlaced(Sample *p) const;   // NB: p must be a Sample array of out_length*N size.
         
+        /// <#Description#>
         virtual void PreProcess () override;
+        /// <#Description#>
         virtual bool Process    () override;
+        /// <#Description#>
+        /// - Parameter progress: <#progress description#>
         virtual bool Process    (std::atomic<int>* progress);
+        /// <#Description#>
         virtual void PostProcess() override;
 
 //        virtual void InitProgressMeter(const int total) override;
@@ -104,21 +125,35 @@ namespace Aurora
 //        virtual void DestroyProgressMeter() override { }
 
     private:
+        /// <#Description#>
+        /// - Parameters:
+        ///   - src: <#src description#>
+        ///   - dst: <#dst description#>
         void AddVector(const SamplesVector& src, SamplesVector& dst);
         
+        /// <#Description#>
         void ReverseFilter         () override;
+        /// <#Description#>
         void FindFilterPeakPosition() override;
+        /// <#Description#>
         void PreserveOutputLength  () override;
         
         bool VectorBoost();                 // uses class gain (SetGain)
+        /// <#Description#>
+        /// - Parameter g: <#g description#>
         bool VectorBoost(const Sample g);
+        /// <#Description#>
         bool VectorRemoveDC();
+        /// <#Description#>
         bool VectorFBAutorange();
+        /// <#Description#>
         bool VectorAutorange();
 
     public:
         // --- boolcheckers, get-setters
+        /// <#Description#>
         MatrixOptions& GetMatrixOptions() { return m_matrixOptions; }
+        /// <#Description#>
         const MatrixOptions& GetMatrixOptions() const { return m_matrixOptions; }
         
     protected:
@@ -131,6 +166,12 @@ namespace Aurora
         //   you need a M rows input data vector, and you'll obtain an
         //   M rows output data vector
     public:
+        /// <#Description#>
+        /// - Parameters:
+        ///   - rows: <#rows description#>
+        ///   - cols: <#cols description#>
+        ///   - in_len: <#in_len description#>
+        ///   - f_len: <#f_len description#>
         virtual void Init(const int rows, 
                           const int cols,
                           const SampleCount in_len, 

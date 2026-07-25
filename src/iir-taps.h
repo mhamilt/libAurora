@@ -1,6 +1,6 @@
 // obtained with scipy, 'butter' function
 
-#include  <aurora.h>
+#include  <commdefs.h>
 
 #if 0
 const AFSample g_adbIirB_16k_48[] = {

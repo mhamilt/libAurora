@@ -9,8 +9,10 @@
 
 #define DUMP_TAPS
 
-#include "fir-taps.cpp"
-#include "iir-taps.cpp"
+#include <Vector.h>
+#include "SCOctaveBandFir.h"
+#include "fir-taps.h"
+#include "iir-taps.h"
 
 
 class SCFilter

@@ -15,7 +15,7 @@
 \brief The decay graphic
 
 *//*******************************************************************/
-#include <aurora.h>
+#include <commdefs.h>
 
 #include "AcParametersBase.h"
 #include "AcParametersTrack.h"

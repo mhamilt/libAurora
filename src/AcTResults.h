@@ -8,7 +8,8 @@
 #ifndef AcTResults_hpp
 #define AcTResults_hpp
 
-#include <aurora.h>
+#include <commdefs.h>
+#include "Spectrum.h"
 
 namespace Aurora {
 

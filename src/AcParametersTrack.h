@@ -13,7 +13,9 @@
 #ifndef __AURORA_APAUDIOTRACK_H__
 #define __AURORA_APAUDIOTRACK_H__
 
-#include <aurora.h>
+#include <commdefs.h>
+#include <Vector.h>
+#include <Audio.h>
 #include "AcParametersSpectrum.h"
 
 namespace Aurora
@@ -30,15 +32,15 @@ namespace Aurora
     class AcParametersAudioTrack : public Aurora::AudioTrack
     {
     private:
-        wxString m_name; ///< Audio data label
+//        wxString m_name; ///< Audio data label
 
         /// Impulse response's First Arrival Time, IOW direct wave arrival time.
         double m_dbFAT = 0.0;
 
     public:
-        wxString& GetName() { return m_name; }
-        void SetName(const wxChar* name) { m_name = name; }
-        void SetName(const wxString& name) { m_name = name; }
+//        wxString& GetName() { return m_name; }
+//        void SetName(const wxChar* name) { m_name = name; }
+//        void SetName(const wxString& name) { m_name = name; }
 
         /// Tries to find the First Arrival Time of the stored Impulse Response
         /// \param dbDirectSoundTrigdB - the direct wave trigger level in deciBel
@@ -76,8 +78,8 @@ namespace Aurora
         /// @param dbRate Sampling rate of the audio data
         AcParametersAudioTrack(const SampleCount length,
                                const double dbRate = 48000.0)
-            : AudioTrack(length, dbRate),
-            m_name(wxT("Trackname"))
+            : AudioTrack(length, dbRate)//,
+            //m_name(wxT("Trackname"))
         { }
     };
 } // namespace Aurora
