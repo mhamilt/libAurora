@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		840A9D7830156162008D1093 /* miniaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 840A9D7430156150008D1093 /* miniaudio.c */; };
-		840A9D8030156211008D1093 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 840A9D7F30156211008D1093 /* main.cpp */; };
 		840A9D8430156233008D1093 /* miniaudio.c in Sources */ = {isa = PBXBuildFile; fileRef = 840A9D7430156150008D1093 /* miniaudio.c */; };
 		840A9D85301563CA008D1093 /* libAurora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843D216A30111847003ADF22 /* libAurora.a */; };
-		8460B8A83011293700AB5CBB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B8A73011293700AB5CBB /* main.cpp */; };
+		845D0F75301612D500082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F6D301612D500082B24 /* main.cpp */; };
+		845D0F76301612D500082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F6F301612D500082B24 /* main.cpp */; };
+		845D0F77301612D500082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F71301612D500082B24 /* main.cpp */; };
+		845D0F78301612D500082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F73301612D500082B24 /* main.cpp */; };
+		845D0F79301612E200082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F6F301612D500082B24 /* main.cpp */; };
+		845D0F7A301612E700082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F6D301612D500082B24 /* main.cpp */; };
+		845D0F7B301612EF00082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F73301612D500082B24 /* main.cpp */; };
+		845D0F7C3016135700082B24 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 845D0F71301612D500082B24 /* main.cpp */; };
 		8460B8AD3011295000AB5CBB /* libAurora.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 843D216A30111847003ADF22 /* libAurora.a */; };
 		8489E02E3013B97B00B2FF6F /* Complex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B83B301124F200AB5CBB /* Complex.cpp */; };
 		8489E02F3013BAC800B2FF6F /* Vector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B844301124F200AB5CBB /* Vector.cpp */; };
@@ -19,7 +25,6 @@
 		8489E0313013BB7F00B2FF6F /* Multivolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0263013B79F00B2FF6F /* Multivolver.cpp */; };
 		8489E0333013C01500B2FF6F /* AuroraConvolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0213013B71D00B2FF6F /* AuroraConvolver.cpp */; };
 		8489E0343013C8AC00B2FF6F /* SineSweepGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B855301124F200AB5CBB /* SineSweepGenerator.cpp */; };
-		8489E06C3013CC3200B2FF6F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8489E06B3013CC3200B2FF6F /* main.cpp */; };
 		8489E0703013CC4200B2FF6F /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E04C3013CBC800B2FF6F /* kiss_fftr.c */; };
 		8489E0713013CC5800B2FF6F /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0543013CBC800B2FF6F /* kiss_fft.c */; };
 		8489E0743013CCEA00B2FF6F /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 8489E0543013CBC800B2FF6F /* kiss_fft.c */; };
@@ -35,7 +40,6 @@
 		84D43FD63014D48600B73016 /* SCOctaveBandFir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B854301124F200AB5CBB /* SCOctaveBandFir.cpp */; };
 		84D43FD73014D49000B73016 /* SCOctaveBandFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B85F301124F200AB5CBB /* SCOctaveBandFilter.cpp */; };
 		84D43FD83014D58E00B73016 /* AcParametersData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43F9E3014ADFA00B73016 /* AcParametersData.cpp */; };
-		84D43FE03014D6A100B73016 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D43FDF3014D6A100B73016 /* main.cpp */; };
 		84D43FE63014E0E400B73016 /* Audio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8460B848301124F200AB5CBB /* Audio.cpp */; };
 /* End PBXBuildFile section */
 
@@ -82,8 +86,11 @@
 		840A9D7430156150008D1093 /* miniaudio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = miniaudio.c; path = external/miniaudio/miniaudio.c; sourceTree = "<group>"; };
 		840A9D7530156150008D1093 /* miniaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = miniaudio.h; path = external/miniaudio/miniaudio.h; sourceTree = "<group>"; };
 		840A9D7D30156211008D1093 /* convolution_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = convolution_test; sourceTree = BUILT_PRODUCTS_DIR; };
-		840A9D7F30156211008D1093 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		843D216A30111847003ADF22 /* libAurora.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAurora.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		845D0F6D301612D500082B24 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		845D0F6F301612D500082B24 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		845D0F71301612D500082B24 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		845D0F73301612D500082B24 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8460B81630111C7C00AB5CBB /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = SOURCE_ROOT; };
 		8460B837301124F200AB5CBB /* Config.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Config.cpp; path = src/Config.cpp; sourceTree = "<group>"; };
 		8460B838301124F200AB5CBB /* Exports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exports.h; path = src/Exports.h; sourceTree = "<group>"; };
@@ -116,7 +123,6 @@
 		8460B866301124F200AB5CBB /* fir-taps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "fir-taps.h"; path = "src/fir-taps.h"; sourceTree = "<group>"; };
 		8460B868301124F200AB5CBB /* SCOctaveBandFir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCOctaveBandFir.h; path = src/SCOctaveBandFir.h; sourceTree = "<group>"; };
 		8460B8A53011293700AB5CBB /* AuroraTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuroraTests; sourceTree = BUILT_PRODUCTS_DIR; };
-		8460B8A73011293700AB5CBB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8489E0213013B71D00B2FF6F /* AuroraConvolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AuroraConvolver.cpp; path = src/AuroraConvolver.cpp; sourceTree = "<group>"; };
 		8489E0263013B79F00B2FF6F /* Multivolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Multivolver.cpp; path = src/Multivolver.cpp; sourceTree = "<group>"; };
 		8489E0293013B7A800B2FF6F /* Convolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Convolver.cpp; path = src/Convolver.cpp; sourceTree = "<group>"; };
@@ -143,7 +149,6 @@
 		8489E0553013CBC800B2FF6F /* kfc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kfc.h; path = external/kissfft/kfc.h; sourceTree = "<group>"; };
 		8489E0563013CBC800B2FF6F /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fftr.h; path = external/kissfft/kiss_fftr.h; sourceTree = "<group>"; };
 		8489E0693013CC3100B2FF6F /* kiss_fft_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = kiss_fft_test; sourceTree = BUILT_PRODUCTS_DIR; };
-		8489E06B3013CC3200B2FF6F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		84D43F983014ADFA00B73016 /* AcTSchroederDecay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcTSchroederDecay.h; path = src/AcTSchroederDecay.h; sourceTree = "<group>"; };
 		84D43F9A3014ADFA00B73016 /* AcParametersDialogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersDialogs.h; path = src/AcParametersDialogs.h; sourceTree = "<group>"; };
 		84D43F9B3014ADFA00B73016 /* AcParametersData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AcParametersData.h; path = src/AcParametersData.h; sourceTree = "<group>"; };
@@ -165,7 +170,6 @@
 		84D43FC83014B15B00B73016 /* gpfuncts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gpfuncts.cpp; path = src/gpfuncts.cpp; sourceTree = "<group>"; };
 		84D43FCA3014B54E00B73016 /* gpfuncts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gpfuncts.h; path = src/gpfuncts.h; sourceTree = "<group>"; };
 		84D43FDD3014D6A100B73016 /* png_dump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = png_dump; sourceTree = BUILT_PRODUCTS_DIR; };
-		84D43FDF3014D6A100B73016 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		84D43FE43014DCCC00B73016 /* AcParametersPlot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AcParametersPlot.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,17 +223,10 @@
 			name = miniaudio;
 			sourceTree = "<group>";
 		};
-		840A9D7E30156211008D1093 /* convolution_test */ = {
-			isa = PBXGroup;
-			children = (
-				840A9D7F30156211008D1093 /* main.cpp */,
-			);
-			path = convolution_test;
-			sourceTree = "<group>";
-		};
 		843D216130111847003ADF22 = {
 			isa = PBXGroup;
 			children = (
+				845D0F6C301612BD00082B24 /* tests */,
 				840A9D7330156129008D1093 /* miniaudio */,
 				8489E0493013CBA900B2FF6F /* kissfft */,
 				8489E0353013C8E300B2FF6F /* Audio.h */,
@@ -243,10 +240,6 @@
 				8489E03B3013C8E300B2FF6F /* version.h */,
 				8460B836301124E100AB5CBB /* src */,
 				8460B81630111C7C00AB5CBB /* include */,
-				8460B8A63011293700AB5CBB /* AuroraTests */,
-				8489E06A3013CC3200B2FF6F /* kiss_fft_test */,
-				84D43FDE3014D6A100B73016 /* png_dump */,
-				840A9D7E30156211008D1093 /* convolution_test */,
 				843D216B30111847003ADF22 /* Products */,
 				8460B8AC3011295000AB5CBB /* Frameworks */,
 			);
@@ -262,6 +255,53 @@
 				840A9D7D30156211008D1093 /* convolution_test */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		845D0F6C301612BD00082B24 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				845D0F6E301612D500082B24 /* AuroraTests */,
+				845D0F70301612D500082B24 /* convolution_test */,
+				845D0F72301612D500082B24 /* kiss_fft_test */,
+				845D0F74301612D500082B24 /* png_dump */,
+			);
+			name = tests;
+			sourceTree = "<group>";
+		};
+		845D0F6E301612D500082B24 /* AuroraTests */ = {
+			isa = PBXGroup;
+			children = (
+				845D0F6D301612D500082B24 /* main.cpp */,
+			);
+			name = AuroraTests;
+			path = tests/AuroraTests;
+			sourceTree = "<group>";
+		};
+		845D0F70301612D500082B24 /* convolution_test */ = {
+			isa = PBXGroup;
+			children = (
+				845D0F6F301612D500082B24 /* main.cpp */,
+			);
+			name = convolution_test;
+			path = tests/convolution_test;
+			sourceTree = "<group>";
+		};
+		845D0F72301612D500082B24 /* kiss_fft_test */ = {
+			isa = PBXGroup;
+			children = (
+				845D0F71301612D500082B24 /* main.cpp */,
+			);
+			name = kiss_fft_test;
+			path = tests/kiss_fft_test;
+			sourceTree = "<group>";
+		};
+		845D0F74301612D500082B24 /* png_dump */ = {
+			isa = PBXGroup;
+			children = (
+				845D0F73301612D500082B24 /* main.cpp */,
+			);
+			name = png_dump;
+			path = tests/png_dump;
 			sourceTree = "<group>";
 		};
 		8460B836301124E100AB5CBB /* src */ = {
@@ -325,14 +365,6 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		8460B8A63011293700AB5CBB /* AuroraTests */ = {
-			isa = PBXGroup;
-			children = (
-				8460B8A73011293700AB5CBB /* main.cpp */,
-			);
-			path = AuroraTests;
-			sourceTree = "<group>";
-		};
 		8460B8AC3011295000AB5CBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,22 +390,6 @@
 				8489E04E3013CBC800B2FF6F /* kissfft.hh */,
 			);
 			name = kissfft;
-			sourceTree = "<group>";
-		};
-		8489E06A3013CC3200B2FF6F /* kiss_fft_test */ = {
-			isa = PBXGroup;
-			children = (
-				8489E06B3013CC3200B2FF6F /* main.cpp */,
-			);
-			path = kiss_fft_test;
-			sourceTree = "<group>";
-		};
-		84D43FDE3014D6A100B73016 /* png_dump */ = {
-			isa = PBXGroup;
-			children = (
-				84D43FDF3014D6A100B73016 /* main.cpp */,
-			);
-			path = png_dump;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,8 +543,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845D0F79301612E200082B24 /* main.cpp in Sources */,
 				840A9D8430156233008D1093 /* miniaudio.c in Sources */,
-				840A9D8030156211008D1093 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,13 +556,17 @@
 				84D43FD83014D58E00B73016 /* AcParametersData.cpp in Sources */,
 				84D43FD73014D49000B73016 /* SCOctaveBandFilter.cpp in Sources */,
 				84D43FD63014D48600B73016 /* SCOctaveBandFir.cpp in Sources */,
+				845D0F76301612D500082B24 /* main.cpp in Sources */,
 				84D43FD53014D47C00B73016 /* SCFirWin.cpp in Sources */,
 				84D43FD43014D47300B73016 /* SCSignalWindows.cpp in Sources */,
+				845D0F77301612D500082B24 /* main.cpp in Sources */,
 				84D43FD13014D2F800B73016 /* AcousticalParameters.cpp in Sources */,
 				84D43FD03014D2CC00B73016 /* AcTSchroederDecay.cpp in Sources */,
 				84D43FCF3014BC9700B73016 /* AcParametersTrack.cpp in Sources */,
 				84D43FCE3014BAF000B73016 /* AcTResults.cpp in Sources */,
 				84D43FC93014B15B00B73016 /* gpfuncts.cpp in Sources */,
+				845D0F75301612D500082B24 /* main.cpp in Sources */,
+				845D0F78301612D500082B24 /* main.cpp in Sources */,
 				84D43FC73014B07E00B73016 /* Spectrum.cpp in Sources */,
 				8489E0743013CCEA00B2FF6F /* kiss_fft.c in Sources */,
 				8489E0753013CCEA00B2FF6F /* kiss_fftr.c in Sources */,
@@ -563,8 +583,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845D0F7A301612E700082B24 /* main.cpp in Sources */,
 				840A9D7830156162008D1093 /* miniaudio.c in Sources */,
-				8460B8A83011293700AB5CBB /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,9 +592,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845D0F7C3016135700082B24 /* main.cpp in Sources */,
 				8489E0713013CC5800B2FF6F /* kiss_fft.c in Sources */,
 				8489E0703013CC4200B2FF6F /* kiss_fftr.c in Sources */,
-				8489E06C3013CC3200B2FF6F /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84D43FE03014D6A100B73016 /* main.cpp in Sources */,
+				845D0F7B301612EF00082B24 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,6 +762,7 @@
 					include/,
 					external/kissfft,
 					external/,
+					external/miniaudio,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -758,6 +779,7 @@
 					include/,
 					external/kissfft,
 					external/,
+					external/miniaudio,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

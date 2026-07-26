@@ -1,12 +1,12 @@
 //#define MINIAUDIO_IMPLEMENTATION
 
 #include <iostream>
-#include <miniaudio.h>
 #include <algorithm>
 #include <cstring>
 #include <thread>
 #include <chrono>
 #include <aurora.h>
+#include <miniaudio.h>
 #include <matts_audio.h>
 
 struct AudioData

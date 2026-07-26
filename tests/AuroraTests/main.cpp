@@ -10,6 +10,7 @@ int main()
     // SineSweep Generator
     Aurora::SineSweepGenerator ssweep{};
     ssweep.SetSweepDuration(1.0);
+    ssweep.SetSilenceDuration(1.0);
     ssweep.Generate();
     
     size_t numSamples  = ssweep.GetBuffersLength();
