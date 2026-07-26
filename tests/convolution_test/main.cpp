@@ -9,17 +9,6 @@
 #include <miniaudio.h>
 #include <matts_audio.h>
 
-struct AudioData
-{
-    const float* playback;
-    size_t playbackFrames;
-    size_t playbackPos = 0;
-
-    float* recording;
-    size_t recordingFrames;
-    size_t recordingPos = 0;
-};
-
 struct SweepAudioState
 {
     const float* playbackBuffer;
@@ -85,15 +74,12 @@ int main(int argc, const char * argv[]) {
     ssweep.Generate();
     
     size_t numSamples  = ssweep.GetBuffersLength();
-    auto sweepAudio   = std::make_unique<float[]>(numSamples);
     auto recordedAudio   = std::make_unique<float[]>(numSamples);
+    auto sweepAudio   = std::make_unique<float[]>(numSamples);
+    auto filter  = std::make_unique<float[]>(numSamples);
     
     ssweep.FillBlock(sweepAudio.get(), numSamples, 0, 0); // Sweep  == Channel_1
-    
-    auto filter  = std::make_unique<float[]>(numSamples);
     ssweep.FillBlock(filter.get(),     numSamples, 0, 1); // Filter == Channel_2
-    
-    AudioData audio;
     
     SweepAudioState state{
         sweepAudio.get(),
@@ -133,9 +119,11 @@ int main(int argc, const char * argv[]) {
     ma_device_stop(&device);
     ma_device_uninit(&device);
     
-    writeToWav(recordedAudio.get(),  (uint32_t)numSamples, "recorded-audio-test.wav");
+//    writeToWav(recordedAudio.get(),  (uint32_t)numSamples, "recorded-audio-test.wav");
+
+    //------------------------------------------------------------------------
+    // Convolution
     
-    //
     Aurora::ConvolverController convolver{};
     convolver.Reset();
     convolver.SetSamplerate(ssweep.GetSamplerate());
@@ -148,14 +136,41 @@ int main(int argc, const char * argv[]) {
     auto& input = convolver.GetInputTrack(0);
     
     std::copy_n(filter.get(), numSamples, convolutionFilters[0].Samples());
-    std::copy_n(sweepAudio.get(),  numSamples, input.Samples());
+    std::copy_n(recordedAudio.get(),  numSamples, input.Samples());
     
     convolver.DoConvolution();
     
     auto& conv = convolver.GetOutputTrack(0);
     conv.Reverse();
     
-    writeToWav(conv.Samples(),  (uint32_t)conv.Length(), "recorded-sweep-ir.wav");
+    auto convLengthSamples = conv.GetLength();
+    //------------------------------------------------------------------------
+    // Acoustical Parameters
+    
+    Aurora::AcousticalParameters acParams{};
+    
+    auto& parameterTracks = acParams.Tracks();
+    parameterTracks.emplace_back(Aurora::AcParametersAudioTrack(convLengthSamples, ssweep.GetSamplerate()));
+    auto& audioAnalysisTrack = parameterTracks.back();
+    std::copy_n(conv.Samples(), convLengthSamples, audioAnalysisTrack.Samples());
+    
+    acParams.Init();
+    
+    // Then process parameterTracks
+    acParams.CalculateAcousticParameters();
+    const auto& result = acParams.Results(0);
+    const auto& fcbs = result.Frequencies();
+    result.Parameters();
+    
+    for (const auto& paramater : result.Parameters())
+    {
+        for (const auto& fcb : fcbs)
+        {
+            std::cout << paramater << " (" << fcb << "): " << result.Get(paramater, fcb).value <<'\n';
+        }
+    }
+    
+    writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
     
     return 0;
 }
