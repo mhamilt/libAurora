@@ -112,24 +112,24 @@ void SCSignalWindows::DolphChebyshev(const double alpha)
 {
     m_nErr = ERR_NOT_IMPL;
     return;
-    
-    double* W0 = new double [m_unLength];
-    
-    double N    = double(m_unLength);
-    double beta = cosh( (1/double(m_unLength)) * arcosh(pow(10.0, alpha)) );
-    double acosh_beta = arcosh(beta);
-    
-    unsigned int n = 0;
-    while(n < m_unLength)
-    {
-        W0[n] = cos( N * acos(beta * cos((M_PI * n)/N)) ) /
-                cosh( N * acosh_beta );
-        n++;
-    }
-
     // TODO: to be continued...    
     
-    delete [] W0;
+//    double* W0 = new double [m_unLength];
+//    
+//    double N    = double(m_unLength);
+//    double beta = cosh( (1/double(m_unLength)) * arcosh(pow(10.0, alpha)) );
+//    double acosh_beta = arcosh(beta);
+//    
+//    unsigned int n = 0;
+//    while(n < m_unLength)
+//    {
+//        W0[n] = cos( N * acos(beta * cos((M_PI * n)/N)) ) /
+//                cosh( N * acosh_beta );
+//        n++;
+//    }
+//
+//    
+//    delete [] W0;
 }
 
 void SCSignalWindows::Gaussian(const double sigma, const double p)

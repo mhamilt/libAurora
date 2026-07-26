@@ -10,28 +10,28 @@
 //#define GP_IIR 
 
 #ifdef DUMP_TAPS
-void SCFilter::Dump(const int id, const char* tag)
-{
-    FILE* f;
-    int k;
-    
-    char str[32];
-    if(! m_B.empty())
-    {
-        sprintf(str, "/tmp/%s_%d", tag, id);
-        std::cout << "Dumping FIR taps " << id << " to " << str << std::endl;
-        if((f = fopen(str, "w")) != 0)
-        {
-            k = 0;
-            
-            while(k < m_nOrder)
-            {
-                fprintf(f, "%.18e\n", m_B[k++]);
-            }
-            fclose(f);
-        }
-    }
-}
+//void SCFilter::Dump(const int id, const char* tag)
+//{
+//    FILE* f;
+//    int k;
+//    
+//    char str[32];
+//    if(! m_B.empty())
+//    {
+//        sprintf(str, "/tmp/%s_%d", tag, id);
+//        std::cout << "Dumping FIR taps " << id << " to " << str << std::endl;
+//        if((f = fopen(str, "w")) != 0)
+//        {
+//            k = 0;
+//            
+//            while(k < m_nOrder)
+//            {
+//                fprintf(f, "%.18e\n", m_B[k++]);
+//            }
+//            fclose(f);
+//        }
+//    }
+//}
 #endif
 
 #ifdef GP_IIR
@@ -368,13 +368,13 @@ void SCOctaveBandFilter::Create(const double rate,
     {
 		m_nErr = ERR_NOT_IMPL;
 		return;
-
-	    const Aurora::Sample* a_ptr = 0;
-	    const Aurora::Sample* b_ptr = 0;
-	    Aurora::SampleCount L = 0;
-
-	    m_nOrder = int(L) / sizeof(Aurora::Sample);
-	    SCFilter::init(b_ptr, a_ptr);
+//
+//	    const Aurora::Sample* a_ptr = 0;
+//	    const Aurora::Sample* b_ptr = 0;
+//	    Aurora::SampleCount L = 0;
+//
+//	    m_nOrder = int(L) / sizeof(Aurora::Sample);
+//	    SCFilter::init(b_ptr, a_ptr);
     }
 
     SCOctaveBandFir obf(param);
@@ -460,13 +460,13 @@ void SCThirdOctaveBandFilter::Create(const double rate,
     {
         m_nErr = ERR_NOT_IMPL;
         return;
-
-        const Aurora::Sample* a_ptr = 0;
-        const Aurora::Sample* b_ptr = 0;
-        Aurora::SampleCount L = 0;
-
-        m_nOrder = int(L) / sizeof(Aurora::Sample);
-        SCFilter::init(b_ptr, a_ptr);
+//
+//        const Aurora::Sample* a_ptr = 0;
+//        const Aurora::Sample* b_ptr = 0;
+//        Aurora::SampleCount L = 0;
+//
+//        m_nOrder = int(L) / sizeof(Aurora::Sample);
+//        SCFilter::init(b_ptr, a_ptr);
     }
 
     SCOctaveBandFir obf(param);

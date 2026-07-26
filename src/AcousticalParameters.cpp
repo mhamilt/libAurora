@@ -763,7 +763,7 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
     size_t nbands = m_results[0].Frequencies().size() + 2;
     
     //Create progress bar.
-    int nProg = 0;
+//    int nProg = 0;
     //ProgressMeterWrapper::Show("Computing ISO 3382 Acoustical Parameters...",
     //1 + int(2 * nbands * m_results.size()));
     //PP probe filtering, mono & stereo

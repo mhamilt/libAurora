@@ -44,48 +44,48 @@ SCOctaveBandFirPreset::SCOctaveBandFirPreset(const double exp,
 {}
 
 // ----------------------------------------------------------------------------
-void SCOctaveBandFir::Dump(const int id, const char* tag)
-{
-    FILE* f;
-    int k;
-    
-    char str[32];
-    if(m_adbTaps != 0)
-    {
-        sprintf(str, "/tmp/%s_%d", tag, id);
-        std::cout << "Dumping filter " << id << " to " << str << std::endl;
-        if((f = fopen(str, "w")) != 0)
-        {
-            k = 0;
-            
-            while(k < m_nNtaps)
-            {
-                fprintf(f, "%.18e\n", m_adbTaps[k++]);
-            }
-            fclose(f);
-        }
-    }
-}
+//void SCOctaveBandFir::Dump(const int id, const char* tag)
+//{
+//    FILE* f;
+//    int k;
+//    
+//    char str[32];
+//    if(m_adbTaps != 0)
+//    {
+//        sprintf(str, "/tmp/%s_%d", tag, id);
+//        std::cout << "Dumping filter " << id << " to " << str << std::endl;
+//        if((f = fopen(str, "w")) != 0)
+//        {
+//            k = 0;
+//            
+//            while(k < m_nNtaps)
+//            {
+//                fprintf(f, "%.18e\n", m_adbTaps[k++]);
+//            }
+//            fclose(f);
+//        }
+//    }
+//}
 
-void SCOctaveBandFir::Dump(std::vector<double>& v, const int id, const char* tag)
-{
-    FILE* f;
-    int k;
-
-    char str[32];
-	sprintf(str, "/tmp/%s_%d", tag, id);
-	std::cout << "Dumping filter " << id << " to " << str << std::endl;
-	if((f = fopen(str, "w")) != 0)
-	{
-		k = 0;
-
-		while(k < (int)v.size())
-		{
-			fprintf(f, "%.18e\n", v[k++]);
-		}
-		fclose(f);
-	}
-}
+//void SCOctaveBandFir::Dump(std::vector<double>& v, const int id, const char* tag)
+//{
+//    FILE* f;
+//    int k;
+//
+//    char str[32];
+//	sprintf(str, "/tmp/%s_%d", tag, id);
+//	std::cout << "Dumping filter " << id << " to " << str << std::endl;
+//	if((f = fopen(str, "w")) != 0)
+//	{
+//		k = 0;
+//
+//		while(k < (int)v.size())
+//		{
+//			fprintf(f, "%.18e\n", v[k++]);
+//		}
+//		fclose(f);
+//	}
+//}
 
 void SCOctaveBandFir::Convolve(std::vector<double>& lp, 
                                std::vector<double>& hp)

@@ -1,27 +1,27 @@
 #include  "SCFirWin.h"
 
-void SCFirWin::Dump(const int id, const char* tag)
-{
-    FILE* f;
-    int k;
-    
-    char str[32];
-    if(m_adbTaps != 0)
-    {
-        sprintf(str, "/tmp/%s_%d", tag, id);
-        std::cout << "Dumping filter " << id << " to " << str << std::endl;
-        if((f = fopen(str, "w")) != 0)
-        {
-            k = 0;
-            
-            while(k < m_nNtaps)
-            {
-                fprintf(f, "%.18e\n", m_adbTaps[k++]);
-            }
-            fclose(f);
-        }
-    }
-}
+//void SCFirWin::Dump(const int id, const char* tag)
+//{
+//    FILE* f;
+//    int k;
+//    
+//    char str[32];
+//    if(m_adbTaps != 0)
+//    {
+//        sprintf(str, "/tmp/%s_%d", tag, id);
+//        std::cout << "Dumping filter " << id << " to " << str << std::endl;
+//        if((f = fopen(str, "w")) != 0)
+//        {
+//            k = 0;
+//            
+//            while(k < m_nNtaps)
+//            {
+//                fprintf(f, "%.18e\n", m_adbTaps[k++]);
+//            }
+//            fclose(f);
+//        }
+//    }
+//}
 
 void SCFirWin::TestConv(int M, int N) // REMOVE BEFORE FLIGHT
 {
