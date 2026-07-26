@@ -24,15 +24,32 @@ Aurora::TResults::TParameter::TParameter(const double v,
 
 const std::vector<std::string> Aurora::TResults::m_parameterNames =
 {
-    "Signal",   "Noise",
-    "strenGth", "C50",    "C80",  "D50",  "Ts",
-    "EDT",      "Tuser",  "T20",  "T30",
-
-    "Peakiness", "Millisecondness",  "Impulsiveness",
-
-    "St1",     "St2",        "StLate",     // StageParameters (14..)
-    "IACC",    "tauIACC",    "widthIACC",  // BinauralParameters (17..)
-    "Jlf",     "Jlfc",       "Lj",          // SpatialParameters  (20..)
+    "T30",
+    "EDT",
+    "D50",
+    "C50",
+    "C80",
+    "Signal",
+    "Noise",
+    "strenGth",
+    "Ts",
+    "Tuser",
+    "T20",
+    "Peakiness",
+    "Millisecondness",
+    "Impulsiveness",
+    // StageParameters (14..)
+    "St1",
+    "St2",
+    "StLate",
+    // BinauralParameters (17..)
+    "IACC",
+    "tauIACC",
+    "widthIACC",
+    // SpatialParameters  (20..)
+    "Jlf",
+    "Jlfc",
+    "Lj",
 };
 
 void Aurora::TResults::Set(const std::string& parameterName,
