@@ -9,11 +9,13 @@ int main()
     //------------------------------------------------------------------------
     // SineSweep Generator
     Aurora::SineSweepGenerator ssweep{};
-    size_t numSamples = ssweep.GetSamplerate() * 10;
+    ssweep.SetSweepDuration(1.0);
+    ssweep.Generate();
+    
+    size_t numSamples  = ssweep.GetBuffersLength();
     auto filter  = std::make_unique<float[]>(numSamples);
     auto audio   = std::make_unique<float[]>(numSamples);
     
-    ssweep.Generate();
     
     ssweep.FillBlock(audio.get() ,  numSamples, 0, 0); // Sweep  == Channel_1
     ssweep.FillBlock(filter.get(),  numSamples, 0, 1); // Filter == Channel_2

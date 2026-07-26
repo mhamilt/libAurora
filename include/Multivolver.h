@@ -95,17 +95,17 @@ namespace Aurora
                                  const int col);                
         
         /// <#Description#>
-        /// - Parameter index: <#index description#>
+        /// @param index  <#index description#>
         Aurora::SamplesVector& GetInputVectorItem (const int index);
         /// <#Description#>
-        /// - Parameter index: <#index description#>
+        /// @param index  <#index description#>
         Aurora::SamplesVector& GetOutputVectorItem(const int index);
         
         /// <#Description#>
-        /// - Parameter index: <#index description#>
+        /// @param index  <#index description#>
         const Aurora::SamplesVector& GetInputVectorItem (const int index) const;
         /// <#Description#>
-        /// - Parameter index: <#index description#>
+        /// @param index  <#index description#>
         const Aurora::SamplesVector& GetOutputVectorItem(const int index) const;
         
         void GetOutputVectorsInterlaced(Sample *p) const;   // NB: p must be a Sample array of out_length*N size.
@@ -115,7 +115,7 @@ namespace Aurora
         /// <#Description#>
         virtual bool Process    () override;
         /// <#Description#>
-        /// - Parameter progress: <#progress description#>
+        /// @param progress  <#progress description#>
         virtual bool Process    (std::atomic<int>* progress);
         /// <#Description#>
         virtual void PostProcess() override;
@@ -126,9 +126,8 @@ namespace Aurora
 
     private:
         /// <#Description#>
-        /// - Parameters:
-        ///   - src: <#src description#>
-        ///   - dst: <#dst description#>
+        /// @param src  <#src description#>
+        /// @param dst  <#dst description#>
         void AddVector(const SamplesVector& src, SamplesVector& dst);
         
         /// <#Description#>
@@ -140,7 +139,7 @@ namespace Aurora
         
         bool VectorBoost();                 // uses class gain (SetGain)
         /// <#Description#>
-        /// - Parameter g: <#g description#>
+        /// @param g  <#g description#>
         bool VectorBoost(const Sample g);
         /// <#Description#>
         bool VectorRemoveDC();
@@ -166,13 +165,12 @@ namespace Aurora
         //   you need a M rows input data vector, and you'll obtain an
         //   M rows output data vector
     public:
-        /// <#Description#>
-        /// - Parameters:
-        ///   - rows: <#rows description#>
-        ///   - cols: <#cols description#>
-        ///   - in_len: <#in_len description#>
-        ///   - f_len: <#f_len description#>
-        virtual void Init(const int rows, 
+        /// <#Description#>        
+        /// @param rows  <#rows description#>
+        /// @param cols  <#cols description#>
+        /// @param in_len  <#in_len description#>
+        /// @param f_len  <#f_len description#>
+        virtual void Init(const int rows,
                           const int cols,
                           const SampleCount in_len, 
                           const SampleCount f_len);

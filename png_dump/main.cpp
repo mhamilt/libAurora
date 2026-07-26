@@ -19,8 +19,6 @@ struct PngData
 
 int main()
 {
-
-
     std::map<std::string, PngData> png_files =
     {
         { "ap_logo_png",     { ap_logo_png,     sizeof(ap_logo_png) } },

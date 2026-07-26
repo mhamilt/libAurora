@@ -78,16 +78,20 @@ public:
     /// Check for input errors
     int ErrorCheck();
     
-    /// Processing method
+    /// Generates the normal and inverse sine sweep, allocating memory to the internal buffers.
+    /// Call this after setting all desired parameters
     bool Generate();
-    
+        
     /// Fill data block (module interface)
-    /// 
-    /// - Parameters:
-    ///   - pData: <#pData description#>
-    ///   - len: <#len description#>
-    ///   - written: <#written description#>
-    ///   - nTrack: <#nTrack description#>
+    /// Used for environments where audio buffers are passed.
+    /// Defaults:
+    /// - track / channel 0: sweep data
+    /// - track / channel 1: filter / inverse sine sweeap data
+    ///
+    /// @param pData  pointer to the audio buffer
+    /// @param len  number of samples to write
+    /// @param written  the offset within the internal sweep buffer
+    /// @param nTrack  track / channel number: given the value of GetNeededTracks, the last track is always the filter track
     void FillBlock(Sample* pData,
                    SampleCount len,
                    SampleCount written,
@@ -101,7 +105,7 @@ public:
     // ---------------------------------------------------------------------------
     //    //Getters
     /// <#Description#>
-    /// - Parameter wxszMsg: <#wxszMsg description#>
+    /// @param wxszMsg  <#wxszMsg description#>
     void      GetErrorMessage(std::string& wxszMsg);
     /// <#Description#>
     int          GetErrorCode() const { return m_nErrNo; }
@@ -140,80 +144,84 @@ public:
     /// <#Description#>
     int GetFilterChannel() const { return m_nFilterChnlIdx; }
     int      GetPulsesChannel() const { return m_nPulsesChnlIdx; }
-    /// <#Description#>
+    /// Get current duration of sweep buffer in seconds given the current silence and sweep duration
     double   GetTotalDuration() const { return m_buffersLength/m_dbRate; }
     
     /// <#Description#>
-    /// - Parameter nCh: <#nCh description#>
+    /// @param nCh  <#nCh description#>
     const TSampleVector&  GetBuffer(int nCh) const { return m_buffers[nCh]; }
     /// <#Description#>
-    /// - Parameter nCh: <#nCh description#>
+    /// @param nCh  <#nCh description#>
     const TSampleVector&  GetFilter(int nCh) const { return m_buffers[m_nFilterChnlIdx]; }
     
-    /// <#Description#>
+    /// Get the length of the sweep buffer in samples given the current sweep duration, silenceduration and number of channels
     SampleCount GetBuffersLength() const { return m_buffersLength; }
-    /// <#Description#>
+    /// Get the length of the filter buffer in samples given the current sweep duration, silenceduration and number of channels
     SampleCount  GetFilterLength() const { return m_filterLength; }
     // ---------------------------------------------------------------------------
     // Setters
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void      SetSamplerate(double dbValue)  { m_dbRate    = dbValue; }
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void  SetStartFrequency(double dbValue)  { m_dbLowFrq  = dbValue; }
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void    SetEndFrequency(double dbValue)  { m_dbHighFrq = dbValue; }
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void   SetHighFrequency(double dbValue)  { m_dbHighFrq = dbValue; }
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void    SetLowFrequency(double dbValue)  { m_dbLowFrq  = dbValue; }
-    /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
-    void   SetSweepDuration(double dbValue)  { m_dbSweepDuration   = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
-    /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
-    void SetSilenceDuration(double dbValue)  { m_dbSilenceDuration = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
+    /// Set sweep duration
+    ///
+    /// @param dbValue sweep duration in seconds
+    void   SetSweepDuration(double dbValue)  { m_dbSweepDuration   = dbValue; }
+    /// Sets the duration of silence.
+    /// @param dbValue silence duration in seconds
+    void SetSilenceDuration(double dbValue)  { m_dbSilenceDuration = dbValue; }
     
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void         SetAmplitude(double dbValue)  { m_dbAmplitude = dbValue; }
     /// <#Description#>
-    /// - Parameter nValue: <#nValue description#>
+    /// @param nValue  <#nValue description#>
     void SetRepetitionsNumber(int nValue)    { m_nCycles = nValue; }
     /// <#Description#>
-    /// - Parameter nValue: <#nValue description#>
+    /// @param nValue  <#nValue description#>
     void         SetSweepType(int nValue)    { m_nSweepType = nValue; }
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void    SetFadeInDuration(double dbValue) { m_dbFadeInDuration  = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void   SetFadeOutDuration(double dbValue) { m_dbFadeOutDuration = (dbValue < 100) ? dbValue : dbValue*m_dbRate; }
     
     /// <#Description#>
-    /// - Parameter nValue: <#nValue description#>
+    /// @param nValue  <#nValue description#>
     void        SetFadeInType(int nValue)     { m_nFadeInType = nValue; }
     /// <#Description#>
-    /// - Parameter nValue: <#nValue description#>
+    /// @param nValue  <#nValue description#>
     void       SetFadeOutType(int nValue)     { m_nFadeOutType = nValue; }
     /// <#Description#>
-    /// - Parameter dbValue: <#dbValue description#>
+    /// @param dbValue  <#dbValue description#>
     void            SetDeltaL(double dbValue) { m_dbDeltaL = dbValue; }
 
-    // Required
     /// <#Description#>
-    /// - Parameter bValue: <#bValue description#>
+    /// @param bValue  <#bValue description#>
+    /// @note Required
     void     SetControlPulses(bool bValue);
     
     /// <#Description#>
-    /// - Parameter nValue: <#nValue description#>
+    /// @param nValue  <#nValue description#>
     void  SetSweepChnlsNumber(int nValue);
     ///
-    ///- Parameter len: <#len description#>
+    /// @param len  <#len description#>
+    /// @param bInitBuffer <#bInitBuffer#>
+    /// @param nCh <#nCh#>
+    /// @warning Not yet implemented
     void SetBuffersLength(SampleCount len,
                           const bool bInitBuffer = false,
                           const int nCh = 0);

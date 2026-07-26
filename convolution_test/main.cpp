@@ -80,14 +80,18 @@ void data_callback(
 int main(int argc, const char * argv[]) {
     
     Aurora::SineSweepGenerator ssweep{};
-    size_t numSamples = ssweep.GetSamplerate() * 10;
+    ssweep.SetSweepDuration(1.0);
+    ssweep.SetSilenceDuration(1.0);
+    ssweep.Generate();
+    
+    size_t numSamples  = ssweep.GetBuffersLength();
     auto sweepAudio   = std::make_unique<float[]>(numSamples);
     auto recordedAudio   = std::make_unique<float[]>(numSamples);
-    ssweep.Generate();
+    
     ssweep.FillBlock(sweepAudio.get(), numSamples, 0, 0); // Sweep  == Channel_1
     
     auto filter  = std::make_unique<float[]>(numSamples);
-//    ssweep.FillBlock(filter.get(),     numSamples, 0, 1); // Filter == Channel_2
+    ssweep.FillBlock(filter.get(),     numSamples, 0, 1); // Filter == Channel_2
     
     AudioData audio;
     
@@ -120,14 +124,7 @@ int main(int argc, const char * argv[]) {
 
     ma_device_start(&device);
     
-    // Or let things record for longer
-    //    size_t recordSamples = numSamples + ssweep.GetSamplerate() * 2; // +2 seconds
-    //    auto recordedAudio = std::make_unique<float[]>(recordSamples);
-    //    while (state.recordPos < recordSamples)
-    //    {
-    //        std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    //    }
-    
+
     while (state.playbackPos < numSamples)
     {
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
@@ -141,7 +138,7 @@ int main(int argc, const char * argv[]) {
     //
     Aurora::ConvolverController convolver{};
     convolver.Reset();
-    convolver.SetSamplerate(ssweep.GetSamplerate()); // ???
+    convolver.SetSamplerate(ssweep.GetSamplerate());
     convolver.CheckSamplerate(ssweep.GetSamplerate());
     convolver.SetFilterMatrixDimensions(1,1);
     convolver.ResizeFilterTrack(0,numSamples);

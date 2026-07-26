@@ -9,13 +9,15 @@
  
  Angelo Farina - Simone Campanini
  
- *******************************************************************//**
-                                                                      
-                                                                      \class Aurora::SineSweepGenerator
-                                                                      \brief The Aurora's generator of logarithmic sine sweep signal
-                                                                      
-                                                                      blabla
-                                                                      *//*******************************************************************/
+ *******************************************************************/
+
+/**
+ 
+ \class Aurora::SineSweepGenerator
+ \brief The Aurora's generator of logarithmic sine sweep signal
+ 
+ blabla
+ *//*******************************************************************/
 
 #include <SineSweepGenerator.h>
 
@@ -348,7 +350,6 @@ bool Aurora::SineSweepGenerator::Generate()
     return true;
 }
 
-// NOT USED...TBR???
 void Aurora::SineSweepGenerator::FillBlock(Aurora::Sample* pData,
                                            Aurora::SampleCount len,
                                            Aurora::SampleCount written,
@@ -401,7 +402,8 @@ void Aurora::SineSweepGenerator::SetBuffersLength(Aurora::SampleCount len,
                                                   const int nCh)
 {
     m_buffersLength = len;
-    // TODO....
+    // TODO: not implemented
+    std::abort();
 }
 
 void Aurora::SineSweepGenerator::Destroy()

@@ -117,7 +117,6 @@
 		8460B868301124F200AB5CBB /* SCOctaveBandFir.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCOctaveBandFir.h; path = src/SCOctaveBandFir.h; sourceTree = "<group>"; };
 		8460B8A53011293700AB5CBB /* AuroraTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AuroraTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		8460B8A73011293700AB5CBB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		8460B8CA30116C6A00AB5CBB /* audio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = audio.h; sourceTree = "<group>"; };
 		8489E0213013B71D00B2FF6F /* AuroraConvolver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AuroraConvolver.cpp; path = src/AuroraConvolver.cpp; sourceTree = "<group>"; };
 		8489E0263013B79F00B2FF6F /* Multivolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Multivolver.cpp; path = src/Multivolver.cpp; sourceTree = "<group>"; };
 		8489E0293013B7A800B2FF6F /* Convolver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Convolver.cpp; path = src/Convolver.cpp; sourceTree = "<group>"; };
@@ -330,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				8460B8A73011293700AB5CBB /* main.cpp */,
-				8460B8CA30116C6A00AB5CBB /* audio.h */,
 			);
 			path = AuroraTests;
 			sourceTree = "<group>";
