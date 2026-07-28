@@ -98,7 +98,8 @@ namespace Aurora
             bool averageEnabled         = false;
         } m_flags;
         
-        int m_nSource         = Source::Mono;
+//        int m_nSource         = Source::Mono;
+        int m_nSource         = Source::TwoOmniMics;
         int m_nIaccSpan       = IACCSpan::All;
         int m_octaveFraction = 1; // default is 1/1 octave bands
 

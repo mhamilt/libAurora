@@ -307,3 +307,80 @@ float* loadWav(uint32_t &numberOfFrames, std::string filepath)
     
     return audio;
 }
+
+
+
+float** loadWavMultichannel(uint32_t &numberOfFrames, uint32_t &numberOfChannels, std::string filepath)
+{
+    std::ifstream wavFile {filepath, std::fstream::in | std::ios::binary};
+    
+    // If you're reading this, there was a problem reading the file
+    // check the file path is correct and make sure the file is in the right place
+    //
+    // Windows Users: You might need to type the path as a raw string
+    // e.g. R"(C:\Path\To\Your\File)"
+    assert (wavFile.good());
+    
+    WaveHeader wavHeader;
+    wavFile.read((char*)&wavHeader, sizeof(WaveHeader));
+    wavHeader.assertWavFile();
+    numberOfFrames  = wavHeader.getNumFrames();
+    
+    char * bytes = nullptr;
+    
+    uint32_t byteDepth = wavHeader.bitsPerSample / 8;
+    
+    switch (byteDepth)
+    {
+        case 1:
+        case 2:
+            bytes = new char[byteDepth];
+            break;
+        case 3:
+        case 4:
+            bytes = new char[4];
+            break;
+        default:
+            assert(false); // Bit depth is not a value that is dealt with.
+            break;
+    }
+    
+    std::fill(bytes, bytes + byteDepth, 0);
+    
+    float** audio = new float*[wavHeader.numChannels];
+    
+    for (uint32_t channel = 0; channel < wavHeader.numChannels; channel++)
+    {   
+        audio[channel] = new float[wavHeader.getNumFrames()];
+    }
+    
+    for (uint32_t i = 0; i < numberOfFrames; i++)
+    {
+        for (uint16_t channel = 0; channel < wavHeader.numChannels; channel++)
+        {
+            audio[channel][i] = 0.0f;
+            wavFile.read(bytes, byteDepth);
+                        
+            switch (byteDepth)
+            {
+                case 1:
+                    audio[channel][i] += (float(*((uint8_t*)(bytes))) - 127.0f) / 127.0f;
+                    break;
+                case 2:
+                    audio[channel][i] += float(*((int16_t*)(bytes))) / 32768.0f;
+                    break;
+                case 3:
+                    for (uint8_t j = 3; j > 0; j--)
+                        bytes[j] = bytes[j-1];
+                    bytes[0] = 0;
+                case 4:
+                    audio[channel][i] += float(*((int32_t*)(bytes))) / 2147483648.0f;
+                    break;
+            }
+        }
+    }
+    
+    delete [] bytes;
+    
+    return audio;
+}

@@ -41,7 +41,7 @@ void DumpData(const Aurora::Sample* data,
 {
     if (data == nullptr)
         return;
-    
+    s
     namespace fs = std::filesystem;
     
     fs::path filename = fs::temp_directory_path() /
@@ -762,11 +762,11 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
     auto& left = m_aAudioTracks[CH_LEFT];
     size_t nbands = m_results[0].Frequencies().size() + 2;
     
-    //Create progress bar.
-//    int nProg = 0;
-    //ProgressMeterWrapper::Show("Computing ISO 3382 Acoustical Parameters...",
-    //1 + int(2 * nbands * m_results.size()));
-    //PP probe filtering, mono & stereo
+    // Create progress bar.
+    //    int nProg = 0;
+    // ProgressMeterWrapper::Show("Computing ISO 3382 Acoustical Parameters...",
+    // 1 + int(2 * nbands * m_results.size()));
+    // PP probe filtering, mono & stereo
     
     // Intensimetric Probe (P-P) elaboration
     if (IsAnIntensityProbe())  // PP probe
@@ -774,7 +774,7 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
         PreProcessIntensimetricSignal(left);
     }
     
-    //ProgressMeterWrapper::Update(++nProg);
+    //P rogressMeterWrapper::Update(++nProg);
     
     //First Arrival Time search: start with left channel (is this the correct place??)
     size_t nCh = 0;
