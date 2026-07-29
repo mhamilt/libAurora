@@ -13,7 +13,7 @@
 #ifndef __AURORA_AFAUDIO_H__
 #define __AURORA_AFAUDIO_H__
 
-#include <commdefs.h>
+#include <Aurora/commdefs.h>
 #include <functional>
 #include "Vector.h"
 

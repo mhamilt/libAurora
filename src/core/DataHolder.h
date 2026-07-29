@@ -15,8 +15,8 @@
 #define __AURORA_AFDATA_H__
 
 //#include <wxcmn.h>
-#include <commdefs.h>
-#include "Complex.h"
+#include <Aurora/commdefs.h>
+#include <Aurora/Complex.h>
 
 namespace Aurora
 {

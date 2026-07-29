@@ -22,7 +22,7 @@
  */
 
 
-#include "Convolver.h"
+#include "Aurora/Convolver.h"
 
 void Aurora::ConvolverBase::SetFilter(Aurora::SamplesVector& f)
 {

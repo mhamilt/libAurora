@@ -19,7 +19,7 @@
  blabla
  *//*******************************************************************/
 
-#include <SineSweepGenerator.h>
+#include <Aurora/SineSweepGenerator.h>
 
 Aurora::SineSweepGenerator::SineSweepGenerator()
 {

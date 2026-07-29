@@ -9,9 +9,20 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# ------------------------------------------------------------
+# File Organisation
+# ------------------------------------------------------------
+
+file(GLOB_RECURSE AURORA_SOURCES CONFIGURE_DEPENDS
+    src/*.cpp
+)
+
+file(GLOB_RECURSE AURORA_HEADERS CONFIGURE_DEPENDS
+    include/*.h
+)
 
 # ------------------------------------------------------------
-# Static library
+# Static Library Source
 # ------------------------------------------------------------
 
 add_library(aurora STATIC)
@@ -61,13 +72,27 @@ target_sources(aurora
 
     # Time history analysis
     #src/timehistory/TimeHistoryAnalyzer.cpp
+
+    # Dependencies
+    external/kissfft/kiss_fft.c
+    external/kissfft/kiss_fftr.c
 )
 
+source_group(
+    TREE ${CMAKE_CURRENT_SOURCE_DIR}/src
+    PREFIX "Source Files"
+    FILES ${AURORA_SOURCES}
+)
+
+source_group(
+    TREE ${CMAKE_CURRENT_SOURCE_DIR}/include
+    PREFIX "Header Files"
+    FILES ${AURORA_HEADERS}
+)
 
 # ------------------------------------------------------------
 # Optional test programmes
 # ------------------------------------------------------------
-
 
 option(AURORA_BUILD_TESTS "Build Aurora test programs" ON)
 
@@ -76,19 +101,19 @@ if(AURORA_BUILD_TESTS)
     add_subdirectory(tests)
 endif()
 
-
 # ------------------------------------------------------------
 # Public headers
 # ------------------------------------------------------------
 
 target_include_directories(aurora
     PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-
+        #${CMAKE_CURRENT_SOURCE_DIR}/include
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src        
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/kissfft        
 )
-
 
 # ------------------------------------------------------------
 # Compiler options
@@ -101,7 +126,7 @@ target_compile_features(aurora
 
 
 # ------------------------------------------------------------
-# Optional: nicer Xcode organisation
+# Xcode organisation
 # ------------------------------------------------------------
 
 source_group(
@@ -120,17 +145,62 @@ source_group(
 
 
 # ------------------------------------------------------------
-# Installation (optional, useful later)
+# Library Install
 # ------------------------------------------------------------
 
 include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
 
-install(
-    TARGETS aurora
+# install(
+#     TARGETS aurora
+#     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+# )
+
+#install(TARGETS aurora
+#    EXPORT AuroraTargets
+#    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+#)
+
+install(TARGETS aurora
+    EXPORT AuroraTargets
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
+
 
 install(
     DIRECTORY include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(
+    EXPORT AuroraTargets
+    FILE AuroraTargets.cmake
+    NAMESPACE Aurora::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Aurora
+)
+
+configure_package_config_file(
+    cmake/AuroraConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/AuroraConfig.cmake
+    INSTALL_DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/Aurora
+)
+
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/AuroraConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
+)
+
+install(
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/AuroraConfig.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/AuroraConfigVersion.cmake
+    DESTINATION
+        ${CMAKE_INSTALL_LIBDIR}/cmake/Aurora
 )

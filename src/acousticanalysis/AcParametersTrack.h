@@ -13,9 +13,9 @@
 #ifndef __AURORA_APAUDIOTRACK_H__
 #define __AURORA_APAUDIOTRACK_H__
 
-#include <commdefs.h>
-#include <Vector.h>
-#include <Audio.h>
+#include <Aurora/commdefs.h>
+#include <Aurora/Vector.h>
+#include <Aurora/Audio.h>
 #include "AcParametersSpectrum.h"
 
 namespace Aurora

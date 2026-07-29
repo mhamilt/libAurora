@@ -14,8 +14,8 @@
 #ifndef __AURORA_ACPARAM_DATA_H__
 #define __AURORA_ACPARAM_DATA_H__
 
-#include <commdefs.h>
-#include "DataHolder.h"
+#include <Aurora/commdefs.h>
+#include "core/DataHolder.h"
 
 namespace Aurora
 {

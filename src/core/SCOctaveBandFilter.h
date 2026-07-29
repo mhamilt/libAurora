@@ -9,7 +9,7 @@
 
 #define DUMP_TAPS
 
-#include <Vector.h>
+#include <Aurora/Vector.h>
 #include "SCOctaveBandFir.h"
 #include "fir-taps.h"
 #include "iir-taps.h"

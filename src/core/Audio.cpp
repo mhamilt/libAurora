@@ -11,7 +11,7 @@
 
 ***********************************************************************/
 
-#include "Audio.h"
+#include "Aurora/Audio.h"
 
 Aurora::SampleCount Aurora::AudioSamples::TimeToSamples(const double seconds) const
 {

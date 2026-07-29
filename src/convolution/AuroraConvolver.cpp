@@ -12,7 +12,7 @@
  **********************************************************************/
 
 
-#include "AuroraConvolver.h"
+#include "Aurora/AuroraConvolver.h"
 
 bool Aurora::ConvolverController::DoConvolution()
 {

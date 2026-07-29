@@ -15,8 +15,8 @@
 #ifndef __GPFUNCTS_H__
 #define __GPFUNCTS_H__
 
-#include <commdefs.h>
-#include <version.h>
+#include <Aurora/commdefs.h>
+#include <Aurora/version.h>
 #include <cstdio>
 #include <algorithm>
 #include <cmath>

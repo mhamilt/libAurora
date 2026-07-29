@@ -10,7 +10,7 @@
  *  Simone Campanini 2011-20
  *
  **********************************************************************/
-#include <Complex.h>
+#include <Aurora/Complex.h>
 
 // Specialized methods
 void Aurora::ComplexVectorBase::Dump(const char* path) const

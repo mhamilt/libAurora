@@ -7,7 +7,7 @@
 //
 #pragma once
 
-#include <Audio.h>
+#include <Aurora/Audio.h>
 
 class SCSignalWindows
 {

@@ -25,7 +25,7 @@
  
  *//*******************************************************************/
 
-#include "AcousticalParameters.h"
+#include "Aurora/AcousticalParameters.h"
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -41,7 +41,7 @@ void DumpData(const Aurora::Sample* data,
 {
     if (data == nullptr)
         return;
-    s
+    
     namespace fs = std::filesystem;
     
     fs::path filename = fs::temp_directory_path() /

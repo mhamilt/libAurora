@@ -1,5 +1,6 @@
 BUILD_DIR := build
 XCODE_DIR := $(BUILD_DIR)/xcode
+PREFIX ?= /usr/local # or $HOME/local
 
 CMAKE := cmake
 
@@ -28,6 +29,11 @@ tests:
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+install: xcode
+	$(CMAKE) --install $(XCODE_DIR) \
+		--config Debug \
+		--prefix $(PREFIX)
 
 
 rebuild: clean xcode build

@@ -15,7 +15,7 @@
  *                                                              *
  ***************************************************************/
 
-#include "Multivolver.h"
+#include "Aurora/Multivolver.h"
 
 // -------------------------------------------
 // Aurora::Multivolver implementation

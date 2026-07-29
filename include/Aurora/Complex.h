@@ -14,7 +14,7 @@
 #define __AF_COMPLEX_H__
 
 #include <kiss_fft.h>
-#include <commdefs.h>
+#include <Aurora/commdefs.h>
 #include "Vector.h"
 #include "Audio.h"
 

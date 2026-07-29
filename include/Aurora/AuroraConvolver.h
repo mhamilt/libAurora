@@ -13,9 +13,9 @@
 #ifndef __AURORA_CONVOLVER_AUCONV_H__
 #define __AURORA_CONVOLVER_AUCONV_H__
 
-#include <commdefs.h>
+#include <Aurora/commdefs.h>
 #include <kiss_fftr.h>
-#include "Multivolver.h"
+#include <Aurora/Multivolver.h>
 //#include "Config.h"
 
 namespace Aurora

@@ -13,7 +13,7 @@
 #ifndef __AF_VECTOR_H__
 #define __AF_VECTOR_H__
 
-#include <commdefs.h>
+#include <Aurora/commdefs.h>
 #include <kiss_fft.h>
 #include <functional>
 
