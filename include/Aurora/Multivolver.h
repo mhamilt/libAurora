@@ -32,8 +32,8 @@
 #define __AURORA_MULTIVOLVER_H__
 
 #include <Aurora/commdefs.h>
+#include <Aurora/Convolver.h>
 #include <string>
-#include "Aurora/Convolver.h"
 
 namespace Aurora
 {

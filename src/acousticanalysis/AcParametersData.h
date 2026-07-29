@@ -15,7 +15,10 @@
 #define __AURORA_ACPARAM_DATA_H__
 
 #include <Aurora/commdefs.h>
-#include "core/DataHolder.h"
+#include <Aurora/commdefs.h>
+#include <Aurora/AcousticalParameters.h>
+#include <Aurora/AcParametersTrack.h>
+#include "../core/DataHolder.h"
 
 namespace Aurora
 {

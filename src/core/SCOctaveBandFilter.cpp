@@ -4,7 +4,11 @@
  *
  ******************************/
 
-#include  "SCOctaveBandFilter.h"
+#include  <Aurora/SCOctaveBandFilter.h>
+#include "SCOctaveBandFir.h"
+#include "fir-taps.h"
+#include "iir-taps.h"
+
 
 #define SCIPY_FILTER
 //#define GP_IIR 

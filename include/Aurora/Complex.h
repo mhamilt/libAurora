@@ -15,8 +15,8 @@
 
 #include <kiss_fft.h>
 #include <Aurora/commdefs.h>
-#include "Vector.h"
-#include "Audio.h"
+#include <Aurora/Vector.h>
+#include <Aurora/Audio.h>
 
 #ifndef _FFT_MACRO_
 #define _FFT_MACRO_

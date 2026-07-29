@@ -58,8 +58,8 @@
 
 // --------------------------------------------------------------------
 
-#include "audtypes.h"
-#include "version.h"
+#include <Aurora/audtypes.h>
+#include <Aurora/version.h>
 
 #define   AURORA_NAME   "Aurora"
 

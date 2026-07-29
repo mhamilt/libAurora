@@ -42,9 +42,9 @@
 #define USE_KISS_FFT 1
 
 #include <Aurora/commdefs.h>
-#include <kiss_fftr.h>
 #include <Aurora/Vector.h>
 #include <Aurora/Complex.h>
+#include <kiss_fftr.h>
 
 /*
   PRESERVE LENGTH

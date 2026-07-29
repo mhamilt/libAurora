@@ -5,7 +5,7 @@
 //  Created by Matthew Hamilton on 13/10/2023.
 //
 
-#include "AcTSchroederDecay.h"
+#include <Aurora/AcTSchroederDecay.h>
 
 //----------------------------------------------------------------------------
 // TSchroederDecay implementation

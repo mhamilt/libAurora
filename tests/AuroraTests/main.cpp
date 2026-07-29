@@ -1,8 +1,8 @@
 #include <iostream>
 #include <memory>
-#include <aurora.h>
+#include <Aurora/aurora.h>
 #include <kiss_fft.h>
-#include "audio.h"
+#include "matts_audio.h"
 
 int main()
 {

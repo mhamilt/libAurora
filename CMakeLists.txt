@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(Aurora
     VERSION 1.0.0
-    LANGUAGES CXX
+    LANGUAGES C CXX
 )
 
 set(CMAKE_CXX_STANDARD 17)
@@ -29,24 +29,42 @@ add_library(aurora STATIC)
 
 
 target_sources(aurora
+    
     PRIVATE
+
+    # Library Headers
+    ${AURORA_HEADERS}
+    #include/Aurora/AcousticalParameters.h
+    #include/Aurora/Audio.h
+    #include/Aurora/audtypes.h
+    #include/Aurora/aurora.h
+    #include/Aurora/AuroraConvolver.h
+    #include/Aurora/commdefs.h
+    #include/Aurora/Complex.h
+    #include/Aurora/Convolver.h
+    #include/Aurora/Multivolver.h
+    #include/Aurora/SineSweepGenerator.h
+    #include/Aurora/Vector.h
+    #include/Aurora/version.h
+
+    include/Aurora/Spectrum.h 
+    include/Aurora/SCOctaveBandAnalysis.h 
+    include/Aurora/AcParametersTrack.h 
+    include/Aurora/AcTSchroederDecay.h 
 
     # Core mathematics and data structures
     src/core/Audio.cpp
     src/core/Complex.cpp
     src/core/DataHolder.h
     src/core/gpfuncts.cpp
-    src/core/gpfuncts.h
     src/core/SCFirWin.cpp
     src/core/SCFirWin.h
     src/core/SCOctaveBandFilter.cpp
-    src/core/SCOctaveBandFilter.h
     src/core/SCOctaveBandFir.cpp
     src/core/SCOctaveBandFir.h
     src/core/SCSignalWindows.cpp
     src/core/SCSignalWindows.h
-    src/core/Spectrum.cpp
-    src/core/Spectrum.h
+    src/core/Spectrum.cpp    
     src/core/Vector.cpp
 
     # Convolution
@@ -111,8 +129,8 @@ target_include_directories(aurora
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src        
-        ${CMAKE_CURRENT_SOURCE_DIR}/external/kissfft        
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/external/kissfft
 )
 
 # ------------------------------------------------------------

@@ -12,7 +12,9 @@ target_include_directories(AuroraTests
     PRIVATE
         ${PROJECT_SOURCE_DIR}/include
         ${PROJECT_SOURCE_DIR}/src
+        ${PROJECT_SOURCE_DIR}/external/
         ${PROJECT_SOURCE_DIR}/external/miniaudio
+        ${PROJECT_SOURCE_DIR}/external/kissfft
 )
 
 add_test(

@@ -15,10 +15,10 @@
 #define __AURORA_AFACPAR_H__
 
 #include <Aurora/commdefs.h>
-#include "core/Spectrum.h"
-#include "acousticanalysis/AcParametersTrack.h"
-#include "acousticanalysis/AcTSchroederDecay.h"
-#include "core/SCOctaveBandAnalysis.h"
+#include <Aurora/Spectrum.h>
+#include <Aurora/SCOctaveBandAnalysis.h>
+#include <Aurora/AcParametersTrack.h>
+#include <Aurora/AcTSchroederDecay.h>
 
 #define FIND_VECTOR_MAX(x, max, bd) \
    for(unsigned long k = 0; k < bd; k++) \

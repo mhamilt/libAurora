@@ -11,7 +11,7 @@
 
 ***********************************************************************/
 
-#include "Spectrum.h"
+#include <Aurora/Spectrum.h>
 
 /*
    Nothin'....Aurora::Spectrum has been templatized, so everything is in the

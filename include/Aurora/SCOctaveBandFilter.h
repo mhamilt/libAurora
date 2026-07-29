@@ -10,9 +10,9 @@
 #define DUMP_TAPS
 
 #include <Aurora/Vector.h>
-#include "SCOctaveBandFir.h"
-#include "fir-taps.h"
-#include "iir-taps.h"
+//#include "SCOctaveBandFir.h"
+//#include "fir-taps.h"
+//#include "iir-taps.h"
 
 
 class SCFilter

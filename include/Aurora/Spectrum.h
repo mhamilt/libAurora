@@ -16,7 +16,7 @@
 #include <array>
 #include <map>
 #include <Aurora/commdefs.h>
-#include "gpfuncts.h"
+#include <Aurora/gpfuncts.h>
 
 namespace Aurora
 {

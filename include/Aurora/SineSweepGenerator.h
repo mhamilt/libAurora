@@ -13,8 +13,8 @@
 #ifndef __AURORA_SSWGEN_H__
 #define __AURORA_SSWGEN_H__
 
-#include "commdefs.h"
-#include "Vector.h"
+#include <Aurora/commdefs.h>
+#include <Aurora/Vector.h>
 
 namespace Aurora
 {

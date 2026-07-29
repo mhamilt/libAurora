@@ -11,7 +11,7 @@
 
 ************************************************************************/
 
-#include "AcParametersTrack.h"
+#include <Aurora/AcParametersTrack.h>
 
 //-------------------------------------------------------------------------------------
 // Aurora::AcParametersAudioTrack implementation

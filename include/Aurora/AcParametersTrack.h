@@ -16,7 +16,7 @@
 #include <Aurora/commdefs.h>
 #include <Aurora/Vector.h>
 #include <Aurora/Audio.h>
-#include "AcParametersSpectrum.h"
+#include <Aurora/AcParametersSpectrum.h>
 
 namespace Aurora
 {

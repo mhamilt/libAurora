@@ -15,10 +15,7 @@
 \brief The decay graphic
 
 *//*******************************************************************/
-#include <Aurora/commdefs.h>
-#include <Aurora/AcousticalParameters.h>
 
-#include "AcParametersTrack.h"
 #include "AcParametersData.h"
 
 //----------------------------------------------------------------------------

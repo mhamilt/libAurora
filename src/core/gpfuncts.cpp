@@ -10,7 +10,7 @@
  *  Simone Campanini 2011
  *
  **********************************************************************/
-#include  "gpfuncts.h"
+#include  <Aurora/gpfuncts.h>
 
 std::string Aurora::GetBandShortLabel(const float fcb,
                                       const bool replaceDotsWithUnderscores)

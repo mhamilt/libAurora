@@ -8,7 +8,7 @@
 
 #include <vector>
 #include <Aurora/Audio.h>
-#include "SCOctaveBandFilter.h"
+#include <Aurora/SCOctaveBandFilter.h>
 
 
 class SCFilter;

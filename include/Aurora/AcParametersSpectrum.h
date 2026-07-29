@@ -8,7 +8,7 @@
 #ifndef AcParametersSpectrum_h
 #define AcParametersSpectrum_h
 
-#include "AcTResults.h"
+#include <Aurora/AcTResults.h>
 
 namespace Aurora {
 typedef Spectrum<Aurora::TResults::TParameter> AcParametersSpectrum;

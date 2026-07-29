@@ -14,8 +14,8 @@
 #define __AURORA_AFAUDIO_H__
 
 #include <Aurora/commdefs.h>
+#include <Aurora/Vector.h>
 #include <functional>
-#include "Vector.h"
 
 //----------------------------------------------------------------------------
 // AudioTrackBase
