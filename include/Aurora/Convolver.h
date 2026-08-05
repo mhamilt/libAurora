@@ -44,7 +44,7 @@
 #include <Aurora/commdefs.h>
 #include <Aurora/Vector.h>
 #include <Aurora/Complex.h>
-#include <kiss_fftr.h>
+#include <kissfft/kiss_fftr.h>
 
 /*
   PRESERVE LENGTH

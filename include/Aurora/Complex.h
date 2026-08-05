@@ -13,7 +13,7 @@
 #ifndef __AF_COMPLEX_H__
 #define __AF_COMPLEX_H__
 
-#include <kiss_fft.h>
+#include <kissfft/kiss_fft.h>
 #include <Aurora/commdefs.h>
 #include <Aurora/Vector.h>
 #include <Aurora/Audio.h>
