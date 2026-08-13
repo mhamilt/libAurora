@@ -35,7 +35,7 @@ void Aurora::TSchroederDecay::FindFirstArrivalTime()
         decayStart++;
     }
 
-    printf("Decay start: %d\n", int(decayStart));
+    // printf("Decay start: %d\n", int(decayStart));
 
     m_fat = decayStart;
 }
