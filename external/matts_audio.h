@@ -219,7 +219,7 @@ void writeToWav(float* audio,
     {
 #if defined _WIN32 || defined _WIN64
         // don't forget to add Add 'Winmm.lib' in Properties > Linker > Input > Additional Dependencies
-        PlaySound(std::wstring(filepath.begin(), filepath.end()).c_str(), NULL, SND_FILENAME);
+        PlaySoundW(std::wstring(filepath.begin(), filepath.end()).c_str(), NULL, SND_FILENAME);
 #elif __linux__
         std::system((std::string("aplay ") + filepath).c_str());
 #elif __APPLE__

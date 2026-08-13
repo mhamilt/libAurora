@@ -1,7 +1,12 @@
 BUILD_DIR := build
 XCODE_DIR := $(BUILD_DIR)/xcode
-PREFIX ?= $(HOME)/.local
 BUILD_CONFIG ?= Debug
+
+ifeq ($(OS),Windows_NT)
+PREFIX ?= $(USERPROFILE)/.local
+else
+PREFIX ?= $(HOME)/.local
+endif
 
 CMAKE := cmake
 
@@ -19,6 +24,12 @@ xcode:
 		-DCMAKE_INSTALL_PREFIX=$(PREFIX) \
 		-D AURORA_BUILD_TESTS=ON
 
+build-windows:
+	cmake -S . -B build -G Ninja -DCMAKE_INSTALL_PREFIX=$(PREFIX)
+	cmake --build build
+
+install-windows: build-windows
+	cmake --install build
 
 build:
 	$(CMAKE) --build $(XCODE_DIR) \

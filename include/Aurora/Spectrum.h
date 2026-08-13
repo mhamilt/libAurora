@@ -15,6 +15,7 @@
 
 #include <array>
 #include <map>
+#include <functional>
 #include <Aurora/commdefs.h>
 #include <Aurora/gpfuncts.h>
 
