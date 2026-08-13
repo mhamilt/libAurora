@@ -40,8 +40,8 @@ Listed below is the status of each unit, whether all of its source is present, c
 | ------------------------- | :-----: | :------: | :-------------: |
 | Acoustical Parameters     |   ✅    |    ✅    |       ✅        |
 | Convolver                 |   ✅    |    ✅    |       ✅        |
-| Kirkeby Filter Inversion  |   ❌    |    ❌    |       ❌        |
+| Kirkeby Filter Inversion  |   ✅    |    ❌    |       ❌        |
 | SineSweepGenerator        |   ✅    |    ✅    |       ✅        |
-| Speech Transmission Index |   ❌    |    ❌    |       ❌        |
-| TimeHistoryAnalyzer       |   ❌    |    ❌    |       ❌        |
-| XFunctions                |   ❌    |    ❌    |       ❌        |
+| Speech Transmission Index |   ✅    |    ❌    |       ❌        |
+| TimeHistoryAnalyzer       |   ✅    |    ❌    |       ❌        |
+| XFunctions                |   ✅    |    ❌    |       ❌        |
