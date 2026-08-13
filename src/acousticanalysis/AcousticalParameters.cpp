@@ -253,9 +253,9 @@ double Aurora::AcousticalParameters::Clarity(const int nCh,
     fat = Aurora::SampleCount(m_aAudioTracks[nCh].GetFirstArrivalTime() * rate);
 #endif
     
-    printf("c50: delta %d, fat %d, dec_fat %f, dec_fat_delta %f\n",
-           (int)delta, (int)fat,
-           m_decays[nCh][fat],m_decays[nCh][fat + delta]);
+    // printf("c50: delta %d, fat %d, dec_fat %f, dec_fat_delta %f\n",
+//           (int)delta, (int)fat,
+//           m_decays[nCh][fat],m_decays[nCh][fat + delta]);
     // result in dB
     return ( 10.0 *log10((m_decays[nCh][fat] - m_decays[nCh][fat + delta]) /
                          m_decays[nCh][fat + delta]));
@@ -899,7 +899,7 @@ bool Aurora::AcousticalParameters::CalculateAcousticParameters()
                 // group delay: 50 ms for 31.5 band, then for every octave
                 //              band divide by two
                 delay = 0.05 / std::exp2(di);
-                printf("group delay for %f: %f (%f)\n", fcb, delay, di);
+                // printf("group delay for %f: %f (%f)\n", fcb, delay, di);
             }
 #endif
             
