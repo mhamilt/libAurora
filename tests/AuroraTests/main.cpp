@@ -88,12 +88,52 @@ int main()
     //------------------------------------------------------------------------
     // Acoustical Parameters
     
-    Aurora::Kirkeby kirkeby;
     const int nTracks = 2; // filter and sweep
+    Aurora::Kirkeby kirkeby{nTracks};
     kirkeby.SetSamplerate(sampleRate);
-//    kirkeby.Init(2);
-    
-//    kirkeby.Process()
+    //    kirkeby.SetInputTrackLength();
+    //    SetInverseFilterLength((Aurora::SampleCount)filterLength);
+///
+    kirkeby.Init();
+// Aurora::Kirkeby::SetInputTracks(std::vector<std::vector<float*>>)
+//    LoadTracks()
+    // Use GetInputTrackItem to copy tracks in the right order
+//    while(col < nColsNo)
+//            {
+//                auto& input = GetInputTrackItem(nRow, nCol);
+//
+//                if(input.IsNull())
+//                {
+//                    printf("Error in memory allocation\n");
+//                    return false;
+//                }
+//                wt->Get((samplePtr)input.Samples(),
+//                        floatSample,
+//                        m_start + col * nColumnWidth,
+//                        nColumnWidth);
+//                col++;
+//            }
+//    kirkeby.Process();
+    //    while(nRow < GetRows())
+    //    {
+    //        name.Printf("Inverse Filter %d", nRow + 1);
+    //        auto wt = mFactory->NewWaveTrack(floatSample, mProjectRate);
+    //        nCol = 0;
+    //
+    //        while(nCol < GetCols())
+    //        {
+    //            samplePtr data = (samplePtr)GetOutputTrackItem(nRow, nCol).Samples();
+    //            auto length = GetInverseFilterLength();
+    //
+    //            wt->Append(data, floatSample, length );
+    //            nCol++;
+    //        }
+    //        wt->Flush();
+    //        wt->SetName(name);
+    //        AddToOutputTracks(wt);
+    //        nRow++;
+    //    }
+
     
     //------------------------------------------------------------------------
     // Speech Transmission Index
@@ -160,7 +200,7 @@ int main()
     
     Aurora::TimeHistoryAnalyzer tha;
 //    tha.SetChannelsNumber
-    tha.LoadTracks()
+//    tha.LoadTracks()
     {
         //    DoAnalysis()
         //        for(size_t nCh = 0; nCh < m_aSignalTracks.size(); nCh++)
