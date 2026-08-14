@@ -29,5 +29,6 @@
 #include <Aurora/AcousticalParameters.h>
 #include <Aurora/AcParametersTrack.h>
 #include <Aurora/Kirkeby.h>
+#include <Aurora/STI.h>
 
 #endif // __AURORA_VERSION_H__

@@ -15,8 +15,7 @@
 
 #include <Aurora/commdefs.h>
 #include <Aurora/Audio.h>
-
-#include "STISpectrum.h"
+#include <Aurora/STISpectrum.h>
 #include "ModulationTransferFunctionsTable.h"
 
 namespace Aurora

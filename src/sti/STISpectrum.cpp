@@ -5,7 +5,7 @@
 //  Created by Matthew Hamilton on 13/10/2023.
 //
 
-#include "STISpectrum.h"
+#include <Aurora/STISpectrum.h>
 
 
 const Aurora::STISpectrum& Aurora::STISpectrum::MaskingThresholdsProfile()

@@ -91,14 +91,14 @@ target_sources(aurora
 
     # Speech Transmission Index
     src/sti/ModulationTransferFunctionsTable.cpp
-    src/sti/ModulationTransferFunctionsTable.h    
+    #src/sti/ModulationTransferFunctionsTable.h    
     src/sti/STI.cpp
     src/sti/STIData.h
-    src/sti/STIResults.h
+    #src/sti/STIResults.h
     src/sti/STIResults.cpp
     src/sti/STISpectrum.cpp
-    src/sti/STISpectrum.h
-    src/sti/STITrack.h
+    #src/sti/STISpectrum.h
+    #src/sti/STITrack.h
     src/sti/STITrack.cpp
 
     # Time history analysis

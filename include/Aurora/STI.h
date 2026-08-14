@@ -15,10 +15,8 @@
 
 #include <Aurora/commdefs.h>
 //#include "../core/Config.h"
-
-#include "STISpectrum.h"
-#include "STIResults.h"
-#include "STITrack.h"
+#include <Aurora/STIResults.h>
+#include <Aurora/STITrack.h>
 
 namespace Aurora
 {
