@@ -8,7 +8,8 @@
 #ifndef ModulationTransferFunctionsTable_hpp
 #define ModulationTransferFunctionsTable_hpp
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+#include <map>
 #include "STISpectrum.h"
 
 namespace Aurora
@@ -18,7 +19,7 @@ namespace Aurora
  * @brief Container for STI computations.
  */
 class ModulationTransferFunctionsTable
-{
+{    
     std::map<double, Aurora::STISpectrum> m_table;
     
     std::array<double, 14> m_frequencies =

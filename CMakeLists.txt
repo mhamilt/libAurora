@@ -46,6 +46,7 @@ target_sources(aurora
     #include/Aurora/SineSweepGenerator.h
     #include/Aurora/Vector.h
     #include/Aurora/version.h
+    
 
     include/Aurora/Spectrum.h 
     include/Aurora/SCOctaveBandAnalysis.h 
@@ -73,7 +74,8 @@ target_sources(aurora
     src/convolution/AuroraConvolver.cpp    
 
     # Kirkeby inversion
-    #src/kirkeby/Kirkeby.cpp
+    src/kirkeby/KirkebyBase.cpp
+    src/kirkeby/KirkebyBase.h
 
     # Signal generation
     src/sweep/SineSweepGenerator.cpp
@@ -86,11 +88,30 @@ target_sources(aurora
     src/acousticanalysis/AcTSchroederDecay.cpp
 
     # Speech Transmission Index
-    #src/sti/SpeechTransmissionIndex.cpp
+    src/sti/ModulationTransferFunctionsTable.cpp
+    src/sti/ModulationTransferFunctionsTable.h
+    src/sti/STI.h
+    src/sti/STI.cpp
+    src/sti/STIData.h
+    src/sti/STIResults.h
+    src/sti/STIResults.cpp
+    src/sti/STISpectrum.cpp
+    src/sti/STISpectrum.h
+    src/sti/STITrack.h
+    src/sti/STITrack.cpp
 
     # Time history analysis
-    #src/timehistory/TimeHistoryAnalyzer.cpp
+    src/timehistoryanalysis/ThAnalyzerData.cpp
+    src/timehistoryanalysis/ThAnalyzerData.h
+    src/timehistoryanalysis/ThAnalyzerTrack.cpp
+    src/timehistoryanalysis/ThAnalyzerTrack.h
+    src/timehistoryanalysis/TimeHistoryAnalyzer.cpp
+    src/timehistoryanalysis/TimeHistoryAnalyzer.h
 
+    # Cross Functions
+    src/xfunctions/Correlator.cpp
+    src/xfunctions/Correlator.h
+    
     # Dependencies
     external/kissfft/kiss_fft.c
     external/kissfft/kiss_fftr.c

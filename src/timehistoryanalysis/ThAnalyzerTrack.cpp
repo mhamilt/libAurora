@@ -30,14 +30,14 @@ void Aurora::ThAnalyzerAudioTrack::Filter()
    }
 }
 
-void Aurora::ThAnalyzerAudioTrack::SetFilterFromString(const wxString& s)
+void Aurora::ThAnalyzerAudioTrack::SetFilterFromString(const std::string& s)
 {
     int fid = Aurora::AudioTrack::FLT_LIN;
     
-    if(s.Find("ITU") != wxNOT_FOUND) { fid = Aurora::AudioTrack::FLT_ITU; } else
-    if(s.Find("IEC") != wxNOT_FOUND) { fid = Aurora::AudioTrack::FLT_IEC; } else
-    if(s.Find("ISO") != wxNOT_FOUND) { fid = Aurora::AudioTrack::FLT_ISO; } else
-    if(s.Find("UNI") != wxNOT_FOUND) { fid = Aurora::AudioTrack::FLT_UNI; }
+    if(s.find("ITU") != -1) { fid = Aurora::AudioTrack::FLT_ITU; } else
+    if(s.find("IEC") != -1) { fid = Aurora::AudioTrack::FLT_IEC; } else
+    if(s.find("ISO") != -1) { fid = Aurora::AudioTrack::FLT_ISO; } else
+    if(s.find("UNI") != -1) { fid = Aurora::AudioTrack::FLT_UNI; }
 
     SetFilter(fid);
 }
@@ -45,7 +45,7 @@ void Aurora::ThAnalyzerAudioTrack::SetFilterFromString(const wxString& s)
 Aurora::ThAnalyzerAudioTrack& Aurora::ThAnalyzerAudioTrack::operator=(ThAnalyzerAudioTrack&& at)
 {
     Aurora::AudioTrack::operator=(std::move(at));
-    m_name = at.m_name;
+//    m_name = at.m_name;
     m_nIdx = at.m_nIdx;
     m_dbReference = at.m_dbReference;
     return *this;
@@ -54,8 +54,8 @@ Aurora::ThAnalyzerAudioTrack& Aurora::ThAnalyzerAudioTrack::operator=(ThAnalyzer
 Aurora::ThAnalyzerAudioTrack::ThAnalyzerAudioTrack(ThAnalyzerAudioTrack&& at)
 : Aurora::AudioTrack(std::move(at)),  
   m_nIdx(at.m_nIdx),
-  m_dbReference(at.m_dbReference),
-  m_name(at.m_name)
+  m_dbReference(at.m_dbReference)
+//  m_name(at.m_name)
 { }
 
 Aurora::ThAnalyzerAudioTrack::ThAnalyzerAudioTrack(const SampleCount length,

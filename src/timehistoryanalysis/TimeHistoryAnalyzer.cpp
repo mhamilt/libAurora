@@ -17,7 +17,7 @@
   blabla
 *//*******************************************************************/
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
 //#include <widgets/ProgressDialog.h>
 
 #include "TimeHistoryAnalyzer.h"
@@ -149,19 +149,19 @@ bool Aurora::TimeHistoryAnalyzer::Analyze()
     const int channelsCount = (int)m_aSignalTracks.size();
     
     std::vector<int> ranges = { channelsCount, 100 };
-    ProgressMeterWrapper::Show("Computing Time History statistics...", ranges);
+//    ////ProgressMeterWrapper::Show("Computing Time History statistics...", ranges);
     //InitProgressMeter(channelsCount);
 
     for(int ch = 0; ch < channelsCount; ch++)
     {
         if(!AnalyzeTrack(ch))
         {
-            ProgressMeterWrapper::Destroy();
+//            ////ProgressMeterWrapper::Destroy();
             return false;
         }
     }
     FillAvgParameters();
-    ProgressMeterWrapper::Destroy();
+//    ////ProgressMeterWrapper::Destroy();
 
     return true;
 }
@@ -230,11 +230,11 @@ bool Aurora::TimeHistoryAnalyzer::AnalyzeTrack(const int nCh)
     // ******************************** Parte 1 ********************************
 
     // inizializzo a zero il progress meter
-    wxString msg;
-    msg.Printf("Analyzing channel %d Time History...", nCh + 1);
-    ProgressMeterWrapper::SetMessage(msg);
-    ProgressMeterWrapper::Update(nCh, 0);
-    ProgressMeterWrapper::SetRange((int)stepsCount, 1);
+//    wxString msg;
+//    msg.Printf("Analyzing channel %d Time History...", nCh + 1);
+    ////ProgressMeterWrapper::SetMessage(msg);
+    ////ProgressMeterWrapper::Update(nCh, 0);
+    ////ProgressMeterWrapper::SetRange((int)stepsCount, 1);
  
     Aurora::SampleCount step = 0, un = 0;
     double rmsOn1ms = 0.0;
@@ -339,10 +339,10 @@ bool Aurora::TimeHistoryAnalyzer::AnalyzeTrack(const int nCh)
 
         if((step % 100) == 0)   // to speedup not update at every step
         {
-            if(! ProgressMeterWrapper::Update((int)step, 1))
-            {
-                return false;
-            }
+//            if(! ////ProgressMeterWrapper::Update((int)step, 1))
+//            {
+//                return false;
+//            }
         }
     } // end of step for
         

@@ -13,9 +13,10 @@
 #ifndef __AURORA_KIRKEBY_AFKIRK_H__
 #define __AURORA_KIRKEBY_AFKIRK_H__
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+#include <Aurora/Vector.h>
+#include <Aurora/Complex.h>
 #include <kiss_fftr.h>
-#include <effects/Generator.h>
 
 namespace Aurora
 {

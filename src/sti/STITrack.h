@@ -13,7 +13,8 @@
 #ifndef __STI_TRACK_H__
 #define __STI_TRACK_H__
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+#include <Aurora/Audio.h>
 
 #include "STISpectrum.h"
 #include "ModulationTransferFunctionsTable.h"

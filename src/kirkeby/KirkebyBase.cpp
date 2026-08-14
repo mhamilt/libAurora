@@ -17,7 +17,7 @@
   Bla bla bla
 
 *//*******************************************************************/
-#include <aurora.h>
+#include <Aurora/commdefs.h>
 #include "KirkebyBase.h"
 
 

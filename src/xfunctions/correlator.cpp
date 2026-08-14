@@ -687,7 +687,7 @@ bool Aurora::Correlator::DoCrossCorrelation()
     {
         return false;
     }
-    ProgressMeterWrapper::SetRange((int)numberOfBlocks + 1);
+    //ProgressMeterWrapper::SetRange((int)numberOfBlocks + 1);
 
     Aurora::SampleCount i = 0;
     Aurora::SampleCount j = 0;
@@ -742,10 +742,10 @@ bool Aurora::Correlator::DoCrossCorrelation()
         }
         
         // aggiorno il progress meter
-        if(! ProgressMeterWrapper::Update((int)block + 1))
-        {
-            return false;
-        }
+//        if(! //ProgressMeterWrapper::Update((int)block + 1))
+//        {
+//            return false;
+//        }
     }    
     // Calcolo i valori complessivi RMS normalizzati sulla lunghezza totale effettiva
     // e corretti per il tipo di finestra impiegata
@@ -765,8 +765,8 @@ bool Aurora::Correlator::DoCrossCorrelation()
 
 void Aurora::Correlator::PostProcessAutocorrelation()
 {
-    ProgressMeterWrapper::SetMessage("Post-processing Autocorrelation...");
-    ProgressMeterWrapper::SetRange(100);
+    //ProgressMeterWrapper::SetMessage("Post-processing Autocorrelation...");
+    //ProgressMeterWrapper::SetRange(100);
 
     m_Gll.IFFT();
     m_Grr.IFFT();
@@ -782,7 +782,7 @@ void Aurora::Correlator::PostProcessAutocorrelation()
     //    r_x[0] = 1/N sum_{m=0}^{N-1} |x(m)|^2
     // cfr: https://ccrma.stanford.edu/~jos/mdft/Autocorrelation.html#21254
     const double Glr_0 = m_Glr.t[0];  // aka CC0...
-    ProgressMeterWrapper::Update(30);
+    //ProgressMeterWrapper::Update(30);
 
     // ------------------------------------------------ Hilbert transform option
     if(m_options.squaredHilbertTransform)
@@ -810,7 +810,7 @@ void Aurora::Correlator::PostProcessAutocorrelation()
         m_Gll.t.RemoveDC();
         m_Gll.t.RemoveDC();
     }
-    ProgressMeterWrapper::Update(80);
+    //ProgressMeterWrapper::Update(80);
         
     //--------------------------------------------------- ....and finally normalize to calculated values
     if (m_options.normalize)
@@ -818,17 +818,17 @@ void Aurora::Correlator::PostProcessAutocorrelation()
         m_Gll.t.Normalize();
         m_Grr.t.Normalize();
     }
-    ProgressMeterWrapper::Update(100);
+    //ProgressMeterWrapper::Update(100);
 }
 
 void Aurora::Correlator::PostProcessCrossFunction(Aurora::Correlator::TVector& data)
 {
-    ProgressMeterWrapper::SetMessage("Post-processing XFunction...");
-    ProgressMeterWrapper::SetRange(100);
+    //ProgressMeterWrapper::SetMessage("Post-processing XFunction...");
+    //ProgressMeterWrapper::SetRange(100);
 
     // --------------------------------------- Coherence calculation
     Coherence();
-    ProgressMeterWrapper::Update(10);
+    //ProgressMeterWrapper::Update(10);
     
     // --------------------------------------- Coherence weighting option
     if(m_options.coherenceWeighting)
@@ -842,7 +842,7 @@ void Aurora::Correlator::PostProcessCrossFunction(Aurora::Correlator::TVector& d
     Aurora::SamplesVector& out = data.t;
     const Aurora::ComplexSpectrum& in = data.f;
     
-	ProgressMeterWrapper::Update(20);
+	//ProgressMeterWrapper::Update(20);
     
     // --------------------------------------- Shift to half option
     if(m_options.shiftToHalfWindow)
@@ -851,7 +851,7 @@ void Aurora::Correlator::PostProcessCrossFunction(Aurora::Correlator::TVector& d
         m_C.t.Rotate(m_fftLength / 2);
         m_delta.t.Rotate(m_fftLength / 2); // this costs a very little...
     }
-    ProgressMeterWrapper::Update(40);
+    //ProgressMeterWrapper::Update(40);
     
     // ---------------------------------------- Get Mean Square Power
     // At lag 0, autocorrelation reduces to average power
@@ -879,14 +879,14 @@ void Aurora::Correlator::PostProcessCrossFunction(Aurora::Correlator::TVector& d
     {    
         out.RemoveDC();
     }
-    ProgressMeterWrapper::Update(60);
+    //ProgressMeterWrapper::Update(60);
     
     //---------------------------------------- Searching for maximum values...          
     m_Gmax.xcorr = out.GetAbsMax(m_Gmax.index);
     
     // --------------------------------------- Crosscorrelation Max scaling factor
     m_GlrMax = (m_RMS.cross / m_RMS.left / m_RMS.right) / Glr_0; // TBR
-    ProgressMeterWrapper::Update(80);
+    //ProgressMeterWrapper::Update(80);
     
     // --------------------------------------- Cross correlation stuffs...
     if(! m_options.normalize && m_nXFnTypeId == Aurora::XFunctionType::kCrossCorrelation)
@@ -901,7 +901,7 @@ void Aurora::Correlator::PostProcessCrossFunction(Aurora::Correlator::TVector& d
         // visualizzo il valore vero della CC normalizzata
         m_Gmax.xcorr = Glr_0 / m_RMS.cross * m_RMS.left * m_RMS.right;
     }
-    ProgressMeterWrapper::Update(90);
+    //ProgressMeterWrapper::Update(90);
     
     //--------------------------- ....and finally normalize to calculated values
     out.Normalize(m_Gmax.xcorr > 0 ? m_Gmax.xcorr : 1.0);
@@ -914,7 +914,7 @@ void Aurora::Correlator::PostProcessCrossFunction(Aurora::Correlator::TVector& d
         // Fly time calculation
         m_dbTriggerTime = Trigger(m_Glr.t);
     }
-    ProgressMeterWrapper::Update(100);
+    //ProgressMeterWrapper::Update(100);
 }
 
 
@@ -922,12 +922,12 @@ bool Aurora::Correlator::Process()
 {
     assert(m_inputs[0].Length() > 0);
     
-    ProgressMeterWrapper::Show("Computing...", 100, true);
+    //ProgressMeterWrapper::Show("Computing...", 100, true);
     
     // Call to pre-process method
     if (! DoCrossCorrelation())
     {
-        ProgressMeterWrapper::Destroy();
+        //ProgressMeterWrapper::Destroy();
         return false;
     }
 
@@ -936,7 +936,7 @@ bool Aurora::Correlator::Process()
     //             in m_adbRMS  the rms values of the input vectors,
     //             in m_Wlr the cross-power spectrum phase (if option selected)
 
-    wxLogDebug("lb: %ld, hb: %ld\n", long(m_lowerBound), long(m_higherBound));
+//    wxLogDebug("lb: %ld, hb: %ld\n", long(m_lowerBound), long(m_higherBound));
 
     //  Aurora::Sample Glr_0 =0.0;  // CC0
     
@@ -1144,8 +1144,8 @@ void Aurora::Correlator::SetBounds()
         Aurora::SampleCount iMax = 0;
         auto max = (m_nFollowChn == CH_LEFT) ? m_left.f.FindAbsMax(iMax) 
                                              : m_right.f.FindAbsMax(iMax);
-        wxLogDebug("Found max for channel %d: %f at sample %d",
-                   m_nFollowChn, max, (int)iMax);
+//        wxLogDebug("Found max for channel %d: %f at sample %d",
+//                   m_nFollowChn, max, (int)iMax);
         
         const double bandFactor = std::exp2(m_dbFollowBW/2.0);
 

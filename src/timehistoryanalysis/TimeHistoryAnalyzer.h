@@ -18,7 +18,7 @@
 
 namespace Aurora
 {
-    class TimeHistoryAnalyzer : public ProgressMeterWrapper
+    class TimeHistoryAnalyzer
     {
     public:
         
@@ -123,8 +123,8 @@ namespace Aurora
         double dBAverage(const int nParam);
         void   FillAvgParameters();
 
-        // --- manage multi gauge progress meter
-        wxString GetCaptionString() const override { return wxString("Aurora ITU P56"); }
+//         --- manage multi gauge progress meter
+//        wxString GetCaptionString() const override { return wxString("Aurora ITU P56"); }
 
     public:
         

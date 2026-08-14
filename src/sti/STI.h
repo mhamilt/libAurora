@@ -13,7 +13,8 @@
 #ifndef __AURORA_STI_H__
 #define __AURORA_STI_H__
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+//#include "../core/Config.h"
 
 #include "STISpectrum.h"
 #include "STIResults.h"
@@ -24,7 +25,7 @@ namespace Aurora
     /**
      * @brief The Speech Transfer Index computation class
      */
-    class STI : public Aurora::ProgressMeterWrapper
+    class STI 
     {
       public:
         // OctaveBands defined in commdefs.h
@@ -145,7 +146,7 @@ namespace Aurora
         void StoreConfigurationValues();
 
     protected:
-        wxString GetCaptionString() const override { return wxString("Aurora STI"); }
+//        wxString GetCaptionString() const override { return wxString("Aurora STI"); }
 
     public:
         // 'ctors

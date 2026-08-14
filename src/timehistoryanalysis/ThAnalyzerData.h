@@ -14,7 +14,8 @@
 #ifndef __AURORA_ITUP56_DATA_H__
 #define __AURORA_ITUP56_DATA_H__
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+#include "../core/DataHolder.h"
 
 #include "ThAnalyzerTrack.h"
 

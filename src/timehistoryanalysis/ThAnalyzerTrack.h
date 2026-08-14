@@ -14,7 +14,8 @@
 #ifndef __AURORA_ITUP56_TRACK_H__
 #define __AURORA_ITUP56_TRACK_H__
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+#include <Aurora/Audio.h>
 
 namespace Aurora
 {
@@ -26,22 +27,22 @@ namespace Aurora
     private:
         int      m_nIdx        = 0;
         double   m_dbReference = 94.0;
-        wxString m_name        = "TrackName" ;
+//        wxString m_name        = "TrackName" ;
 
     public:
         void Filter();
 
         int GetIndex() const { return m_nIdx; }        
-        wxString& GetName()  { return m_name; }
+//        wxString& GetName()  { return m_name; }
         
         double GetReferenceLevel() const { return m_dbReference; }
         void SetReferenceLevel(const double rv) { m_dbReference = rv; }
 
-        void SetFilterFromString(const wxString& s);
+        void SetFilterFromString(const std::string& s);
         
         void SetIndex(const int nIdx)        { m_nIdx = nIdx; }
-        void SetName (const wxChar*   name)  { m_name = name; }
-        void SetName (const wxString& name)  { m_name = name; }
+//        void SetName (const wxChar*   name)  { m_name = name; }
+//        void SetName (const wxString& name)  { m_name = name; }
 
         ThAnalyzerAudioTrack& operator=(ThAnalyzerAudioTrack&& at);
         ThAnalyzerAudioTrack& operator=(ThAnalyzerAudioTrack& at) = delete; 

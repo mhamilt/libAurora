@@ -8,7 +8,8 @@
 #ifndef STISpectrum_hpp
 #define STISpectrum_hpp
 
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+#include <Aurora/Spectrum.h>
 
 namespace Aurora{
 class STISpectrum : public Aurora::Spectrum<double>

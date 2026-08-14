@@ -57,19 +57,19 @@ void Aurora::STI::ComputeOctaveSpectrum(Aurora::STIAudioTrack& track,
         track.ResetFilteredTrack();
         track.STIOctaveFilter(fcb);
         value = track.Leq() + m_dbFullScaleLevel[nChnl];
-        ProgressMeterWrapper::Update((int)bd + 1, 1);
+        //ProgressMeterWrapper::Update((int)bd + 1, 1);
     });
     
     // A band (11th)
     track.ResetFilteredTrack();
     track.AFilter();
     octaveSpectrum.SetAverageValue("A", track.Leq() + m_dbFullScaleLevel[nChnl]);
-    ProgressMeterWrapper::Update(11, 1);
+    //ProgressMeterWrapper::Update(11, 1);
 
     // Lin band (12th)
     track.ResetFilteredTrack();
     octaveSpectrum.SetAverageValue("Lin", track.Leq() + m_dbFullScaleLevel[nChnl]);
-    ProgressMeterWrapper::Update(12, 1);
+    //ProgressMeterWrapper::Update(12, 1);
 
 }
 
@@ -78,19 +78,19 @@ bool Aurora::STI::StoreSpectrums(Aurora::STIAudioTrack& signal,
                                  const int nChnl)
 { 
 
-    wxString msg;
-    msg.Printf("Background Noise: processing %s channel.", nChnl ? "right" 
-                                                                 : "left");
-    ProgressMeterWrapper::SetMessage(msg);
+//    wxString msg;
+//    msg.Printf("Background Noise: processing %s channel.", nChnl ? "right" 
+//                                                                 : "left");
+    //ProgressMeterWrapper::SetMessage(msg);
 
     Aurora::Results& res = m_results[nChnl];
     
     // Store noise
     ComputeOctaveSpectrum(noise, res.noiseSpectrum, nChnl);
     
-    msg.Printf("Test Signal: processing %s channel.",  nChnl ? "right"
-                                                             : "left");
-    ProgressMeterWrapper::SetMessage(msg);
+//    msg.Printf("Test Signal: processing %s channel.",  nChnl ? "right"
+//                                                             : "left");
+    //ProgressMeterWrapper::SetMessage(msg);
 
     Aurora::STISpectrum octaveSpectrum;
 
@@ -132,9 +132,9 @@ bool Aurora::STI::StoreSpectrums(Aurora::STIAudioTrack& signal,
 
 bool Aurora::STI::CalculateMatrix(Aurora::STIAudioTrack& track, const int nChnl)
 {
-    wxString msg;
-    msg.Printf("Processing %s channel.", nChnl ? "right" : "left");
-    ProgressMeterWrapper::SetMessage(msg);
+//    wxString msg;
+//    msg.Printf("Processing %s channel.", nChnl ? "right" : "left");
+    //ProgressMeterWrapper::SetMessage(msg);
     
     if(! track.FindFirstArrivalTime(m_dbFAT))
     {
@@ -161,11 +161,11 @@ bool Aurora::STI::CalculateMatrix(Aurora::STIAudioTrack& track, const int nChnl)
             track.CalculateMTF_RaSTI(res.aRaSTI);
         }
 
-        if(! ProgressMeterWrapper::Update((int)bd - 1, 1))
-        {
-            ok = false;
-            return false; // break loop
-        }
+//        if(! //ProgressMeterWrapper::Update((int)bd - 1, 1))
+//        {
+//            ok = false;
+//            return false; // break loop
+//        }
         return true;
     });
     return ok; 
@@ -613,88 +613,88 @@ void Aurora::STI::DoSTIPa(const int nChnl)
 
 void Aurora::STI::ReadConfigurationValues()
 {
-    Aurora::Config cfg;
-    
-    double dbValue;
-    wxString path;
-    
-    if(cfg.Read("/Aurora/STI/FullScale_Ch_1", &dbValue))  
-    {
-        SetFullScaleLevel(dbValue, CH_LEFT);
-    }
-    
-    if(cfg.Read("/Aurora/STI/FullScale_Ch_2", &dbValue))  
-    {
-        SetFullScaleLevel(dbValue, CH_RIGHT);       
-    }
-    
-    if(cfg.Read("/Aurora/STI/Calibration_Ch_1", &dbValue)) 
-    {
-        SetCalibrationLevel(dbValue, CH_LEFT);       
-    }
-    
-    if(cfg.Read("/Aurora/STI/Calibration_Ch_2", &dbValue))  
-    {
-        SetCalibrationLevel(dbValue, CH_RIGHT);    
-    }
-
-    for(int nChnl = Aurora::Channel::Left; nChnl < 2; nChnl++)
-    {
-        const auto& fcbs = m_results[nChnl].signalSpectrum.Frequencies();
-        
-        for(auto fcb : fcbs)
-        {
-            path.Printf("/Aurora/STI/SignalLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
-            
-            if(cfg.Read(path, &dbValue)) 
-            { 
-                SetSignalLevel(dbValue, fcb, nChnl);
-            }
-        }
-
-        for(auto fcb : fcbs)
-        {
-            path.Printf("/Aurora/STI/NoiseLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
-
-            if(cfg.Read(path, &dbValue))  
-            { 
-                SetNoiseLevel(dbValue, fcb, nChnl, true); 
-            }
-        }
-    }
+//    Aurora::Config cfg;
+//    
+//    double dbValue;
+//    wxString path;
+//    
+//    if(cfg.Read("/Aurora/STI/FullScale_Ch_1", &dbValue))  
+//    {
+//        SetFullScaleLevel(dbValue, CH_LEFT);
+//    }
+//    
+//    if(cfg.Read("/Aurora/STI/FullScale_Ch_2", &dbValue))  
+//    {
+//        SetFullScaleLevel(dbValue, CH_RIGHT);       
+//    }
+//    
+//    if(cfg.Read("/Aurora/STI/Calibration_Ch_1", &dbValue)) 
+//    {
+//        SetCalibrationLevel(dbValue, CH_LEFT);       
+//    }
+//    
+//    if(cfg.Read("/Aurora/STI/Calibration_Ch_2", &dbValue))  
+//    {
+//        SetCalibrationLevel(dbValue, CH_RIGHT);    
+//    }
+//
+//    for(int nChnl = Aurora::Channel::Left; nChnl < 2; nChnl++)
+//    {
+//        const auto& fcbs = m_results[nChnl].signalSpectrum.Frequencies();
+//        
+//        for(auto fcb : fcbs)
+//        {
+//            path.Printf("/Aurora/STI/SignalLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
+//            
+//            if(cfg.Read(path, &dbValue)) 
+//            { 
+//                SetSignalLevel(dbValue, fcb, nChnl);
+//            }
+//        }
+//
+//        for(auto fcb : fcbs)
+//        {
+//            path.Printf("/Aurora/STI/NoiseLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
+//
+//            if(cfg.Read(path, &dbValue))  
+//            { 
+//                SetNoiseLevel(dbValue, fcb, nChnl, true); 
+//            }
+//        }
+//    }
 }
 
 void Aurora::STI::StoreConfigurationValues()
 {
-    Aurora::Config cfg;
-
-    wxString path;
-
-    cfg.Write("/Aurora/STI/FullScale_Ch_1", GetFullScaleLevel(CH_LEFT));
-    cfg.Write("/Aurora/STI/FullScale_Ch_2", GetFullScaleLevel(CH_RIGHT));
-
-    cfg.Write("/Aurora/STI/Calibration_Ch_1", GetCalibrationLevel(CH_LEFT));
-    cfg.Write("/Aurora/STI/Calibration_Ch_2", GetCalibrationLevel(CH_RIGHT));
-
-    for(int nChnl = Aurora::Channel::Left; nChnl < 2; nChnl++)
-    {
-        Aurora::Results& res = m_results[nChnl];
-        const auto& fcbs = res.signalSpectrum.Frequencies();
-        
-        for(auto fcb : fcbs)
-        {
-            path.Printf("/Aurora/STI/SignalLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
-            cfg.Write(path, res.signalSpectrum.GetValue(fcb));
-        }
-
-        for(auto fcb : fcbs)
-        {
-            path.Printf("/Aurora/STI/NoiseLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
-            cfg.Write(path, res.noiseSpectrum.GetValue(fcb));
-        }
-    }
-
-    cfg.Flush();
+//    Aurora::Config cfg;
+//
+//    wxString path;
+//
+//    cfg.Write("/Aurora/STI/FullScale_Ch_1", GetFullScaleLevel(CH_LEFT));
+//    cfg.Write("/Aurora/STI/FullScale_Ch_2", GetFullScaleLevel(CH_RIGHT));
+//
+//    cfg.Write("/Aurora/STI/Calibration_Ch_1", GetCalibrationLevel(CH_LEFT));
+//    cfg.Write("/Aurora/STI/Calibration_Ch_2", GetCalibrationLevel(CH_RIGHT));
+//
+//    for(int nChnl = Aurora::Channel::Left; nChnl < 2; nChnl++)
+//    {
+//        Aurora::Results& res = m_results[nChnl];
+//        const auto& fcbs = res.signalSpectrum.Frequencies();
+//        
+//        for(auto fcb : fcbs)
+//        {
+//            path.Printf("/Aurora/STI/SignalLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
+//            cfg.Write(path, res.signalSpectrum.GetValue(fcb));
+//        }
+//
+//        for(auto fcb : fcbs)
+//        {
+//            path.Printf("/Aurora/STI/NoiseLevel_Bd_%d_Ch_%d", (int)fcb, nChnl+1);
+//            cfg.Write(path, res.noiseSpectrum.GetValue(fcb));
+//        }
+//    }
+//
+//    cfg.Flush();
 }
 
 void Aurora::STI::SetSignalLevel(const double value, 

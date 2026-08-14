@@ -16,7 +16,10 @@
 // ---------------------------------------------
 // a correlation calculation library
 // ---------------------------------------------
-#include <aurora.h>
+#include <Aurora/commdefs.h>
+#include <Aurora/Vector.h>
+#include <Aurora/Complex.h>
+#include <Aurora/gpfuncts.h>
 #include <array>
 #include <kiss_fft.h>
 #include <kiss_fftr.h>
@@ -60,7 +63,7 @@ namespace Aurora
     /**
      * @brief The correlation computer.
      */
-    class Correlator : public ProgressMeterWrapper
+    class Correlator
     {
     public:
 
@@ -69,16 +72,16 @@ namespace Aurora
          */
         class OutputTrack : public SamplesVector
         {
-            wxString m_label;
+            std::string m_label;
             
         public:
-            const wxString& GetLabel () const { return m_label; }
-            void SetLabel(const wxString& label) { m_label = label; }
+            const std::string& GetLabel () const { return m_label; }
+            void SetLabel(const std::string& label) { m_label = label; }
             
             OutputTrack() { }
-            OutputTrack(const wxString& label, Aurora::SamplesVector& track)
-            : m_label(label)
-            {}            
+            OutputTrack(const std::string& label, Aurora::SamplesVector& track) :
+            m_label{label}
+            {}
         };
 
         /**
@@ -328,7 +331,7 @@ namespace Aurora
         void SetProbeMaxFreq(const double value)       { m_dbFmax = value; }
         
     protected:
-        wxString GetCaptionString() const override { return wxString("Aurora XFunctions"); }
+//        wxString GetCaptionString() const override { return wxString("Aurora XFunctions"); }
 
     public:
         // ---'ctors 

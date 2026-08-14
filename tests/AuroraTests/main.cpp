@@ -68,6 +68,8 @@ int main()
     
     acParams.Init();
     
+    auto& auroraTrack = acParams.Track(0);
+    
     // Then process parameterTracks
     acParams.CalculateAcousticParameters();
     const auto& result = acParams.Results(0);

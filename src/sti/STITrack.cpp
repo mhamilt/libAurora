@@ -11,7 +11,7 @@
 
 ***********************************************************************/
 
-#include "StiTrack.h"
+#include "STITrack.h"
 
 bool Aurora::STIAudioTrack::FindFirstArrivalTime(const double threshold)
 {
