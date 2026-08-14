@@ -8,7 +8,7 @@
 #ifndef TArrayOfThAnalyzerAudioTracks_h
 #define TArrayOfThAnalyzerAudioTracks_h
 
-#include "ThAnalyzerTrack.h"
+#include <Aurora/ThAnalyzerTrack.h>
 
 namespace Aurora
 {

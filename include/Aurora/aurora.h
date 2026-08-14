@@ -30,5 +30,7 @@
 #include <Aurora/AcParametersTrack.h>
 #include <Aurora/Kirkeby.h>
 #include <Aurora/STI.h>
+#include <Aurora/Correlator.h>
+#include <Aurora/TimeHistoryAnalyzer.h>
 
 #endif // __AURORA_VERSION_H__

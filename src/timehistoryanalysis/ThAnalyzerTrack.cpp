@@ -11,7 +11,7 @@
 
 **********************************************************************/
 
-#include "ThAnalyzerTrack.h"
+#include <Aurora/ThAnalyzerTrack.h>
 
 //----------------------------------------------------------------------------
 // THASignalAudioTrack implementation

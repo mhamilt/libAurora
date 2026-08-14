@@ -105,9 +105,9 @@ target_sources(aurora
     src/timehistoryanalysis/ThAnalyzerData.cpp
     src/timehistoryanalysis/ThAnalyzerData.h
     src/timehistoryanalysis/ThAnalyzerTrack.cpp
-    src/timehistoryanalysis/ThAnalyzerTrack.h
+    #src/timehistoryanalysis/ThAnalyzerTrack.h
     src/timehistoryanalysis/TimeHistoryAnalyzer.cpp
-    src/timehistoryanalysis/TimeHistoryAnalyzer.h
+    #src/timehistoryanalysis/TimeHistoryAnalyzer.h
 
     # Cross Functions
     src/xfunctions/Correlator.cpp

@@ -17,7 +17,7 @@
 #include <Aurora/commdefs.h>
 #include "../core/DataHolder.h"
 
-#include "ThAnalyzerTrack.h"
+#include <Aurora/ThAnalyzerTrack.h>
 
 //----------------------------------------------------------------------------
 // AFTimeDataSerie declaration

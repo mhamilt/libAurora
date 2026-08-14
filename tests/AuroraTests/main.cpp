@@ -87,6 +87,7 @@ int main()
     Aurora::Kirkeby kirkeby;
     Aurora::STI sti;
     Aurora::Correlator corr;
+    Aurora::TimeHistoryAnalyzer tha;
     
     return 0;
 }

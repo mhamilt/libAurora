@@ -13,7 +13,7 @@
 
 
 
-#include "Correlator.h"
+#include <Aurora/Correlator.h>
 
 ///////////////////////////////////////////////////
 // Correlator class implementation

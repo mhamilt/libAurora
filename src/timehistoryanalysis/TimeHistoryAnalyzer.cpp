@@ -20,7 +20,7 @@
 #include <Aurora/commdefs.h>
 //#include <widgets/ProgressDialog.h>
 
-#include "TimeHistoryAnalyzer.h"
+#include <Aurora/TimeHistoryAnalyzer.h>
 
 //----------------------------------------------------------------------------
 // Aurora::TimeHistoryAnalyzer::TResults implementation
