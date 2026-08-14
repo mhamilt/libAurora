@@ -84,10 +84,9 @@ int main()
         }
     }
     
-    const int nTracks = 2;
     Aurora::Kirkeby kirkeby;
-    
     Aurora::STI sti;
+    Aurora::Correlator corr;
     
     return 0;
 }
