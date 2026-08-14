@@ -34,10 +34,10 @@ void Aurora::ThAnalyzerAudioTrack::SetFilterFromString(const std::string& s)
 {
     int fid = Aurora::AudioTrack::FLT_LIN;
     
-    if(s.find("ITU") != -1) { fid = Aurora::AudioTrack::FLT_ITU; } else
-    if(s.find("IEC") != -1) { fid = Aurora::AudioTrack::FLT_IEC; } else
-    if(s.find("ISO") != -1) { fid = Aurora::AudioTrack::FLT_ISO; } else
-    if(s.find("UNI") != -1) { fid = Aurora::AudioTrack::FLT_UNI; }
+    if(s.find("ITU") != std::string::npos) { fid = Aurora::AudioTrack::FLT_ITU; } else
+    if(s.find("IEC") != std::string::npos) { fid = Aurora::AudioTrack::FLT_IEC; } else
+    if(s.find("ISO") != std::string::npos) { fid = Aurora::AudioTrack::FLT_ISO; } else
+    if(s.find("UNI") != std::string::npos) { fid = Aurora::AudioTrack::FLT_UNI; }
 
     SetFilter(fid);
 }
