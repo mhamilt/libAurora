@@ -28,5 +28,6 @@
 #include <Aurora/AuroraConvolver.h>
 #include <Aurora/AcousticalParameters.h>
 #include <Aurora/AcParametersTrack.h>
+#include <Aurora/Kirkeby.h>
 
 #endif // __AURORA_VERSION_H__

@@ -23,7 +23,7 @@ namespace Aurora
    typedef Matrix<SamplesVector>    TSampleMatrix;
    typedef Matrix<ComplexSpectrum>  TComplexMatrix;
 
-   class KirkebyBase
+   class Kirkeby
    {
          enum  ComplexComponent
          { 
@@ -214,12 +214,12 @@ namespace Aurora
 
    public:
          // --- 'ctors
-         KirkebyBase() { }
-         KirkebyBase(const int nRows, const int nCols = 1)
+         Kirkeby() { }
+         Kirkeby(const int nRows, const int nCols = 1)
           : m_nRows(nRows), m_nCols(nCols)
          { }
 
-         ~KirkebyBase() { Destroy(); }
+         ~Kirkeby() { Destroy(); }
    };
 } // end of Aurora namspace
 

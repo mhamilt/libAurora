@@ -18,10 +18,9 @@
 
 *//*******************************************************************/
 #include <Aurora/commdefs.h>
-#include "KirkebyBase.h"
+#include <Aurora/Kirkeby.h>
 
-
-void Aurora::KirkebyBase::InitVectors()
+void Aurora::Kirkeby::InitVectors()
 {
     // When this private function is called, input vectors
     // should be already instantiated, but output vectors 
@@ -29,14 +28,14 @@ void Aurora::KirkebyBase::InitVectors()
 
     switch(m_nFilterType)
     {
-        case Aurora::KirkebyBase::FilterType::Mono:
+        case Aurora::Kirkeby::FilterType::Mono:
             m_colLength = m_rowLength / m_nCols;
             
             m_Hf.Resize(1, 1, 1 + m_colLength / 2);
             m_Ht.Resize(m_nRows, m_nCols, m_colLength);
             break;
             
-        case Aurora::KirkebyBase::FilterType::Stereo:
+        case Aurora::Kirkeby::FilterType::Stereo:
             // Here we've to do a fake: HRL and HRR are obtained
             // by swapping the input IRs, so from 2 IRs, we
             // make 4. For this reason while m_nCols value is 1
@@ -47,9 +46,9 @@ void Aurora::KirkebyBase::InitVectors()
             m_Ht.Resize(m_nRows, 2, m_colLength);
             break;
             
-        case Aurora::KirkebyBase::FilterType::Dipole:
+        case Aurora::Kirkeby::FilterType::Dipole:
             m_nCols = 2;
-        case Aurora::KirkebyBase::FilterType::Matrix:
+        case Aurora::Kirkeby::FilterType::Matrix:
             m_colLength = m_rowLength / m_nCols;
             
             m_Hf.Resize(m_nRows, m_nCols, 1 + m_colLength/2);
@@ -58,18 +57,18 @@ void Aurora::KirkebyBase::InitVectors()
     }
 }
 
-void Aurora::KirkebyBase::DeleteVectors()
+void Aurora::Kirkeby::DeleteVectors()
 {
     // TODO should be removed...
 }
 
-void Aurora::KirkebyBase::InitFft()
+void Aurora::Kirkeby::InitFft()
 {
     m_fftForwardCfg  = kiss_fftr_alloc((int)m_colLength, 0, NULL, NULL);
     m_fftBackwardCfg = kiss_fftr_alloc((int)m_colLength, 1, NULL, NULL);
 }
 
-void Aurora::KirkebyBase::DeleteFft()
+void Aurora::Kirkeby::DeleteFft()
 {
     if(m_fftForwardCfg)
     {
@@ -84,13 +83,13 @@ void Aurora::KirkebyBase::DeleteFft()
     }
 }
 
-void Aurora::KirkebyBase::FFT(      Aurora::ComplexSpectrum& out,
+void Aurora::Kirkeby::FFT(      Aurora::ComplexSpectrum& out,
                               const Aurora::SamplesVector& in)
 {
     kiss_fftr(m_fftForwardCfg, in.CSamples(), out.Samples());
 }
 
-void Aurora::KirkebyBase::IFFT(      Aurora::SamplesVector& out, 
+void Aurora::Kirkeby::IFFT(      Aurora::SamplesVector& out, 
                                const Aurora::ComplexSpectrum& in)
 {
     kiss_fftri(m_fftBackwardCfg, in.CSamples(), out.Samples());
@@ -101,7 +100,7 @@ void Aurora::KirkebyBase::IFFT(      Aurora::SamplesVector& out,
       
 
    
-void Aurora::KirkebyBase::ApplyGain()
+void Aurora::Kirkeby::ApplyGain()
 {       
     m_Ht.ForEach([this](Aurora::TSampleVector& cell)
     {
@@ -111,8 +110,8 @@ void Aurora::KirkebyBase::ApplyGain()
 
 // --------------------------------------------- Farina's
 
-void Aurora::KirkebyBase::ComputeMovingAverage(Aurora::ComplexVectorBase& Hf,
-                                              const Aurora::KirkebyBase::ComplexComponent realOrImag)
+void Aurora::Kirkeby::ComputeMovingAverage(Aurora::ComplexVectorBase& Hf,
+                                              const Aurora::Kirkeby::ComplexComponent realOrImag)
 {
     // [esseci] It joints together myMedia2 and MediaLplus because it processes
     // at the same time real (magnitude) and imaginary (phase) parts.
@@ -302,13 +301,13 @@ void Aurora::KirkebyBase::ComputeMovingAverage(Aurora::ComplexVectorBase& Hf,
     }
 }
 
-void Aurora::KirkebyBase::ComputeOctaveSmoothing(Aurora::ComplexVectorBase& Hf)
+void Aurora::Kirkeby::ComputeOctaveSmoothing(Aurora::ComplexVectorBase& Hf)
 {
     ComputeOctaveSmoothing(Hf, ComplexComponent::Real);
     ComputeOctaveSmoothing(Hf, ComplexComponent::Imag);
 }
 
-void Aurora::KirkebyBase::ComputeOctaveSmoothing(Aurora::ComplexVectorBase& Hf,
+void Aurora::Kirkeby::ComputeOctaveSmoothing(Aurora::ComplexVectorBase& Hf,
                                                  const ComplexComponent realOrImag)
 {
     const int length = (int)Hf.GetLength();
@@ -383,19 +382,19 @@ void Aurora::KirkebyBase::ComputeOctaveSmoothing(Aurora::ComplexVectorBase& Hf,
 }
 
 
-void Aurora::KirkebyBase::ComputeAverage(Aurora::ComplexSpectrum& Hf)
+void Aurora::Kirkeby::ComputeAverage(Aurora::ComplexSpectrum& Hf)
 {
 	switch(m_nAvgMode)
 	{
-		case Aurora::KirkebyBase::AverageMode::ReIm:
+		case Aurora::Kirkeby::AverageMode::ReIm:
 		   //MyMedia2(RE,IM,TLen,TipoFinestraFlag,MediaDim,lpAmp,ci); //Medie Re e IM
             switch(m_nAvgType)
             {
-                case Aurora::KirkebyBase::AverageType::Linear:
+                case Aurora::Kirkeby::AverageType::Linear:
                     ComputeMovingAverage(Hf);
                     break;
 
-                case Aurora::KirkebyBase::AverageType::Octave:
+                case Aurora::Kirkeby::AverageType::Octave:
                     ComputeOctaveSmoothing(Hf);
                     break;
             }
@@ -403,7 +402,7 @@ void Aurora::KirkebyBase::ComputeAverage(Aurora::ComplexSpectrum& Hf)
             //ScriviDatiName("media_1.txt",H,TLen,ci,lpAmp); //Scrivo nel chiamante
             break;
             
-        case Aurora::KirkebyBase::AverageMode::MagPh:
+        case Aurora::Kirkeby::AverageMode::MagPh:
             //calcolo modulo e fase
             Aurora::PolarComplexVector hfp(Hf);
 
@@ -414,11 +413,11 @@ void Aurora::KirkebyBase::ComputeAverage(Aurora::ComplexSpectrum& Hf)
             //MyMedia2(RE,IM,TLen,TipoFinestraFlag,MediaDim,lpAmp,ci);
             switch(m_nAvgType)
             {
-                case Aurora::KirkebyBase::AverageType::Linear:
+                case Aurora::Kirkeby::AverageType::Linear:
                     ComputeMovingAverage(hfp);
                     break;
 
-                case Aurora::KirkebyBase::AverageType::Octave:
+                case Aurora::Kirkeby::AverageType::Octave:
                     ComputeOctaveSmoothing(hfp);
                     break;
             }
@@ -431,7 +430,7 @@ void Aurora::KirkebyBase::ComputeAverage(Aurora::ComplexSpectrum& Hf)
 	}
 }
 
-void Aurora::KirkebyBase::ComputeCepstrum(Aurora::ComplexSpectrum& Hf)
+void Aurora::Kirkeby::ComputeCepstrum(Aurora::ComplexSpectrum& Hf)
 {
     //This function shuold do following steps with the input vector (Harray)
     //
@@ -519,7 +518,7 @@ void Aurora::KirkebyBase::ComputeCepstrum(Aurora::ComplexSpectrum& Hf)
     // 13) frees allocated memory
 }
 
-void Aurora::KirkebyBase::ComputeKirkebyModulusInversion(Aurora::ComplexSpectrum& Hf)
+void Aurora::Kirkeby::ComputeKirkebyModulusInversion(Aurora::ComplexSpectrum& Hf)
 {
     // input data:  Hf
     // output data: Hf
@@ -590,7 +589,7 @@ void Aurora::KirkebyBase::ComputeKirkebyModulusInversion(Aurora::ComplexSpectrum
     Hf.Copy(Hsf);
 }
 
-void Aurora::KirkebyBase::ComputeKirkebyRatioModulusInversion(Aurora::ComplexSpectrum& Uf,
+void Aurora::Kirkeby::ComputeKirkebyRatioModulusInversion(Aurora::ComplexSpectrum& Uf,
                                                               Aurora::ComplexSpectrum& Wf)
 {
     // input data:  pcpxU and pcpxW
@@ -677,7 +676,7 @@ void Aurora::KirkebyBase::ComputeKirkebyRatioModulusInversion(Aurora::ComplexSpe
 // -----------------------------------------------------------------------------
 // Main functions
 // -----------------------------------------------------------------------------
-bool Aurora::KirkebyBase::ComputeMonoInverseFilter(Aurora::TSampleVector& Ht)
+bool Aurora::Kirkeby::ComputeMonoInverseFilter(Aurora::TSampleVector& Ht)
 {
     // 1) Calculate FFT
     FFT(m_Hf(0,0), Ht); 
@@ -685,12 +684,12 @@ bool Aurora::KirkebyBase::ComputeMonoInverseFilter(Aurora::TSampleVector& Ht)
     // 2) Calculate Average
     switch(m_nAvgMode)
     {
-        case Aurora::KirkebyBase::AverageMode::ReIm:
-        case Aurora::KirkebyBase::AverageMode::MagPh:
+        case Aurora::Kirkeby::AverageMode::ReIm:
+        case Aurora::Kirkeby::AverageMode::MagPh:
             ComputeAverage(m_Hf(0,0));
             break;
 
-        case Aurora::KirkebyBase::AverageMode::Cepstrum:
+        case Aurora::Kirkeby::AverageMode::Cepstrum:
             ComputeCepstrum(m_Hf(0,0));
             break;
     } 
@@ -710,7 +709,7 @@ bool Aurora::KirkebyBase::ComputeMonoInverseFilter(Aurora::TSampleVector& Ht)
 #define Hrrf m_Hf(1,1)
 #define Hrlf m_Hf(1,0)
 
-bool Aurora::KirkebyBase::ComputeQuadInverseFilter(Aurora::TSampleMatrix& Ht)
+bool Aurora::Kirkeby::ComputeQuadInverseFilter(Aurora::TSampleMatrix& Ht)
 {
     FFT(m_Hf(0,0), Ht(0,0)); // Hll
     FFT(m_Hf(0,1), Ht(0,1)); // Hlr
@@ -720,15 +719,15 @@ bool Aurora::KirkebyBase::ComputeQuadInverseFilter(Aurora::TSampleMatrix& Ht)
     // 2) Calculate Average
     switch(m_nAvgMode)
     {
-        case Aurora::KirkebyBase::AverageMode::ReIm:
-        case Aurora::KirkebyBase::AverageMode::MagPh:
+        case Aurora::Kirkeby::AverageMode::ReIm:
+        case Aurora::Kirkeby::AverageMode::MagPh:
             ComputeAverage(m_Hf(0,0)); // Hll
             ComputeAverage(m_Hf(0,1)); // Hlr
             ComputeAverage(m_Hf(1,0)); // Hrl
             ComputeAverage(m_Hf(1,1)); // Hrr            
             break;
 
-        case Aurora::KirkebyBase::AverageMode::Cepstrum:
+        case Aurora::Kirkeby::AverageMode::Cepstrum:
             ComputeCepstrum(m_Hf(0,0)); // Hll
             ComputeCepstrum(m_Hf(0,1)); // Hlr
             ComputeCepstrum(m_Hf(1,0)); // Hrl
@@ -876,7 +875,7 @@ bool Aurora::KirkebyBase::ComputeQuadInverseFilter(Aurora::TSampleMatrix& Ht)
 }
 
 // --------------------------------------------- Setup methods
-bool Aurora::KirkebyBase::Init()
+bool Aurora::Kirkeby::Init()
 {
     InitVectors();
     InitFft();
@@ -884,7 +883,7 @@ bool Aurora::KirkebyBase::Init()
 }
 
 // --------------------------------------------- Processig methods
-bool Aurora::KirkebyBase::PreProcess()
+bool Aurora::Kirkeby::PreProcess()
 {
    if(IsFilterStereo())
    {
@@ -924,7 +923,7 @@ bool Aurora::KirkebyBase::PreProcess()
 }
 
 
-bool Aurora::KirkebyBase::Process() 
+bool Aurora::Kirkeby::Process() 
 {
     // 1) Init() should be already called!
 
@@ -942,7 +941,7 @@ bool Aurora::KirkebyBase::Process()
       //        2 - stereo (stereo dipole symm.), 
       //        3 - 2x2 (complete stereo dipole)
 
-        case Aurora::KirkebyBase::FilterType::Mono:
+        case Aurora::Kirkeby::FilterType::Mono:
         {
             int row, col;
             
@@ -955,7 +954,7 @@ bool Aurora::KirkebyBase::Process()
             }
             break;
         }
-        case Aurora::KirkebyBase::FilterType::Stereo:
+        case Aurora::Kirkeby::FilterType::Stereo:
         {
             if(m_bCancelCrosstalk)
             {
@@ -968,7 +967,7 @@ bool Aurora::KirkebyBase::Process()
             }
             break;
         }
-        case Aurora::KirkebyBase::FilterType::Dipole:
+        case Aurora::Kirkeby::FilterType::Dipole:
         {
             ComputeQuadInverseFilter(m_Ht);
             break;
@@ -983,7 +982,7 @@ bool Aurora::KirkebyBase::Process()
    return true;
 }
 
-bool Aurora::KirkebyBase::PostProcess()
+bool Aurora::Kirkeby::PostProcess()
 {
     if (m_bAutorange)
     {
@@ -1009,53 +1008,53 @@ bool Aurora::KirkebyBase::PostProcess()
 
     return true;
 }
-void Aurora::KirkebyBase::SetRows(const int nr) 
+void Aurora::Kirkeby::SetRows(const int nr) 
 { 
     m_nRows = nr; 
 }
 
-void Aurora::KirkebyBase::SetCols(const int nc) 
+void Aurora::Kirkeby::SetCols(const int nc) 
 {
     m_nCols = nc;
     m_colLength = m_rowLength / (IsFilterStereo() ? 1 : m_nCols);
 }
 
-void Aurora::KirkebyBase::SetChannels(const int nch) 
+void Aurora::Kirkeby::SetChannels(const int nch) 
 { 
     SetRows(nch); 
 }
 
-void Aurora::KirkebyBase::SetInputRowLength(const SampleCount irl) 
+void Aurora::Kirkeby::SetInputRowLength(const SampleCount irl) 
 {
     //m_rowLength = irl;
     //m_colLength = irl / (IsFilterStereo() ? 1 : m_nCols);
     m_inputDataLength = irl;
 }
 
-void Aurora::KirkebyBase::SetInputTrackLength(const SampleCount itl) 
+void Aurora::Kirkeby::SetInputTrackLength(const SampleCount itl) 
 { 
     SetInputRowLength(itl); 
 }
 
-void Aurora::KirkebyBase::SetFftLength(const SampleCount N) 
+void Aurora::Kirkeby::SetFftLength(const SampleCount N) 
 {
     m_colLength = N;
     m_rowLength = N * m_nCols;
 }
 
-void Aurora::KirkebyBase::SetInverseFilterLength(const SampleCount N) 
+void Aurora::Kirkeby::SetInverseFilterLength(const SampleCount N) 
 {
     m_colLength = N;
     m_rowLength = N * m_nCols;
 }
 
-void Aurora::KirkebyBase::Init(const int rows, const int cols)
+void Aurora::Kirkeby::Init(const int rows, const int cols)
 {
     m_nRows = rows;
     m_nCols = cols;
 }
 
-void Aurora::KirkebyBase::Destroy()
+void Aurora::Kirkeby::Destroy()
 {
    DeleteVectors();
    DeleteFft();

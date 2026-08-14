@@ -46,6 +46,7 @@ target_sources(aurora
     #include/Aurora/SineSweepGenerator.h
     #include/Aurora/Vector.h
     #include/Aurora/version.h
+    #include/Aurora/KirkebyBase.h
     
 
     include/Aurora/Spectrum.h 
@@ -75,7 +76,7 @@ target_sources(aurora
 
     # Kirkeby inversion
     src/kirkeby/KirkebyBase.cpp
-    src/kirkeby/KirkebyBase.h
+    
 
     # Signal generation
     src/sweep/SineSweepGenerator.cpp

@@ -84,5 +84,8 @@ int main()
         }
     }
     
+    const int nTracks = 2;
+    Aurora::Kirkeby kirkeby;
+    
     return 0;
 }
