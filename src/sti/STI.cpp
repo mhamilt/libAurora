@@ -19,9 +19,7 @@
   the artificial mouth probe signal recording (standard IEC 60268-16 2003).
 
 *//*******************************************************************/
-#include "STI.h"
-
-
+#include <Aurora/STI.h>
 
 // --- STI class implementation ------------------------------------------------
 

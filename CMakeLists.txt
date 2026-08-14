@@ -47,6 +47,7 @@ target_sources(aurora
     #include/Aurora/Vector.h
     #include/Aurora/version.h
     #include/Aurora/KirkebyBase.h
+    #include/Aurora/STI.h
     
 
     include/Aurora/Spectrum.h 
@@ -75,7 +76,7 @@ target_sources(aurora
     src/convolution/AuroraConvolver.cpp    
 
     # Kirkeby inversion
-    src/kirkeby/KirkebyBase.cpp
+    src/kirkeby/Kirkeby.cpp
     
 
     # Signal generation
@@ -90,8 +91,7 @@ target_sources(aurora
 
     # Speech Transmission Index
     src/sti/ModulationTransferFunctionsTable.cpp
-    src/sti/ModulationTransferFunctionsTable.h
-    src/sti/STI.h
+    src/sti/ModulationTransferFunctionsTable.h    
     src/sti/STI.cpp
     src/sti/STIData.h
     src/sti/STIResults.h
