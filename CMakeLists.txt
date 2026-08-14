@@ -111,7 +111,7 @@ target_sources(aurora
 
     # Cross Functions
     src/xfunctions/Correlator.cpp
-    src/xfunctions/Correlator.h
+    #src/xfunctions/Correlator.h
     
     # Dependencies
     external/kissfft/kiss_fft.c
