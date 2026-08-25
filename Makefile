@@ -2,53 +2,33 @@ BUILD_DIR := build
 XCODE_DIR := $(BUILD_DIR)/xcode
 BUILD_CONFIG ?= Debug
 
-ifeq ($(OS),Windows_NT)
-PREFIX ?= $(USERPROFILE)/.local
-else
-PREFIX ?= $(HOME)/.local
-endif
+# export CMAKE_POLICY_VERSION_MINIMUM ?= 3.5
 
-CMAKE := cmake
-
-
-.PHONY: all xcode build clean rebuild tests install
-
+.PHONY: steup build install tests xcode clean clean-build
 
 # Default target
-all: build
+all: install
 
+setup:
+	cmake -S . -B $(BUILD_DIR) -G Ninja
+
+build: setup
+	cmake --build $(BUILD_DIR)
+
+install: build
+	cmake --install $(BUILD_DIR)
+
+tests:
+	cmake --build $(XCODE_DIR) \
+		--config $(BUILD_CONFIG) \
+		--target test
 
 xcode:
 	$(CMAKE) -S . -B $(XCODE_DIR) \
 		-G Xcode \
-		-DCMAKE_INSTALL_PREFIX=$(PREFIX) \
 		-D AURORA_BUILD_TESTS=ON
-
-build-windows:
-	cmake -S . -B build -G Ninja -DCMAKE_INSTALL_PREFIX=$(PREFIX)
-	cmake --build build
-
-install-windows: build-windows
-	cmake --install build
-
-build:
-	$(CMAKE) --build $(XCODE_DIR) \
-		--config $(BUILD_CONFIG)
-
-
-tests:
-	$(CMAKE) --build $(XCODE_DIR) \
-		--config $(BUILD_CONFIG) \
-		--target test
-
-
-install: build
-	$(CMAKE) --install $(XCODE_DIR) \
-		--config $(BUILD_CONFIG)
-
 
 clean:
 	rm -rf $(BUILD_DIR)
 
-
-rebuild: clean xcode build
+clean-build: clean setup build

@@ -191,18 +191,6 @@ source_group(
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-# install(
-#     TARGETS aurora
-#     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-# )
-
-#install(TARGETS aurora
-#    EXPORT AuroraTargets
-#    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-#    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-#)
-
 install(TARGETS aurora
     EXPORT AuroraTargets
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -210,7 +198,6 @@ install(TARGETS aurora
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
-
 
 install(
     DIRECTORY include/
