@@ -69,6 +69,7 @@
 #include <cstring>
 #include <vector>
 #include <memory>
+#include <atomic>
 
 // ----- from unixsh math.h
 #ifndef M_PI
