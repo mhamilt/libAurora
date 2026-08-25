@@ -68,6 +68,7 @@
 #include <cmath>
 #include <cstring>
 #include <vector>
+#include <memory>
 
 // ----- from unixsh math.h
 #ifndef M_PI
