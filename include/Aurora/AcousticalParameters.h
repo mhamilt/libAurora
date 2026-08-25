@@ -14,6 +14,7 @@
 #ifndef __AURORA_AFACPAR_H__
 #define __AURORA_AFACPAR_H__
 
+#include <memory>
 #include <Aurora/commdefs.h>
 #include <Aurora/Spectrum.h>
 #include <Aurora/SCOctaveBandAnalysis.h>
