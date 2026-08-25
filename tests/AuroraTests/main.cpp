@@ -139,7 +139,23 @@ int main()
     // Speech Transmission Index
     
     Aurora::STI sti;
-    //    sti.CopyInputTracks(); // Set up mOutputTracks.
+    
+//    DoFullscaleCalibration(const bool bIsStereo)
+//    {
+//        const int nChnls = bIsStereo ? 2 : 1;
+//        std::array<Aurora::STIAudioTrack, 2> calibrationSignal;
+//        
+//        for(int nCh = 0; nCh < nChnls; nCh++)
+//        {
+//            calibrationSignal[nCh].SetRate(mProjectRate);
+//            
+//            if( ! LoadTrackData(calibrationSignal[nCh], nCh, m_anCalibrationTracksIdx[nCh]-1))
+//            {
+//                return false;
+//            }
+//            CalibrateFullscale(calibrationSignal[nCh], nCh);
+//        }
+
     //    std::array<Aurora::STIAudioTrack, 2> calibrationSignal;
     //    calibrationSignal[nCh].SetRate(mProjectRate);
     //     sti.CalibrateFullscale
