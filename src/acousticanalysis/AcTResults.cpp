@@ -15,7 +15,7 @@ Aurora::TResults::TParameter::TParameter(const double v,
                                                                const bool   valid)
     : value(v), isValid(valid)
 {
-    if (isnan(value) || isinf(value))
+    if (std::isnan(value) || std::isinf(value))
     {
         // nan and infinite values are always unacceptable.
         isValid = false;
