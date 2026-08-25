@@ -16,6 +16,7 @@
 #include <Aurora/commdefs.h>
 #include <Aurora/Multivolver.h>
 #include <kissfft/kiss_fftr.h>
+#include <memory>
 
 namespace Aurora
 {

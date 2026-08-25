@@ -41,6 +41,7 @@
 
 #define USE_KISS_FFT 1
 
+#include <memory>
 #include <Aurora/commdefs.h>
 #include <Aurora/Vector.h>
 #include <Aurora/Complex.h>

@@ -34,6 +34,7 @@
 #include <Aurora/commdefs.h>
 #include <Aurora/Convolver.h>
 #include <string>
+#include <memory>
 
 namespace Aurora
 {
