@@ -86,6 +86,14 @@ int main()
     const auto& fcbs = result.Frequencies();
     result.Parameters();
     
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << std::setw(12) << "";
+    for (const auto& fcb : fcbs)
+    {
+        std::cout << std::setw(10) << fcb;
+    }
+    std::cout << '\n';
+
     for (const auto& parameter : result.Parameters())
     {
         std::cout << std::setw(12) << parameter;
