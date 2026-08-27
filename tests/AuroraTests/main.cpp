@@ -11,20 +11,21 @@ int main()
     std::cout  << "Start Test" << '\n';
     //------------------------------------------------------------------------
     // SineSweep Generator
-    // Aurora::SineSweepGenerator ssweep{};
-    // ssweep.SetSweepDuration(1.0);
-    // ssweep.SetSilenceDuration(1.0);
-    // ssweep.Generate();
+    Aurora::SineSweepGenerator ssweep{};
+    ssweep.SetSweepDuration(1.0);
+    ssweep.SetSilenceDuration(1.0);
+    ssweep.Generate();
     
-    // size_t numSamples  = ssweep.GetBuffersLength();
-    // auto filter  = std::make_unique<float[]>(numSamples);
-    // auto audio   = std::make_unique<float[]>(numSamples);
+    size_t numSamples  = ssweep.GetBuffersLength();
+    auto filter  = std::make_unique<float[]>(numSamples);
+    auto audio   = std::make_unique<float[]>(numSamples);
     
     
-    // ssweep.FillBlock(audio.get() ,  numSamples, 0, 0); // Sweep  == Channel_1
-    // ssweep.FillBlock(filter.get(),  numSamples, 0, 1); // Filter == Channel_2
+    ssweep.FillBlock(audio.get() ,  numSamples, 0, 0); // Sweep  == Channel_1
+    ssweep.FillBlock(filter.get(),  numSamples, 0, 1); // Filter == Channel_2
     
-    // const auto sampleRate =  ssweep.GetSamplerate();
+    const auto sampleRate =  ssweep.GetSamplerate();
+    std::cout  << "ssweep.GetSamplerate()" << ssweep.GetSamplerate() << '\n';
     // //------------------------------------------------------------------------
     // // Convolution
     
