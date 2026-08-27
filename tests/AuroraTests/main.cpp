@@ -1,15 +1,17 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
-#include <Aurora/aurora.h>
-#include <kiss_fft.h>
-#include "matts_audio.h"
+#include <iostream>
+// #include <Aurora/aurora.h>
+// #include <kiss_fft.h>
+// #include "matts_audio.h"
 
 int main()
 {
+    std::cout  << "Start Test" << '\n';
     //------------------------------------------------------------------------
     // SineSweep Generator
-    Aurora::SineSweepGenerator ssweep{};
+    // Aurora::SineSweepGenerator ssweep{};
     // ssweep.SetSweepDuration(1.0);
     // ssweep.SetSilenceDuration(1.0);
     // ssweep.Generate();
