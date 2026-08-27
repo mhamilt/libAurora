@@ -70,6 +70,7 @@
 #include <vector>
 #include <memory>
 #include <atomic>
+#include <algorithm>
 
 // ----- from unixsh math.h
 #ifndef M_PI
