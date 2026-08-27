@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include <algorithm>
 #include <Aurora/aurora.h>
 #include <kiss_fft.h>
 #include "matts_audio.h"
@@ -25,37 +26,37 @@ int main()
     //------------------------------------------------------------------------
     // Convolution
     
-    //    Aurora::ConvolverController convolver{};
-    //    convolver.Reset();
-    //    convolver.SetSamplerate(ssweep.GetSamplerate()); // ???
-    //    convolver.CheckSamplerate(ssweep.GetSamplerate());
-    //    convolver.SetFilterMatrixDimensions(1,1);
-    //    convolver.ResizeFilterTrack(0,numSamples);
-    //    convolver.ResizeInputTrack(0, numSamples);
-    //
-    //    auto& convolutionFilters = convolver.GetFilters();
-    //    auto& input = convolver.GetInputTrack(0);
-    //
-    //    std::copy_n(filter.get(), numSamples, convolutionFilters[0].Samples());
-    //    std::copy_n(audio.get(),  numSamples, input.Samples());
-    //
-    //    convolver.DoConvolution();
-    //
-    //    auto& conv = convolver.GetOutputTrack(0);
-    //
-    //    for (auto i = conv.Length()-10; i < conv.Length(); i++) {
-    //        std::cout << conv.Samples()[i] << '\n';
-    //    }
-    //
-    ////  conv.Reverse();
-    //
-    //    for (auto i = 0; i < 10; i++) {
-    //        std::cout << conv.Samples()[i] << '\n';
-    //    }
+       Aurora::ConvolverController convolver{};
+       convolver.Reset();
+       convolver.SetSamplerate(ssweep.GetSamplerate()); // ???
+       convolver.CheckSamplerate(ssweep.GetSamplerate());
+       convolver.SetFilterMatrixDimensions(1,1);
+       convolver.ResizeFilterTrack(0,numSamples);
+       convolver.ResizeInputTrack(0, numSamples);
     
-    //        writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
-    //        writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
-    //        writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
+       auto& convolutionFilters = convolver.GetFilters();
+       auto& input = convolver.GetInputTrack(0);
+    
+       std::copy_n(filter.get(), numSamples, convolutionFilters[0].Samples());
+       std::copy_n(audio.get(),  numSamples, input.Samples());
+    
+       convolver.DoConvolution();
+    
+       auto& conv = convolver.GetOutputTrack(0);
+    
+       for (auto i = conv.Length()-10; i < conv.Length(); i++) {
+           std::cout << conv.Samples()[i] << '\n';
+       }
+    
+    //  conv.Reverse();
+    
+       for (auto i = 0; i < 10; i++) {
+           std::cout << conv.Samples()[i] << '\n';
+       }
+    
+           writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
+           writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
+           writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
     
     //------------------------------------------------------------------------
     // Acoustical Parameters
@@ -86,15 +87,15 @@ int main()
     //    }
     
     //------------------------------------------------------------------------
-    // Acoustical Parameters
+    // Kirkeby
     
-    const int nTracks = 2; // filter and sweep
-    Aurora::Kirkeby kirkeby{nTracks};
-    kirkeby.SetSamplerate(sampleRate);
+    // const int nTracks = 2; // filter and sweep
+    // Aurora::Kirkeby kirkeby{nTracks};
+    // kirkeby.SetSamplerate(sampleRate);
     //    kirkeby.SetInputTrackLength();
     //    SetInverseFilterLength((Aurora::SampleCount)filterLength);
 ///
-    kirkeby.Init();
+    // kirkeby.Init();
 // Aurora::Kirkeby::SetInputTracks(std::vector<std::vector<float*>>)
 //    LoadTracks()
     // Use GetInputTrackItem to copy tracks in the right order
@@ -201,8 +202,8 @@ int main()
     //------------------------------------------------------------------------
     // Cross Functions
     
-    Aurora::Correlator corr;
-    corr.SetSamplerate(sampleRate);
+    // Aurora::Correlator corr;
+    // corr.SetSamplerate(sampleRate);
     // XFunctions works with two (2) tracks. No less, no more.
     //    corr.CopyInputTracks(); // Set up mOutputTracks.
     //    corr.SetXFunctionType(index);
@@ -214,7 +215,7 @@ int main()
     //------------------------------------------------------------------------
     // Time History Analyzer
     
-    Aurora::TimeHistoryAnalyzer tha;
+    // Aurora::TimeHistoryAnalyzer tha;
 //    tha.SetChannelsNumber
 //    tha.LoadTracks()
     {
