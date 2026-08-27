@@ -85,13 +85,18 @@ int main()
     const auto& result = acParams.Results(0);
     const auto& fcbs = result.Frequencies();
     result.Parameters();
-
-    for (const auto& paramater : result.Parameters())
+    
+    for (const auto& parameter : result.Parameters())
     {
+        std::cout << std::setw(12) << parameter;
+
         for (const auto& fcb : fcbs)
         {
-            std::cout << paramater << " (" << fcb << "): " << result.Get(paramater, fcb).value <<'\n';
+            std::cout << std::setw(10)
+                      << result.Get(parameter, fcb).value;
         }
+
+        std::cout << '\n';
     }
     
     //------------------------------------------------------------------------
