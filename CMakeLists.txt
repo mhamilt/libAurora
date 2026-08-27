@@ -153,6 +153,7 @@ target_include_directories(aurora
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/external
         ${CMAKE_CURRENT_SOURCE_DIR}/external/kissfft
 )
 
@@ -205,6 +206,8 @@ install(TARGETS aurora
 install(
     DIRECTORY include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING
+        PATTERN "*.h"
 )
 
 install(
@@ -212,6 +215,13 @@ install(
     FILE AuroraTargets.cmake
     NAMESPACE Aurora::
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/Aurora
+)
+
+install(
+    DIRECTORY external/kissfft/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/Aurora
+    FILES_MATCHING
+        PATTERN "*.h"
 )
 
 configure_package_config_file(

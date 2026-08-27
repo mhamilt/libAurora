@@ -21,8 +21,8 @@
 #include <Aurora/Complex.h>
 #include <Aurora/gpfuncts.h>
 #include <array>
-#include <kiss_fft.h>
-#include <kiss_fftr.h>
+#include <kissfft/kiss_fft.h>
+#include <kissfft/kiss_fftr.h>
 
 namespace Aurora
 {

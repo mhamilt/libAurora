@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iostream>
 #include <Aurora/aurora.h>
-#include <kiss_fft.h>
+#include <kissfft/kiss_fft.h>
 #include "matts_audio.h"
 
 int main()

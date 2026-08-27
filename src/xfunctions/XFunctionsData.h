@@ -18,7 +18,7 @@
 #  define USE_KISS_FFT 1
 #endif
 
-#include <kiss_fftr.h>
+#include <kissfft/kiss_fftr.h>
 #include <aurora.h>
 #include "Correlator.h"
 
