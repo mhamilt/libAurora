@@ -2,9 +2,9 @@
 #include <memory>
 #include <algorithm>
 #include <iostream>
-// #include <Aurora/aurora.h>
-// #include <kiss_fft.h>
-// #include "matts_audio.h"
+#include <Aurora/aurora.h>
+#include <kiss_fft.h>
+#include "matts_audio.h"
 
 int main()
 {
