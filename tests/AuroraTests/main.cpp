@@ -11,7 +11,7 @@ int main()
     std::cout  << "Start Test" << '\n';
     //------------------------------------------------------------------------
     // SineSweep Generator
-    std::cout  << "Test SineSweepGenerator: " << ssweep.GetSamplerate() << '\n';
+    std::cout  << "Test SineSweepGenerator: " << '\n';
     Aurora::SineSweepGenerator ssweep{};
     ssweep.SetSweepDuration(1.0);
     ssweep.SetSilenceDuration(1.0);
@@ -27,7 +27,7 @@ int main()
     
     const auto sampleRate =  ssweep.GetSamplerate();
     std::cout  << "ssweep.GetSamplerate(): " << ssweep.GetSamplerate() << '\n';
-    std::cout  << "Test SineSweepGenerator: Done " << ssweep.GetSamplerate() << '\n';
+    std::cout  << "Test SineSweepGenerator: Done " << '\n';
     //------------------------------------------------------------------------
     // Convolution
     
