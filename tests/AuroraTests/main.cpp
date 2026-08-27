@@ -31,7 +31,7 @@ int main()
     //------------------------------------------------------------------------
     // Convolution
     
-    std::cout  << "Test ConvolverController: " << ssweep.GetSamplerate() << '\n';
+    std::cout  << "Test ConvolverController: "  << '\n';
     Aurora::ConvolverController convolver{};
     convolver.Reset();
     convolver.SetSamplerate(ssweep.GetSamplerate()); // ???
@@ -59,40 +59,40 @@ int main()
     for (auto i = 0; i < 10; i++) {
         std::cout << conv.Samples()[i] << '\n';
     }
-    std::cout  << "Test ConvolverController: " << ssweep.GetSamplerate() << '\n';
+    std::cout  << "Test ConvolverController: Done " << '\n';
 
-    std::cout  << "File Write: " << ssweep.GetSamplerate() << '\n';
+    std::cout  << "File Write: " << '\n';
     writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
     writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
     writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
     
     //------------------------------------------------------------------------
     // Acoustical Parameters
-    
-    //    Aurora::AcousticalParameters acParams{};
-    //
-    //    auto& parameterTracks = acParams.Tracks();
-    //    parameterTracks.emplace_back(Aurora::AcParametersAudioTrack(numSamples, ssweep.GetSamplerate()));
-    //    auto& audioAnalysisTrack = parameterTracks.back();
-    //    std::copy_n(conv.Samples(), numSamples, audioAnalysisTrack.Samples());
-    //
-    //    acParams.Init();
-    //
-    //    auto& auroraTrack = acParams.Track(0);
-    //
-    //    // Then process parameterTracks
-    //    acParams.CalculateAcousticParameters();
-    //    const auto& result = acParams.Results(0);
-    //    const auto& fcbs = result.Frequencies();
-    //    result.Parameters();
-    //
-    //    for (const auto& paramater : result.Parameters())
-    //    {
-    //        for (const auto& fcb : fcbs)
-    //        {
-    //            std::cout << paramater << " (" << fcb << "): " << result.Get(paramater, fcb).value <<'\n';
-    //        }
-    //    }
+    std::cout  << "Test AcousticalParameters: " << '\n';
+    Aurora::AcousticalParameters acParams{};
+
+    auto& parameterTracks = acParams.Tracks();
+    parameterTracks.emplace_back(Aurora::AcParametersAudioTrack(numSamples, ssweep.GetSamplerate()));
+    auto& audioAnalysisTrack = parameterTracks.back();
+    std::copy_n(conv.Samples(), numSamples, audioAnalysisTrack.Samples());
+
+    acParams.Init();
+
+    auto& auroraTrack = acParams.Track(0);
+
+    // Then process parameterTracks
+    acParams.CalculateAcousticParameters();
+    const auto& result = acParams.Results(0);
+    const auto& fcbs = result.Frequencies();
+    result.Parameters();
+
+    for (const auto& paramater : result.Parameters())
+    {
+        for (const auto& fcb : fcbs)
+        {
+            std::cout << paramater << " (" << fcb << "): " << result.Get(paramater, fcb).value <<'\n';
+        }
+    }
     
     //------------------------------------------------------------------------
     // Kirkeby
