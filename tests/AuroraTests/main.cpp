@@ -62,9 +62,9 @@ int main()
     std::cout  << "Test ConvolverController: " << ssweep.GetSamplerate() << '\n';
 
     std::cout  << "File Write: " << ssweep.GetSamplerate() << '\n';
-    //        writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
-    //        writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
-    //        writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
+    writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
+    writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
+    writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
     
     //------------------------------------------------------------------------
     // Acoustical Parameters
