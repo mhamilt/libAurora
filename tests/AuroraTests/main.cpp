@@ -11,6 +11,7 @@ int main()
     std::cout  << "Start Test" << '\n';
     //------------------------------------------------------------------------
     // SineSweep Generator
+    std::cout  << "Test SineSweepGenerator: " << ssweep.GetSamplerate() << '\n';
     Aurora::SineSweepGenerator ssweep{};
     ssweep.SetSweepDuration(1.0);
     ssweep.SetSilenceDuration(1.0);
@@ -25,38 +26,42 @@ int main()
     ssweep.FillBlock(filter.get(),  numSamples, 0, 1); // Filter == Channel_2
     
     const auto sampleRate =  ssweep.GetSamplerate();
-    std::cout  << "ssweep.GetSamplerate()" << ssweep.GetSamplerate() << '\n';
-    // //------------------------------------------------------------------------
-    // // Convolution
+    std::cout  << "ssweep.GetSamplerate(): " << ssweep.GetSamplerate() << '\n';
+    std::cout  << "Test SineSweepGenerator: Done " << ssweep.GetSamplerate() << '\n';
+    //------------------------------------------------------------------------
+    // Convolution
     
-    //    Aurora::ConvolverController convolver{};
-    //    convolver.Reset();
-    //    convolver.SetSamplerate(ssweep.GetSamplerate()); // ???
-    //    convolver.CheckSamplerate(ssweep.GetSamplerate());
-    //    convolver.SetFilterMatrixDimensions(1,1);
-    //    convolver.ResizeFilterTrack(0,numSamples);
-    //    convolver.ResizeInputTrack(0, numSamples);
-    
-    //    auto& convolutionFilters = convolver.GetFilters();
-    //    auto& input = convolver.GetInputTrack(0);
-    
-    //    std::copy_n(filter.get(), numSamples, convolutionFilters[0].Samples());
-    //    std::copy_n(audio.get(),  numSamples, input.Samples());
-    
-    //    convolver.DoConvolution();
-    
-    //    auto& conv = convolver.GetOutputTrack(0);
-    
-    //    for (auto i = conv.Length()-10; i < conv.Length(); i++) {
-    //        std::cout << conv.Samples()[i] << '\n';
-    //    }
-    
-    // //  conv.Reverse();
-    
-    //    for (auto i = 0; i < 10; i++) {
-    //        std::cout << conv.Samples()[i] << '\n';
-    //    }
-    
+    std::cout  << "Test ConvolverController: " << ssweep.GetSamplerate() << '\n';
+    Aurora::ConvolverController convolver{};
+    convolver.Reset();
+    convolver.SetSamplerate(ssweep.GetSamplerate()); // ???
+    convolver.CheckSamplerate(ssweep.GetSamplerate());
+    convolver.SetFilterMatrixDimensions(1,1);
+    convolver.ResizeFilterTrack(0,numSamples);
+    convolver.ResizeInputTrack(0, numSamples);
+
+    auto& convolutionFilters = convolver.GetFilters();
+    auto& input = convolver.GetInputTrack(0);
+
+    std::copy_n(filter.get(), numSamples, convolutionFilters[0].Samples());
+    std::copy_n(audio.get(),  numSamples, input.Samples());
+
+    convolver.DoConvolution();
+
+    auto& conv = convolver.GetOutputTrack(0);
+
+    for (auto i = conv.Length()-10; i < conv.Length(); i++) {
+        std::cout << conv.Samples()[i] << '\n';
+    }
+
+    conv.Reverse();
+
+    for (auto i = 0; i < 10; i++) {
+        std::cout << conv.Samples()[i] << '\n';
+    }
+    std::cout  << "Test ConvolverController: " << ssweep.GetSamplerate() << '\n';
+
+    std::cout  << "File Write: " << ssweep.GetSamplerate() << '\n';
     //        writeToWav(audio.get(),  (uint32_t)numSamples, "sweep-audio.wav");
     //        writeToWav(filter.get(), (uint32_t)numSamples, "sweep-inver.wav");
     //        writeToWav(conv.Samples(),  (uint32_t)numSamples, "sweep-convo.wav");
